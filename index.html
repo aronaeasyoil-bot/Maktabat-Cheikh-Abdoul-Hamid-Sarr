@@ -12,7 +12,7 @@
     name="keywords"
     content="Cheikh Abdoul Hamid Sarr, Tarikha Tidjaniya, Cheikh Seydi El Hadj Malick Sy, vidéothèque islamique, audiothèque islamique, bibliothèque numérique, khassidas, conférences, manuscrits"
   >
-  <meta name="theme-color" content="#071510">
+  <meta name="theme-color" content="#e62b1e">
   <meta property="og:title" content="Maktabat Cheikh Abdoul Hamid Sarr">
   <meta
     property="og:description"
@@ -43,12 +43,16 @@
     }
   </script>
 </head>
-<body data-theme="dark">
+<body data-theme="light">
   <div class="site-shell">
     <header class="site-header">
+      <div class="top-ribbon"></div>
       <div class="top-banner container">
-        <p data-i18n="topBanner">Bibliothèque numérique officielle • Vidéos, audios, manuscrits et archives premium</p>
-        <button class="ghost-pill" id="notifyToggle" type="button" data-i18n="notify">Activer les notifications</button>
+        <div class="top-banner__panel">
+          <strong class="top-banner__brand">Maktabat Business</strong>
+          <p data-i18n="topBanner">La bibliothèque officielle des enseignements, conférences et archives spirituelles premium.</p>
+        </div>
+        <button class="ghost-pill" id="notifyToggle" type="button" data-i18n="notify">Explorer</button>
       </div>
 
       <div class="header-inner container">
@@ -59,10 +63,9 @@
         </button>
 
         <a class="brand" href="#home" aria-label="Maktabat Cheikh Abdoul Hamid Sarr">
-          <span class="brand-mark">M</span>
           <span class="brand-copy">
-            <strong>Maktabat CHS</strong>
-            <small data-i18n="brandSubtitle">Bibliothèque officielle</small>
+            <strong>MAKTABAT</strong>
+            <small data-i18n="brandSubtitle">Cheikh Abdoul Hamid Sarr</small>
           </span>
         </a>
 
@@ -90,23 +93,41 @@
           <button class="icon-toggle" id="themeToggle" type="button" aria-label="Changer le thème">
             <span class="icon-toggle__circle"></span>
           </button>
-          <button class="secondary-button compact" id="openAuthHeader" type="button" data-i18n="headerSignIn">Connexion</button>
-          <a class="primary-button compact" href="#subscription" data-i18n="headerSubscribe">S'abonner</a>
+          <button class="secondary-button compact" id="openAuthHeader" type="button" data-i18n="headerSignIn">SIGN IN</button>
+          <a class="primary-button compact" href="#subscription" data-i18n="headerSubscribe">SUBSCRIBE</a>
         </div>
       </div>
     </header>
 
     <main>
       <section class="hero container" id="home">
+        <div class="hero-stage" data-reveal>
+          <div class="hero-stage__frame">
+            <img src="assets/images/hero-cheikh.jpeg" alt="Cheikh Abdoul Hamid Sarr" loading="eager">
+            <div class="hero-stage__wash"></div>
+            <div class="hero-stage__controls" aria-hidden="true">
+              <span class="hero-stage__control">‹</span>
+              <span class="hero-stage__control">›</span>
+            </div>
+          </div>
+          <div class="hero-stage__indicators" aria-hidden="true">
+            <span class="is-active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
         <div class="hero-copy" data-reveal>
-          <p class="eyebrow" data-i18n="heroEyebrow">La bibliothèque numérique officielle des œuvres de Cheikh Abdoul Hamid Sarr</p>
-          <h1 data-i18n="heroTitle">Maktabat Cheikh Abdoul Hamid Sarr</h1>
+          <p class="eyebrow" data-i18n="heroEyebrow">ENSEIGNEMENT A LA UNE</p>
+          <h1 data-i18n="heroTitle">Transmission, excellence et mémoire vivante</h1>
           <p class="hero-subtitle" data-i18n="heroSubtitle">
-            Préserver, transmettre et faire rayonner l’héritage de la Tarikha Tidjaniya et de Cheikh Seydi El Hadj Malick Sy.
+            Cheikh Abdoul Hamid Sarr • Bibliothèque officielle • Nouvel enseignement disponible.
           </p>
 
           <div class="hero-actions">
-            <a class="primary-button" href="#featured" data-i18n="heroPrimary">Découvrir les enseignements</a>
+            <a class="primary-button" href="#video" data-i18n="heroPrimary">Découvrir</a>
             <button class="secondary-button" id="openAuthHero" type="button" data-i18n="heroSecondary">S’abonner</button>
           </div>
 
@@ -124,56 +145,6 @@
             </label>
             <button class="primary-button compact" type="submit" data-i18n="searchAction">Rechercher</button>
           </form>
-
-          <div class="hero-chips">
-            <span class="hero-chip" data-i18n="heroChipOne">4 langues disponibles</span>
-            <span class="hero-chip" data-i18n="heroChipTwo">500 FCFA / mois</span>
-            <span class="hero-chip" data-i18n="heroChipThree">Rapide, sécurisé et SEO-ready</span>
-          </div>
-
-          <div class="hero-stats">
-            <article>
-              <strong>1 250</strong>
-              <span data-i18n="statMembers">membres fondateurs</span>
-            </article>
-            <article>
-              <strong>07</strong>
-              <span data-i18n="statVideos">vidéos pilotes</span>
-            </article>
-            <article>
-              <strong>05</strong>
-              <span data-i18n="statAudios">audios disponibles</span>
-            </article>
-            <article>
-              <strong>06</strong>
-              <span data-i18n="statDocs">documents catalogués</span>
-            </article>
-          </div>
-        </div>
-
-        <div class="hero-stage" data-reveal>
-          <div class="hero-stage__frame">
-            <img src="assets/images/hero-cheikh.jpeg" alt="Cheikh Abdoul Hamid Sarr" loading="eager">
-            <div class="hero-stage__wash"></div>
-          </div>
-
-          <div class="hero-stage__caption">
-            <span class="eyebrow" data-i18n="heroSpotlightLabel">À la une cette semaine</span>
-            <h2 data-i18n="heroSpotlightTitle">Transmission, excellence et mémoire vivante</h2>
-            <p data-i18n="heroSpotlightText">
-              Une expérience éditoriale pensée pour préserver les archives, diffuser les enseignements et accompagner les nouvelles générations.
-            </p>
-          </div>
-
-          <div class="floating-card floating-card--top">
-            <strong data-i18n="heroQuickOneTitle">Conférences premium</strong>
-            <span data-i18n="heroQuickOneText">Grandes vignettes, accès rapide et favoris personnels</span>
-          </div>
-
-          <div class="floating-card floating-card--bottom">
-            <strong data-i18n="heroQuickTwoTitle">Recherche intelligente</strong>
-            <span data-i18n="heroQuickTwoText">Vidéos, audios, thèmes religieux et archives historiques</span>
-          </div>
         </div>
       </section>
 
