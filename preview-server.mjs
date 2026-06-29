@@ -24,15 +24,25 @@ createServer(async (request, response) => {
   const rawPath = decodeURIComponent((request.url || "/").split("?")[0]);
   const targetPath = rawPath === "/" ? "/index.html" : rawPath;
   const normalizedPath = path.normalize(targetPath).replace(/^(\.\.[/\\])+/, "");
-  const filePath = path.join(baseDir, normalizedPath);
+  const initialPath = path.join(baseDir, normalizedPath);
 
-  if (!filePath.startsWith(baseDir)) {
+  if (!initialPath.startsWith(baseDir)) {
     response.writeHead(403, { "Content-Type": "text/plain; charset=utf-8" });
     response.end("Forbidden");
     return;
   }
 
   try {
+    let filePath = initialPath;
+
+    try {
+      await readFile(filePath);
+    } catch {
+      if (!path.extname(filePath)) {
+        filePath = `${filePath}.html`;
+      }
+    }
+
     const file = await readFile(filePath);
     response.writeHead(200, {
       "Content-Type": mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream"

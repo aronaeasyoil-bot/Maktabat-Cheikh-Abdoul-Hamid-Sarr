@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maktabat Cheikh Abdoul Hamid Sarr | Bibliotheque</title>
+  <meta
+    name="description"
+    content="Livres, PDF, articles, photos et dossiers de la Maktabat Cheikh Abdoul Hamid Sarr."
+  >
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="bibliotheque">
+  <div data-site-header></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero__content">
+        <p class="section-label">BIBLIOTHEQUE</p>
+        <h1>Livres, PDF, dossiers et archives</h1>
+        <p>
+          Des collections organisees pour la lecture, la reference, le telechargement et la consultation par figure historique.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">PDF</p>
+            <h2>Livres et documents</h2>
+          </div>
+        </div>
+        <div class="card-grid card-grid--three" id="documentGrid"></div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">ARTICLES</p>
+            <h2>Textes et reperes de lecture</h2>
+          </div>
+        </div>
+        <div class="card-grid card-grid--three" id="articleGrid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">DOSSIERS</p>
+            <h2>Dossiers principaux</h2>
+          </div>
+        </div>
+        <div class="card-grid card-grid--three" id="folderGrid"></div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">PHOTOS</p>
+            <h2>Galerie et archives</h2>
+          </div>
+        </div>
+        <div class="card-grid card-grid--three" id="photoGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+  <div data-site-modals></div>
+
+  <script src="/data.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

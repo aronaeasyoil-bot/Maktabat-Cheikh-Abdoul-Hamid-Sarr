@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maktabat Cheikh Abdoul Hamid Sarr | Mediatheque</title>
+  <meta
+    name="description"
+    content="Videos, audios, conferences, Gamou et archives de la Maktabat Cheikh Abdoul Hamid Sarr."
+  >
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="mediatheque">
+  <div data-site-header></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero__content">
+        <p class="section-label">MEDIATHEQUE</p>
+        <h1>Videos, audios, Gamou et conferences</h1>
+        <p>
+          Une organisation premium par series, villes, reperes historiques et types de contenus.
+        </p>
+        <div class="notice-card">
+          <strong>Regle d'acces premium</strong>
+          <span>Hors video du jour, la lecture se coupe apres 1 minute puis demande connexion et paiement Wave de 500 FCFA.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">LIBRE</p>
+            <h2>Video du jour</h2>
+          </div>
+        </div>
+        <div id="freeVideoSpotlight"></div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">CONFERENCES</p>
+            <h2>Series video</h2>
+          </div>
+        </div>
+        <div class="card-grid card-grid--three" id="conferenceVideos"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">GAMOU</p>
+            <h2>Collections video</h2>
+          </div>
+        </div>
+        <div class="card-grid card-grid--three" id="gamouVideos"></div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">AUDIO</p>
+            <h2>Audiotheque premium</h2>
+          </div>
+        </div>
+        <div class="card-grid card-grid--three" id="audioGrid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">RECHERCHE</p>
+            <h2>Recherche instantanee</h2>
+          </div>
+        </div>
+        <form class="search-form" id="globalSearchForm">
+          <input
+            id="globalSearchInput"
+            name="query"
+            type="search"
+            placeholder="Rechercher conferences, Gamou, Khassidas, podcasts..."
+            autocomplete="off"
+          >
+          <button class="button button--primary" type="submit">Rechercher</button>
+        </form>
+        <div class="card-grid card-grid--three is-hidden" id="searchResults"></div>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+  <div data-site-modals></div>
+
+  <script src="/data.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

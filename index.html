@@ -3,462 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maktabat Cheikh Abdoul Hamid Sarr | Bibliothèque numérique officielle</title>
+  <title>Maktabat Cheikh Abdoul Hamid Sarr | Accueil</title>
   <meta
     name="description"
-    content="Maktabat Cheikh Abdoul Hamid Sarr, la bibliothèque numérique officielle consacrée aux enseignements, conférences, archives, biographies et œuvres liées à la Tarikha Tidjaniya et à l'héritage de Cheikh Seydi El Hadj Malick Sy."
+    content="Maktabat Cheikh Abdoul Hamid Sarr, la bibliotheque numerique officielle des enseignements, conferences, dossiers et archives spirituelles."
   >
-  <meta
-    name="keywords"
-    content="Cheikh Abdoul Hamid Sarr, Tarikha Tidjaniya, Cheikh Seydi El Hadj Malick Sy, vidéothèque islamique, audiothèque islamique, bibliothèque numérique, khassidas, conférences, manuscrits"
-  >
-  <meta name="theme-color" content="#e62b1e">
+  <meta name="theme-color" content="#eb1c24">
   <meta property="og:title" content="Maktabat Cheikh Abdoul Hamid Sarr">
   <meta
     property="og:description"
-    content="Préserver, transmettre et faire rayonner l'héritage de la Tarikha Tidjaniya et de Cheikh Seydi El Hadj Malick Sy."
+    content="La bibliotheque numerique officielle des oeuvres et enseignements de Cheikh Abdoul Hamid Sarr."
   >
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/hero-cheikh.jpeg">
-  <meta property="og:locale" content="fr_FR">
+  <meta property="og:image" content="/assets/images/hero-cheikh.jpeg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
-  <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Maktabat Cheikh Abdoul Hamid Sarr",
-      "url": "https://maktabatchs.org/",
-      "description": "Bibliothèque numérique officielle des œuvres de Cheikh Abdoul Hamid Sarr.",
-      "inLanguage": ["fr", "ar", "en", "wo"],
-      "publisher": {
-        "@type": "Organization",
-        "name": "Maktabat Cheikh Abdoul Hamid Sarr"
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="/styles.css">
 </head>
-<body data-theme="light">
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="top-ribbon"></div>
+<body data-page="home">
+  <div data-site-header></div>
 
-      <div class="header-inner container">
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Ouvrir le menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-stage" id="heroStage">
+          <div class="hero-carousel" id="heroCarousel" aria-live="polite"></div>
+          <button class="hero-arrow hero-arrow--prev" type="button" id="heroPrev" aria-label="Image precedente">&lt;</button>
+          <button class="hero-arrow hero-arrow--next" type="button" id="heroNext" aria-label="Image suivante">&gt;</button>
+        </div>
 
-        <a class="brand" href="#home" aria-label="Maktabat Cheikh Abdoul Hamid Sarr">
-          <span class="brand-copy">
-            <strong>MAKTABAT</strong>
-            <small data-i18n="brandSubtitle">Cheikh Abdoul Hamid Sarr</small>
-          </span>
-        </a>
-
-        <nav class="nav" id="primaryNav">
-          <a href="#home">Accueil</a>
-          <a href="#featured">Enseignement du jour</a>
-          <a href="#video">Vidéo du jour</a>
-          <a href="#audio">Audiothèque</a>
-          <a href="#library">Livres et PDF</a>
-          <a href="#gallery">Dossiers</a>
-          <a href="#moukhadam">Moukhadam</a>
-          <a href="#gamou">Gamou</a>
-          <a href="#conferences">Conférences</a>
-        </nav>
-
-        <div class="header-actions">
-          <label class="lang-picker" for="languageSelect">
-            <span class="sr-only" data-i18n="languageLabel">Langue</span>
-            <select id="languageSelect" aria-label="Choisir la langue">
-              <option value="fr">FR</option>
-              <option value="en">EN</option>
-              <option value="ar">AR</option>
-              <option value="wo">WO</option>
-            </select>
-          </label>
-          <button class="icon-toggle" id="themeToggle" type="button" aria-label="Changer le thème">
-            <span class="icon-toggle__circle"></span>
-          </button>
-          <button class="secondary-button compact" id="openAuthHeader" type="button" data-i18n="headerSignIn">SIGN IN</button>
+        <div class="hero-caption">
+          <p class="section-label" id="heroLabel">ENSEIGNEMENT DU JOUR</p>
+          <h1 id="heroTitle">Maktabat Cheikh Abdoul Hamid Sarr</h1>
+          <p class="hero-text" id="heroText">
+            Preserver, transmettre et faire rayonner l'heritage de la Tarikha Tidjaniya et de Cheikh Seydi El Hadj Malick Sy.
+          </p>
+          <div class="hero-actions">
+            <a class="button button--primary" href="/mediatheque">Decouvrir les enseignements</a>
+            <a class="button button--ghost" href="/compte">S'abonner</a>
+          </div>
+          <div class="hero-dots" id="heroDots" aria-hidden="true"></div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="hero container" id="home">
-        <div class="hero-stage" data-reveal>
-          <div class="hero-stage__frame">
-            <img src="assets/images/hero-cheikh.jpeg" alt="Cheikh Abdoul Hamid Sarr" loading="eager">
-            <div class="hero-stage__wash"></div>
-            <div class="hero-stage__controls" aria-hidden="true">
-              <span class="hero-stage__control">‹</span>
-              <span class="hero-stage__control">›</span>
-            </div>
-          </div>
-          <div class="hero-stage__indicators" aria-hidden="true">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-
-        <div class="hero-copy" data-reveal>
-          <p class="eyebrow">ENSEIGNEMENT A LA UNE</p>
-          <h1>Transmission, excellence et mémoire vivante</h1>
-          <p class="hero-subtitle">
-            Cheikh Abdoul Hamid Sarr • Bibliothèque officielle • Nouvel enseignement disponible.
-          </p>
-
-          <div class="hero-actions">
-            <a class="primary-button" href="#video">Découvrir</a>
-          </div>
-
-          <form class="hero-search" id="heroSearchForm">
-            <label class="search-input" for="heroSearchInput">
-              <span class="search-input__icon"></span>
-              <input
-                id="heroSearchInput"
-                name="search"
-                type="search"
-                autocomplete="off"
-                data-i18n-placeholder="searchPlaceholder"
-                placeholder="Rechercher vidéos, audios, articles, mots-clés..."
-              >
-            </label>
-            <button class="primary-button compact" type="submit" data-i18n="searchAction">Rechercher</button>
-          </form>
-        </div>
-      </section>
-
-      <section class="featured container" id="featured">
-        <div class="section-heading" data-reveal>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
           <div>
+            <p class="section-label">A LA UNE</p>
             <h2>Enseignement du jour</h2>
           </div>
-          <p>
-            Une sélection mise en avant pour l’écoute, l’étude et la transmission.
-          </p>
+          <a class="section-link" href="/mediatheque">Voir la mediatheque</a>
         </div>
-        <div class="editorial-feed editorial-feed--single featured-feed" id="featuredRail" data-reveal></div>
-      </section>
-
-      <section class="search-results container is-hidden" id="searchSection">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow" data-i18n="searchResultsEyebrow">Recherche intelligente</p>
-            <h2 data-i18n="searchResultsTitle">Résultats instantanés dans toute la bibliothèque</h2>
-          </div>
-          <p id="searchResultsMeta" data-i18n="searchResultsText">Recherchez par thème, mot-clé, type de contenu ou figure historique.</p>
-        </div>
-        <div class="search-results__grid" id="searchResultsGrid"></div>
-      </section>
-
-      <section class="content-section container" id="video">
-        <div class="section-heading" data-reveal>
-          <div>
-            <h2>Vidéo du jour</h2>
-          </div>
-          <p>
-            Gamou, conférences, enseignements et questions-réponses classés pour un accès direct.
-          </p>
-        </div>
-        <div class="chip-row" id="videoFilters" data-reveal></div>
-        <div class="editorial-feed editorial-feed--two" id="videoRail" data-reveal></div>
-      </section>
-
-      <section class="content-section container" id="audio">
-        <div class="section-heading" data-reveal>
-          <div>
-            <p class="eyebrow" data-i18n="audioEyebrow">Audiothèque</p>
-            <h2 data-i18n="audioTitle">Écouter, méditer et conserver les voix de la transmission</h2>
-          </div>
-          <p data-i18n="audioText">
-            Conférences audio, khassidas, podcasts, sermons et archives sonores avec lecteur intégré.
-          </p>
-        </div>
-
-        <div class="audio-layout">
-          <article class="audio-player panel" data-reveal>
-            <div class="pill-row">
-              <span class="pill" data-i18n="audioCurrentLabel">Lecture en cours</span>
-              <span class="status-badge" id="audioAccessBadge">Premium</span>
-            </div>
-            <h3 id="audioCurrentTitle">Khassida et méditation sur la mémoire spirituelle</h3>
-            <p id="audioCurrentDescription">
-              Une sélection audio conçue pour prolonger l’écoute des enseignements, à tout moment et sur tous les appareils.
-            </p>
-            <div class="featured-meta">
-              <span id="audioCurrentCategory">Khassidas</span>
-              <span id="audioCurrentDuration">22 min</span>
-            </div>
-            <audio id="audioPlayer" controls preload="metadata">
-              <source id="audioPlayerSource" src="assets/videos/sermon-01.mp4" type="audio/mp4">
-            </audio>
-            <div class="audio-player__actions">
-              <button class="secondary-button compact" id="audioBookmarkAction" type="button" data-i18n="audioBookmark">Ajouter aux favoris</button>
-            </div>
-          </article>
-
-          <article class="playlist panel" data-reveal>
-            <div class="playlist__header">
-              <h3 data-i18n="audioPlaylistLabel">Playlist disponible</h3>
-            </div>
-            <div class="playlist__list editorial-feed editorial-feed--single" id="audioPlaylist"></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section container" id="library">
-        <div class="section-heading" data-reveal>
-          <div>
-            <h2>Bibliothèque (livres et PDF)</h2>
-          </div>
-          <p>
-            Livres, PDF et dossiers classés par figures, œuvres et grandes familles de transmission.
-          </p>
-        </div>
-        <div class="documents-grid editorial-feed editorial-feed--three" id="documentsGrid" data-reveal></div>
-      </section>
-
-      <section class="content-section container" id="gallery">
-        <div class="section-heading" data-reveal>
-          <div>
-            <h2>Dossiers des Cheikhs</h2>
-          </div>
-          <p>
-            Classement principal des dossiers consacrés aux grandes figures et aux héritiers de la transmission.
-          </p>
-        </div>
-        <div class="gallery-grid editorial-feed editorial-feed--three" id="galleryGrid" data-reveal></div>
-      </section>
-
-      <section class="content-section container" id="biographies">
-        <div class="section-heading" data-reveal>
-          <div>
-            <h2>Dossiers principaux</h2>
-          </div>
-          <p>
-            Dossiers structurés pour les figures majeures, les khalifes, les disciples et les compagnons.
-          </p>
-        </div>
-        <div class="bios-grid editorial-feed editorial-feed--two" id="bioGrid" data-reveal></div>
-      </section>
-
-      <section class="content-section container" id="moukhadam">
-        <div class="section-heading" data-reveal>
-          <div>
-            <h2>Dossiers Moukhadam</h2>
-          </div>
-          <p>
-            Deux grands ensembles avec des sous-dossiers pour chaque Moukhadam et leurs archives associées.
-          </p>
-        </div>
-
-        <div class="subscription-layout">
-          <article class="pricing-card panel" data-reveal>
-            <span class="pill">Dossier</span>
-            <h3>Dossier Moukhadam Cheikh Ahmeth Tidiane Cherif</h3>
-            <p>
-              Ce dossier regroupe les sous-dossiers dédiés à chaque Moukhadam, avec les repères utiles pour l’étude et le classement.
-            </p>
-            <ul class="benefit-list">
-              <li>Sous-dossiers pour chaque Moukhadam</li>
-              <li>Enseignements, conférences et repères</li>
-              <li>Textes, notes et archives de transmission</li>
-            </ul>
-          </article>
-
-          <article class="payment-card panel" data-reveal>
-            <h3>Dossier Moukhadam Cheikh Seydi Hadj Malick Sy</h3>
-            <p>
-              Ce dossier centralise les sous-dossiers par Moukhadam et les éléments utiles pour naviguer dans l’héritage de cette chaîne.
-            </p>
-            <ul class="benefit-list">
-              <li>Sous-dossiers pour chaque Moukhadam</li>
-              <li>Conférences, rappels et classements</li>
-              <li>Archives écrites, audio et vidéo</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section container" id="gamou">
-        <div class="section-heading" data-reveal>
-          <div>
-            <h2>Gamou</h2>
-          </div>
-          <p>
-            Classement des Gamou par localité pour retrouver rapidement les contenus liés à chaque rassemblement.
-          </p>
-        </div>
-
-        <div class="accounts-layout">
-          <article class="account-card panel" data-reveal>
-            <span class="pill">Villes</span>
-            <h3>Classement Gamou</h3>
-            <ul class="benefit-list">
-              <li>Gamou Dakar</li>
-              <li>Gamou Kaolack</li>
-              <li>Gamou Thiès</li>
-              <li>Gamou Tivaoune</li>
-            </ul>
-          </article>
-
-          <article class="dashboard-shell panel" data-reveal>
-            <span class="pill">Autres localités</span>
-            <h3>Suite des Gamou</h3>
-            <ul class="benefit-list">
-              <li>Gamou Paal</li>
-              <li>Gamou Ndar</li>
-              <li>Archives complémentaires par zone</li>
-              <li>Repères pour classer les éditions</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section container" id="conferences">
-        <div class="section-heading" data-reveal>
-          <div>
-            <h2>Conférences</h2>
-          </div>
-          <p>
-            Conférences classées par ville, université et lieux de transmission pour retrouver rapidement les séries disponibles.
-          </p>
-        </div>
-
-        <div class="admin-layout">
-          <article class="admin-actions panel" data-reveal>
-            <div class="admin-actions__grid">
-              <button type="button" class="admin-action">Conférence Dakar</button>
-              <button type="button" class="admin-action">Conférence Kaolack</button>
-              <button type="button" class="admin-action">Conférence Thiès</button>
-              <button type="button" class="admin-action">Conférence Université</button>
-              <button type="button" class="admin-action">Conférence Pikine</button>
-              <button type="button" class="admin-action">Conférence Ndar</button>
-              <button type="button" class="admin-action">Conférence Parcelle</button>
-              <button type="button" class="admin-action">Conférence Keur Moukhadam</button>
-            </div>
-          </article>
-
-          <article class="admin-stats panel" data-reveal>
-            <div class="admin-stats__header">
-              <h3>Repères de classement</h3>
-              <span class="pill">Dossiers</span>
-            </div>
-            <ul class="benefit-list">
-              <li>Séries classées par localité</li>
-              <li>Enseignements, sermons et questions-réponses</li>
-              <li>Accès rapide aux cycles les plus consultés</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <h2>Maktabat Cheikh Abdoul Hamid Sarr</h2>
-          <p data-i18n="footerTagline">
-            La mémoire vivante des enseignements de Cheikh Abdoul Hamid Sarr et de l’héritage de Cheikh Seydi El Hadj Malick Sy.
-          </p>
-        </div>
-
-        <div>
-          <h3 data-i18n="footerContactLabel">Contact</h3>
-          <a href="mailto:contact@maktabatchs.org">contact@maktabatchs.org</a>
-        </div>
-
-        <div>
-          <h3 data-i18n="footerFollowLabel">Réseaux sociaux</h3>
-          <div class="social-links">
-            <button type="button" class="social-chip" data-network="facebook">Facebook</button>
-            <button type="button" class="social-chip" data-network="youtube">YouTube</button>
-            <button type="button" class="social-chip" data-network="tiktok">TikTok</button>
-            <button type="button" class="social-chip" data-network="instagram">Instagram</button>
-            <button type="button" class="social-chip" data-network="telegram">Telegram</button>
-            <button type="button" class="social-chip" data-network="whatsapp">WhatsApp</button>
-            <button type="button" class="social-chip" data-network="x">X</button>
-          </div>
-        </div>
+        <div id="dailySpotlight"></div>
       </div>
+    </section>
 
-      <div class="footer-bottom container">
-        <span data-i18n="footerRights">Conçu pour accueillir des milliers d’utilisateurs à travers le monde.</span>
+    <section class="section section--light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">NOUVEAUTES</p>
+            <h2>Nouveau dans la Maktabat</h2>
+          </div>
+          <p class="section-copy">Les publications recemment mises en avant dans un format editorial premium.</p>
+        </div>
+        <div class="stack-feed" id="newestFeed"></div>
       </div>
-    </footer>
-  </div>
+    </section>
 
-  <div class="modal is-hidden" id="authModal" aria-hidden="true">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="authModalHeading">
-      <button class="modal__close" type="button" data-close-modal aria-label="Fermer">×</button>
-      <p class="eyebrow" data-i18n="authEyebrow">Comptes utilisateurs</p>
-      <h2 id="authModalHeading" data-i18n="authTitle">Accéder à votre espace membre</h2>
-
-      <div class="auth-switcher">
-        <button class="auth-switcher__button is-active" type="button" data-auth-view="signin" data-i18n="authSignin">Connexion</button>
-        <button class="auth-switcher__button" type="button" data-auth-view="signup" data-i18n="authSignup">Inscription</button>
-        <button class="auth-switcher__button" type="button" data-auth-view="reset" data-i18n="authReset">Mot de passe oublié</button>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">PARCOURS</p>
+            <h2>Acces rapide par categories</h2>
+          </div>
+          <p class="section-copy">Un classement clair, inspire des grandes plateformes internationales.</p>
+        </div>
+        <div class="category-grid" id="categoryGrid"></div>
       </div>
+    </section>
 
-      <form class="auth-form is-active" id="signinForm" data-auth-panel="signin">
-        <label>
-          <span data-i18n="authEmail">Adresse e-mail</span>
-          <input name="email" type="email" required>
-        </label>
-        <label>
-          <span data-i18n="authPassword">Mot de passe</span>
-          <input name="password" type="password" required>
-        </label>
-        <button class="primary-button" type="submit" data-i18n="authSubmitSignin">Se connecter</button>
-      </form>
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-head section-head--dark">
+          <div>
+            <p class="section-label">PREMIUM</p>
+            <h2>Conferences, Gamou et archives video</h2>
+          </div>
+          <p class="section-copy">Tous les contenus video et audio, hors video du jour, se debloquent apres connexion puis paiement Wave.</p>
+        </div>
+        <div class="rail" id="premiumRail"></div>
+      </div>
+    </section>
 
-      <form class="auth-form" id="signupForm" data-auth-panel="signup">
-        <label>
-          <span data-i18n="authName">Nom complet</span>
-          <input name="name" type="text" required>
-        </label>
-        <label>
-          <span data-i18n="authEmail">Adresse e-mail</span>
-          <input name="email" type="email" required>
-        </label>
-        <label>
-          <span data-i18n="authPassword">Mot de passe</span>
-          <input name="password" type="password" required>
-        </label>
-        <button class="primary-button" type="submit" data-i18n="authSubmitSignup">Créer mon compte</button>
-      </form>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">BIBLIOTHEQUE</p>
+            <h2>Livres, PDF et articles</h2>
+          </div>
+          <a class="section-link" href="/bibliotheque">Ouvrir la bibliotheque</a>
+        </div>
+        <div class="card-grid card-grid--three" id="libraryPreview"></div>
+      </div>
+    </section>
 
-      <form class="auth-form" id="resetForm" data-auth-panel="reset">
-        <label>
-          <span data-i18n="authEmail">Adresse e-mail</span>
-          <input name="email" type="email" required>
-        </label>
-        <button class="primary-button" type="submit" data-i18n="authSubmitReset">Recevoir le lien</button>
-      </form>
-    </div>
-  </div>
+    <section class="section section--light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">DOSSIERS</p>
+            <h2>Dossiers majeurs et reperes historiques</h2>
+          </div>
+          <p class="section-copy">Des entreees distinctes pour les figures, khalifes, compagnons et moukhadam.</p>
+        </div>
+        <div class="card-grid card-grid--three" id="dossierPreview"></div>
+      </div>
+    </section>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-label">RECHERCHE</p>
+            <h2>Trouver un contenu par mot-cle ou categorie</h2>
+          </div>
+        </div>
+        <form class="search-form" id="globalSearchForm">
+          <input
+            id="globalSearchInput"
+            name="query"
+            type="search"
+            placeholder="Rechercher videos, audios, dossiers, PDF, articles..."
+            autocomplete="off"
+          >
+          <button class="button button--primary" type="submit">Rechercher</button>
+        </form>
+        <div class="card-grid card-grid--three is-hidden" id="searchResults"></div>
+      </div>
+    </section>
+  </main>
 
-  <noscript>
-    <div class="noscript-banner">
-      JavaScript est requis pour la recherche, le multilingue, le lecteur dynamique et les favoris.
-    </div>
-  </noscript>
+  <div data-site-footer></div>
+  <div data-site-modals></div>
 
-  <script src="script.js" defer></script>
+  <script src="/data.js" defer></script>
+  <script src="/script.js" defer></script>
 </body>
 </html>

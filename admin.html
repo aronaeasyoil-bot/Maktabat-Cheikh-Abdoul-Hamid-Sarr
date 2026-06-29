@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maktabat Cheikh Abdoul Hamid Sarr | Admin</title>
+  <meta
+    name="description"
+    content="Administration locale de la Maktabat Cheikh Abdoul Hamid Sarr pour gerer les categories, contenus et reglages premium."
+  >
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-page="admin">
+  <div data-site-header></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero__content">
+        <p class="section-label">ADMIN</p>
+        <h1>Gestion des contenus par categories</h1>
+        <p>
+          Ajoutez des videos, audios, images, PDF et articles, puis organisez-les par dossier, Gamou, conference ou bibliotheque.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container admin-layout">
+        <div class="panel admin-lock" id="adminLockPanel"></div>
+        <div class="admin-console is-hidden" id="adminConsole">
+          <div class="stats-grid" id="adminStats"></div>
+
+          <div class="admin-columns">
+            <div class="panel" id="adminSettingsPanel"></div>
+            <div class="panel" id="adminEditorPanel"></div>
+          </div>
+
+          <div class="panel" id="adminItemsPanel"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+  <div data-site-modals></div>
+
+  <script src="/data.js" defer></script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

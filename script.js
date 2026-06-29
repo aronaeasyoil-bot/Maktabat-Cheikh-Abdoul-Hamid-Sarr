@@ -1,2168 +1,1406 @@
-const STORAGE_KEYS = {
-  theme: "maktabat-theme",
-  language: "maktabat-language",
-  favorites: "maktabat-favorites",
-  history: "maktabat-history",
-  user: "maktabat-user"
-};
+(function () {
+  const config = window.MaktabatData;
 
-const translations = {
-  fr: {
-    topBanner: "La bibliothèque officielle des enseignements, conférences et archives spirituelles premium.",
-    notify: "Explorer",
-    brandSubtitle: "Cheikh Abdoul Hamid Sarr",
-    navHome: "Accueil",
-    navVideo: "Vidéothèque",
-    navAudio: "Audiothèque",
-    navLibrary: "Bibliothèque",
-    navGallery: "Galerie",
-    navBio: "Biographies",
-    navSubscription: "Abonnement",
-    navAdmin: "Administration",
-    languageLabel: "Langue",
-    headerSignIn: "SIGN IN",
-    headerSubscribe: "SUBSCRIBE",
-    heroEyebrow: "ENSEIGNEMENT A LA UNE",
-    heroTitle: "Transmission, excellence et mémoire vivante",
-    heroSubtitle: "Cheikh Abdoul Hamid Sarr • Bibliothèque officielle • Nouvel enseignement disponible.",
-    heroPrimary: "Découvrir",
-    heroSecondary: "S’abonner",
-    searchPlaceholder: "Rechercher vidéos, audios, articles, mots-clés...",
-    searchAction: "Rechercher",
-    heroChipOne: "4 langues disponibles",
-    heroChipTwo: "Archives classées",
-    heroChipThree: "Rapide, sécurisé et SEO-ready",
-    statMembers: "membres fondateurs",
-    statVideos: "vidéos pilotes",
-    statAudios: "audios disponibles",
-    statDocs: "documents catalogués",
-    heroSpotlightLabel: "À la une cette semaine",
-    heroSpotlightTitle: "Transmission, excellence et mémoire vivante",
-    heroSpotlightText: "Une expérience éditoriale pensée pour préserver les archives, diffuser les enseignements et accompagner les nouvelles générations.",
-    heroQuickOneTitle: "Conférences premium",
-    heroQuickOneText: "Grandes vignettes, accès rapide et favoris personnels",
-    heroQuickTwoTitle: "Recherche intelligente",
-    heroQuickTwoText: "Vidéos, audios, thèmes religieux et archives historiques",
-    featuredEyebrow: "Nouveautés",
-    featuredTitle: "Nouveautés de la Maktabat",
-    featuredText: "Les derniers enseignements publiés, dans une présentation éditoriale claire, premium et rapide à parcourir.",
-    featuredBadge: "Sélection éditoriale",
-    featuredWatch: "Lancer la lecture",
-    featuredShare: "Partager",
-    featureCardOneLabel: "Plateforme",
-    featureCardOneTitle: "Parcours vidéo classés",
-    featureCardOneText: "Une organisation simple des contenus, par thèmes, villes et dossiers.",
-    featureCardTwoLabel: "Dossiers",
-    featureCardTwoTitle: "Classement clair des contenus",
-    featureCardTwoText: "Les contenus sont organisés par figures, dossiers et localités.",
-    featureCardThreeLabel: "Archives",
-    featureCardThreeTitle: "Recherche et consultation",
-    featureCardThreeText: "Une navigation pensée pour retrouver rapidement les références utiles.",
-    searchResultsEyebrow: "Recherche intelligente",
-    searchResultsTitle: "Résultats instantanés dans toute la bibliothèque",
-    searchResultsText: "Recherchez par thème, mot-clé, type de contenu ou figure historique.",
-    searchResultsMeta: "{count} résultat(s) pour “{query}”",
-    noResults: "Aucun contenu correspondant. Essayez un autre thème ou mot-clé.",
-    videoEyebrow: "Vidéothèque",
-    videoTitle: "Vidéothèque",
-    videoText: "Conférences, sermons, défense de l’Islam et de la Tarikha Tidjaniya, histoire et questions-réponses.",
-    filterAll: "Tout voir",
-    filterConferences: "Conférences",
-    filterSermons: "Gamou",
-    filterTeachings: "Enseignement du jour",
-    filterIslam: "Défense de l’Islam",
-    filterTidjaniya: "Défense de la Tidjaniya",
-    filterHistory: "Dossiers",
-    filterQA: "Questions-Réponses",
-    watchNow: "Voir",
-    listenNow: "Ecouter",
-    favoriteAdd: "Favori",
-    favoriteRemove: "Retirer",
-    accessFree: "Libre",
-    accessPremium: "Premium",
-    audioEyebrow: "Audiothèque",
-    audioTitle: "Audiothèque",
-    audioText: "Conférences audio, khassidas, podcasts, sermons et archives sonores avec lecteur intégré.",
-    audioCurrentLabel: "Lecture en cours",
-    audioPlaylistLabel: "Playlist disponible",
-    audioBookmark: "Ajouter aux favoris",
-    libraryEyebrow: "Bibliothèque numérique",
-    libraryTitle: "Bibliothèque numérique",
-    libraryText: "Une bibliothèque structurée pour la lecture, l’annotation, la consultation rapide et le téléchargement selon l’abonnement.",
-    readPreview: "Aperçu",
-    download: "Télécharger",
-    subscriberOnly: "Réservé aux abonnés",
-    galleryEyebrow: "Galerie photos",
-    galleryTitle: "Galerie photos",
-    galleryText: "Photos historiques, événements, rencontres et instants marquants autour des enseignements.",
-    viewPhoto: "Voir la photo",
-    bioEyebrow: "Biographies",
-    bioTitle: "Biographies",
-    bioText: "Des pages dédiées à Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, aux khalifes, disciples et compagnons.",
-    readBio: "Lire la biographie",
-    subscriptionEyebrow: "Gamou",
-    subscriptionTitle: "Classement des Gamou",
-    subscriptionText: "Les contenus sont classés par localité et par série pour faciliter la consultation.",
-    priceBadge: "Offre mensuelle",
-    pricePerMonth: "par mois",
-    subscriptionLead: "Une organisation claire pour retrouver les contenus liés aux Gamou et aux grandes rencontres.",
-    subscriptionBenefitOne: "Gamou classés par ville",
-    subscriptionBenefitTwo: "Archives audio et vidéo",
-    subscriptionBenefitThree: "Repères et dossiers associés",
-    subscriptionBenefitFour: "Navigation rapide par thème",
-    subscriptionPrimary: "Ouvrir le classement",
-    subscriptionSecondary: "Contacter l’équipe",
-    paymentTitle: "Classement complémentaire",
-    paymentWave: "Archives audio",
-    paymentCard: "Archives vidéo",
-    paymentMobile: "Repères documentaires",
-    paymentText: "Les contenus complémentaires peuvent être rangés ici par type ou par série.",
-    securityOneTitle: "Rapide",
-    securityOneText: "Chargement optimisé pour mobile et desktop",
-    securityTwoTitle: "Sécurisé",
-    securityTwoText: "Organisation claire des contenus",
-    securityThreeTitle: "Référencé",
-    securityThreeText: "SEO pensé dès la structure de la page",
-    accountsEyebrow: "Comptes utilisateurs",
-    accountsTitle: "Inscription, connexion et expérience personnelle",
-    accountsText: "Chaque membre retrouve son tableau de bord, son historique de lecture, ses favoris et son espace personnel.",
-    accountStatusLabel: "Espace membre",
-    accountGuestTitle: "Créez votre compte pour démarrer",
-    accountGuestText: "Inscription, connexion et mot de passe oublié sont déjà prévus dans l’interface.",
-    accountReadyTitle: "Votre espace personnel est prêt",
-    accountReadyText: "Accédez à vos contenus favoris, à l’historique et à la reprise de lecture depuis n’importe quel appareil.",
-    accountCtaOne: "Créer un compte",
-    accountCtaTwo: "Se connecter",
-    dashboardEyebrow: "Tableau de bord personnel",
-    dashboardStatus: "Prévisualisation",
-    historyTitle: "Historique de lecture",
-    favoritesTitle: "Favoris",
-    continueTitle: "Continuer la lecture",
-    emptyHistory: "Aucune lecture récente pour le moment.",
-    emptyFavorites: "Aucun favori pour le moment.",
-    emptyContinue: "Aucun contenu en reprise pour le moment.",
-    adminEyebrow: "Tableau d’administration",
-    adminTitle: "Un cockpit éditorial prêt pour la gestion complète",
-    adminText: "Gestion des contenus, des dossiers et des statistiques dans une seule interface.",
-    adminActionOne: "Ajouter vidéos",
-    adminActionTwo: "Ajouter audios",
-    adminActionThree: "Ajouter articles",
-    adminActionFour: "Ajouter livres PDF",
-    adminActionFive: "Gérer utilisateurs",
-    adminActionSix: "Gérer dossiers",
-    adminStatsTitle: "Statistiques",
-    adminStatsBadge: "Vue plateforme",
-    footerTagline: "La mémoire vivante des enseignements de Cheikh Abdoul Hamid Sarr et de l’héritage de Cheikh Seydi El Hadj Malick Sy.",
-    footerContactLabel: "Contact",
-    footerFollowLabel: "Réseaux sociaux",
-    footerRights: "Conçu pour accueillir des milliers d’utilisateurs à travers le monde.",
-    authEyebrow: "Comptes utilisateurs",
-    authTitle: "Accéder à votre espace membre",
-    authSignin: "Connexion",
-    authSignup: "Inscription",
-    authReset: "Mot de passe oublié",
-    authName: "Nom complet",
-    authEmail: "Adresse e-mail",
-    authPassword: "Mot de passe",
-    authSubmitSignin: "Se connecter",
-    authSubmitSignup: "Créer mon compte",
-    authSubmitReset: "Recevoir le lien",
-    statMembersLong: "Membres",
-    statVideosLong: "Vidéos",
-    statAudiosLong: "Audios",
-    statDocsLong: "Documents",
-    statViewsLong: "Vues",
-    toastNotifications: "Notifications activées pour les nouvelles publications.",
-    toastFavoriteAdded: "Ajouté aux favoris.",
-    toastFavoriteRemoved: "Retiré des favoris.",
-    toastSearchEmpty: "Saisissez un mot-clé pour lancer la recherche.",
-    toastDocumentPremium: "Document réservé aux abonnés. Connectez-vous pour le débloquer plus tard.",
-    toastDocumentPreview: "Aperçu du document prêt pour intégration.",
-    toastShare: "Fenêtre de partage ouverte.",
-    toastSignin: "Connexion simulée avec succès.",
-    toastSignup: "Compte local créé avec succès.",
-    toastReset: "Lien de réinitialisation simulé.",
-    toastHistory: "Contenu ajouté à votre historique.",
-    toastBio: "Fiche biographique prête pour une page dédiée.",
-    toastContact: "Utilisez contact@maktabatchs.org pour finaliser le déploiement.",
-    dashboardGreeting: "Bonjour, {name}",
-    userGuest: "invité"
-  },
-  en: {
-    topBanner: "The official library for premium teachings, talks and spiritual archives.",
-    notify: "Explore",
-    brandSubtitle: "Cheikh Abdoul Hamid Sarr",
-    navHome: "Home",
-    navVideo: "Video library",
-    navAudio: "Audio library",
-    navLibrary: "Library",
-    navGallery: "Gallery",
-    navBio: "Biographies",
-    navSubscription: "Subscription",
-    navAdmin: "Admin",
-    languageLabel: "Language",
-    headerSignIn: "Sign in",
-    headerSubscribe: "Subscribe",
-    heroEyebrow: "FEATURED TEACHING",
-    heroTitle: "Transmission, excellence and living memory",
-    heroSubtitle: "Cheikh Abdoul Hamid Sarr • Official library • New teaching now available.",
-    heroPrimary: "Explore",
-    heroSecondary: "Subscribe",
-    searchPlaceholder: "Search videos, audio, articles, keywords...",
-    searchAction: "Search",
-    heroChipOne: "4 available languages",
-    heroChipTwo: "Organized archives",
-    heroChipThree: "Fast, secure and SEO-ready",
-    statMembers: "founding members",
-    statVideos: "pilot videos",
-    statAudios: "audio programs",
-    statDocs: "catalogued documents",
-    heroSpotlightLabel: "This week's spotlight",
-    heroSpotlightTitle: "Transmission, excellence and living memory",
-    heroSpotlightText: "An editorial experience built to preserve archives, broadcast teachings and support future generations.",
-    heroQuickOneTitle: "Premium talks",
-    heroQuickOneText: "Large thumbnails, quick access and personal favorites",
-    heroQuickTwoTitle: "Smart search",
-    heroQuickTwoText: "Videos, audio, religious themes and historical archives",
-    featuredEyebrow: "New releases",
-    featuredTitle: "Newest from Maktabat",
-    featuredText: "The latest teachings published in a clean, premium and fast-scrolling editorial presentation.",
-    featuredBadge: "Editorial selection",
-    featuredWatch: "Start watching",
-    featuredShare: "Share",
-    featureCardOneLabel: "Platform",
-    featureCardOneTitle: "Organized video pathways",
-    featureCardOneText: "A simple structure across themes, cities and reference folders.",
-    featureCardTwoLabel: "Folders",
-    featureCardTwoTitle: "Clear content organization",
-    featureCardTwoText: "Content is organized by figures, folders and localities.",
-    featureCardThreeLabel: "Archives",
-    featureCardThreeTitle: "Search and consultation",
-    featureCardThreeText: "Navigation designed to find useful references quickly.",
-    searchResultsEyebrow: "Smart search",
-    searchResultsTitle: "Instant results across the entire library",
-    searchResultsText: "Search by theme, keyword, content type or historical figure.",
-    searchResultsMeta: "{count} result(s) for “{query}”",
-    noResults: "No matching content. Try another theme or keyword.",
-    videoEyebrow: "Video library",
-    videoTitle: "Video library",
-    videoText: "Talks, sermons, defense of Islam and Tidjaniya, history and Q&A sessions.",
-    filterAll: "View all",
-    filterConferences: "Conferences",
-    filterSermons: "Gamou",
-    filterTeachings: "Teaching of the day",
-    filterIslam: "Defense of Islam",
-    filterTidjaniya: "Defense of Tidjaniya",
-    filterHistory: "Dossiers",
-    filterQA: "Q&A",
-    watchNow: "Watch",
-    listenNow: "Listen",
-    favoriteAdd: "Favorite",
-    favoriteRemove: "Remove",
-    accessFree: "Free",
-    accessPremium: "Premium",
-    audioEyebrow: "Audio library",
-    audioTitle: "Audio library",
-    audioText: "Audio talks, khassidas, podcasts, sermons and sound archives with an integrated player.",
-    audioCurrentLabel: "Now playing",
-    audioPlaylistLabel: "Available playlist",
-    audioBookmark: "Add to favorites",
-    libraryEyebrow: "Digital library",
-    libraryTitle: "Digital library",
-    libraryText: "A structured library for reading, consultation and document organization.",
-    readPreview: "Preview",
-    download: "Download",
-    subscriberOnly: "Subscribers only",
-    galleryEyebrow: "Photo gallery",
-    galleryTitle: "Photo gallery",
-    galleryText: "Historic photographs, events, meetings and key moments around the teachings.",
-    viewPhoto: "View photo",
-    bioEyebrow: "Biographies",
-    bioTitle: "Biographies",
-    bioText: "Dedicated pages for Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, khalifes, disciples and companions.",
-    readBio: "Read biography",
-    subscriptionEyebrow: "Gamou",
-    subscriptionTitle: "Gamou index",
-    subscriptionText: "Content is organized by locality and series for easier browsing.",
-    priceBadge: "Monthly offer",
-    pricePerMonth: "per month",
-    subscriptionLead: "A clear structure to locate Gamou-related material and major gatherings.",
-    subscriptionBenefitOne: "Gamou organized by city",
-    subscriptionBenefitTwo: "Audio and video archives",
-    subscriptionBenefitThree: "Related folders and references",
-    subscriptionBenefitFour: "Fast thematic browsing",
-    subscriptionPrimary: "Open index",
-    subscriptionSecondary: "Contact the team",
-    paymentTitle: "Additional organization",
-    paymentWave: "Audio archives",
-    paymentCard: "Video archives",
-    paymentMobile: "Document references",
-    paymentText: "Complementary material can be organized here by type or by series.",
-    securityOneTitle: "Fast",
-    securityOneText: "Optimized loading on mobile and desktop",
-    securityTwoTitle: "Secure",
-    securityTwoText: "Clear content organization",
-    securityThreeTitle: "Searchable",
-    securityThreeText: "SEO planned from the page structure",
-    accountsEyebrow: "User accounts",
-    accountsTitle: "Registration, sign in and personal experience",
-    accountsText: "Each member gets a dashboard, playback history, favorites and a personal space.",
-    accountStatusLabel: "Member area",
-    accountGuestTitle: "Create your account to get started",
-    accountGuestText: "Registration, sign in and password recovery are already planned in the interface.",
-    accountReadyTitle: "Your personal space is ready",
-    accountReadyText: "Access your favorite content, history and resume playback from any device.",
-    accountCtaOne: "Create account",
-    accountCtaTwo: "Sign in",
-    dashboardEyebrow: "Personal dashboard",
-    dashboardStatus: "Preview",
-    historyTitle: "Playback history",
-    favoritesTitle: "Favorites",
-    continueTitle: "Continue watching",
-    emptyHistory: "No recent playback yet.",
-    emptyFavorites: "No favorites yet.",
-    emptyContinue: "No resume content yet.",
-    adminEyebrow: "Admin dashboard",
-    adminTitle: "An editorial cockpit ready for full management",
-    adminText: "Manage content, folders, users and statistics in one interface.",
-    adminActionOne: "Add videos",
-    adminActionTwo: "Add audio",
-    adminActionThree: "Add articles",
-    adminActionFour: "Add PDF books",
-    adminActionFive: "Manage users",
-    adminActionSix: "Manage folders",
-    adminStatsTitle: "Statistics",
-    adminStatsBadge: "Platform overview",
-    footerTagline: "The living memory of Cheikh Abdoul Hamid Sarr's teachings and the legacy of Cheikh Seydi El Hadj Malick Sy.",
-    footerContactLabel: "Contact",
-    footerFollowLabel: "Social networks",
-    footerRights: "Designed to welcome thousands of users around the world.",
-    authEyebrow: "User accounts",
-    authTitle: "Access your member area",
-    authSignin: "Sign in",
-    authSignup: "Sign up",
-    authReset: "Forgot password",
-    authName: "Full name",
-    authEmail: "Email address",
-    authPassword: "Password",
-    authSubmitSignin: "Sign in",
-    authSubmitSignup: "Create my account",
-    authSubmitReset: "Send the link",
-    statMembersLong: "Members",
-    statVideosLong: "Videos",
-    statAudiosLong: "Audio",
-    statDocsLong: "Documents",
-    statViewsLong: "Views",
-    toastNotifications: "Notifications enabled for new releases.",
-    toastFavoriteAdded: "Added to favorites.",
-    toastFavoriteRemoved: "Removed from favorites.",
-    toastSearchEmpty: "Enter a keyword to start searching.",
-    toastDocumentPremium: "Subscriber-only document. Sign in to unlock it later.",
-    toastDocumentPreview: "Document preview ready for integration.",
-    toastShare: "Share window opened.",
-    toastSignin: "Local sign in simulated successfully.",
-    toastSignup: "Local account created successfully.",
-    toastReset: "Reset link simulated.",
-    toastHistory: "Content added to your history.",
-    toastBio: "Biography sheet ready for a dedicated page.",
-    toastContact: "Use contact@maktabatchs.org to finalize deployment.",
-    dashboardGreeting: "Hello, {name}",
-    userGuest: "guest"
-  },
-  ar: {
-    topBanner: "المكتبة الرسمية للدروس والمحاضرات والأرشيف الروحي المميز.",
-    notify: "استكشاف",
-    brandSubtitle: "الشيخ عبدول حميد سار",
-    navHome: "الرئيسية",
-    navVideo: "مكتبة الفيديو",
-    navAudio: "مكتبة الصوت",
-    navLibrary: "المكتبة",
-    navGallery: "المعرض",
-    navBio: "السير",
-    navSubscription: "الاشتراك",
-    navAdmin: "الإدارة",
-    languageLabel: "اللغة",
-    headerSignIn: "تسجيل الدخول",
-    headerSubscribe: "اشترك",
-    heroEyebrow: "الدرس المميز",
-    heroTitle: "النقل والإتقان والذاكرة الحية",
-    heroSubtitle: "الشيخ عبدول حميد سار • المكتبة الرسمية • درس جديد متاح الآن.",
-    heroPrimary: "اكتشف",
-    heroSecondary: "اشترك",
-    searchPlaceholder: "ابحث في الفيديوهات والتسجيلات والمقالات والكلمات المفتاحية...",
-    searchAction: "بحث",
-    heroChipOne: "أربع لغات متاحة",
-    heroChipTwo: "أرشيف منظم",
-    heroChipThree: "سريع وآمن ومهيأ لمحركات البحث",
-    statMembers: "أعضاء مؤسسون",
-    statVideos: "فيديوهات أولية",
-    statAudios: "مواد صوتية",
-    statDocs: "وثائق مفهرسة",
-    heroSpotlightLabel: "واجهة هذا الأسبوع",
-    heroSpotlightTitle: "نقل العلم والتميز والذاكرة الحية",
-    heroSpotlightText: "تجربة تحريرية صممت لحفظ الأرشيف ونشر الدروس ومرافقة الأجيال الجديدة.",
-    heroQuickOneTitle: "محاضرات مميزة",
-    heroQuickOneText: "بطاقات كبيرة ووصول سريع ومفضلة شخصية",
-    heroQuickTwoTitle: "بحث ذكي",
-    heroQuickTwoText: "فيديوهات وصوتيات وموضوعات دينية وأرشيف تاريخي",
-    featuredEyebrow: "الأحدث",
-    featuredTitle: "أحدث ما في المكتبة",
-    featuredText: "أحدث الدروس المنشورة ضمن عرض تحريري واضح وفاخر وسريع التصفح.",
-    featuredBadge: "اختيار تحريري",
-    featuredWatch: "ابدأ المشاهدة",
-    featuredShare: "مشاركة",
-    featureCardOneLabel: "المنصة",
-    featureCardOneTitle: "مسارات فيديو منظمة",
-    featureCardOneText: "تنظيم بسيط حسب الموضوع والمدينة والملف.",
-    featureCardTwoLabel: "الملفات",
-    featureCardTwoTitle: "تنظيم واضح للمحتوى",
-    featureCardTwoText: "المحتوى منظم حسب الشخصيات والملفات والمحليات.",
-    featureCardThreeLabel: "الأرشيف",
-    featureCardThreeTitle: "البحث والاستشارة",
-    featureCardThreeText: "تصفح يساعد على العثور بسرعة على المراجع المفيدة.",
-    searchResultsEyebrow: "بحث ذكي",
-    searchResultsTitle: "نتائج فورية في كامل المكتبة",
-    searchResultsText: "ابحث حسب الموضوع أو الكلمة المفتاحية أو نوع المحتوى أو الشخصية التاريخية.",
-    searchResultsMeta: "{count} نتيجة لعبارة “{query}”",
-    noResults: "لا توجد نتائج مطابقة. جرّب موضوعاً أو كلمة أخرى.",
-    videoEyebrow: "مكتبة الفيديو",
-    videoTitle: "مكتبة الفيديو",
-    videoText: "محاضرات وخطب والدفاع عن الإسلام والطريقة التجانية والتاريخ والأسئلة والأجوبة.",
-    filterAll: "عرض الكل",
-    filterConferences: "مؤتمرات",
-    filterSermons: "غامو",
-    filterTeachings: "درس اليوم",
-    filterIslam: "الدفاع عن الإسلام",
-    filterTidjaniya: "الدفاع عن التجانية",
-    filterHistory: "الملفات",
-    filterQA: "أسئلة وأجوبة",
-    watchNow: "شاهد",
-    listenNow: "استمع",
-    favoriteAdd: "مفضلة",
-    favoriteRemove: "إزالة",
-    accessFree: "مفتوح",
-    accessPremium: "مميز",
-    audioEyebrow: "مكتبة الصوت",
-    audioTitle: "مكتبة الصوت",
-    audioText: "محاضرات صوتية وقصائد وبودكاست وخطب وأرشيف صوتي مع مشغل مدمج.",
-    audioCurrentLabel: "يعمل الآن",
-    audioPlaylistLabel: "قائمة التشغيل",
-    audioBookmark: "أضف إلى المفضلة",
-    libraryEyebrow: "المكتبة الرقمية",
-    libraryTitle: "المكتبة الرقمية",
-    libraryText: "مكتبة منظمة للقراءة والمراجعة السريعة والتنزيل حسب الاشتراك.",
-    readPreview: "معاينة",
-    download: "تنزيل",
-    subscriberOnly: "خاص بالمشتركين",
-    galleryEyebrow: "معرض الصور",
-    galleryTitle: "معرض الصور",
-    galleryText: "صور تاريخية وفعاليات ولقاءات ولحظات بارزة حول الدروس.",
-    viewPhoto: "عرض الصورة",
-    bioEyebrow: "السير",
-    bioTitle: "السير",
-    bioText: "صفحات مخصصة للشيخ عبدول حميد سار والشيخ سيدي الحاج مالك سي والخلفاء والتلاميذ والرفاق.",
-    readBio: "قراءة السيرة",
-    subscriptionEyebrow: "غامو",
-    subscriptionTitle: "فهرس الغامو",
-    subscriptionText: "المحتوى منظم حسب المحلية والسلسلة لتسهيل التصفح.",
-    priceBadge: "عرض شهري",
-    pricePerMonth: "شهرياً",
-    subscriptionLead: "تنظيم واضح للعثور على مواد الغامو والتجمعات الكبرى.",
-    subscriptionBenefitOne: "غامو مرتب حسب المدينة",
-    subscriptionBenefitTwo: "أرشيف صوتي ومرئي",
-    subscriptionBenefitThree: "ملفات ومراجع مرتبطة",
-    subscriptionBenefitFour: "تصفح سريع حسب الموضوع",
-    subscriptionPrimary: "فتح الفهرس",
-    subscriptionSecondary: "اتصل بالفريق",
-    paymentTitle: "تنظيم إضافي",
-    paymentWave: "أرشيف صوتي",
-    paymentCard: "أرشيف مرئي",
-    paymentMobile: "مراجع وثائقية",
-    paymentText: "يمكن ترتيب المواد التكميلية هنا حسب النوع أو حسب السلسلة.",
-    securityOneTitle: "سريع",
-    securityOneText: "تحميل محسن للهاتف والكمبيوتر",
-    securityTwoTitle: "آمن",
-    securityTwoText: "بنية جاهزة للمصادقة والدفع",
-    securityThreeTitle: "ظاهر في البحث",
-    securityThreeText: "تهيئة محركات البحث منذ بنية الصفحة",
-    accountsEyebrow: "حسابات المستخدمين",
-    accountsTitle: "التسجيل والدخول وتجربة شخصية",
-    accountsText: "كل عضو يجد لوحة قيادته وسجل التشغيل والمفضلة ومساحته الشخصية.",
-    accountStatusLabel: "مساحة العضو",
-    accountGuestTitle: "أنشئ حسابك للانطلاق",
-    accountGuestText: "التسجيل والدخول واستعادة كلمة المرور كلها موجودة في الواجهة.",
-    accountReadyTitle: "مساحتك الشخصية جاهزة",
-    accountReadyText: "الوصول إلى محتواك المفضل وسجلك واستئناف التشغيل من أي جهاز.",
-    accountCtaOne: "إنشاء حساب",
-    accountCtaTwo: "تسجيل الدخول",
-    dashboardEyebrow: "لوحة شخصية",
-    dashboardStatus: "معاينة",
-    historyTitle: "سجل التشغيل",
-    favoritesTitle: "المفضلة",
-    continueTitle: "متابعة المشاهدة",
-    emptyHistory: "لا يوجد سجل حديث حالياً.",
-    emptyFavorites: "لا توجد مفضلات حالياً.",
-    emptyContinue: "لا يوجد محتوى قيد الاستئناف حالياً.",
-    adminEyebrow: "لوحة الإدارة",
-    adminTitle: "قمرة تحرير جاهزة للإدارة الكاملة",
-    adminText: "إدارة المحتوى والاشتراكات والمستخدمين والإحصاءات في واجهة واحدة.",
-    adminActionOne: "إضافة فيديوهات",
-    adminActionTwo: "إضافة صوتيات",
-    adminActionThree: "إضافة مقالات",
-    adminActionFour: "إضافة كتب PDF",
-    adminActionFive: "إدارة المستخدمين",
-    adminActionSix: "إدارة الاشتراكات",
-    adminStatsTitle: "الإحصاءات",
-    adminStatsBadge: "نظرة عامة",
-    footerTagline: "الذاكرة الحية لدروس الشيخ عبدول حميد سار وتراث الشيخ سيدي الحاج مالك سي.",
-    footerContactLabel: "اتصال",
-    footerFollowLabel: "الشبكات الاجتماعية",
-    footerRights: "صمم ليستقبل آلاف المستخدمين حول العالم.",
-    authEyebrow: "حسابات المستخدمين",
-    authTitle: "الدخول إلى مساحة العضو",
-    authSignin: "تسجيل الدخول",
-    authSignup: "تسجيل",
-    authReset: "نسيت كلمة المرور",
-    authName: "الاسم الكامل",
-    authEmail: "البريد الإلكتروني",
-    authPassword: "كلمة المرور",
-    authSubmitSignin: "تسجيل الدخول",
-    authSubmitSignup: "إنشاء الحساب",
-    authSubmitReset: "إرسال الرابط",
-    statMembersLong: "الأعضاء",
-    statVideosLong: "الفيديوهات",
-    statAudiosLong: "الصوتيات",
-    statDocsLong: "الوثائق",
-    statViewsLong: "المشاهدات",
-    toastNotifications: "تم تفعيل إشعارات المنشورات الجديدة.",
-    toastFavoriteAdded: "تمت الإضافة إلى المفضلة.",
-    toastFavoriteRemoved: "تمت الإزالة من المفضلة.",
-    toastSearchEmpty: "اكتب كلمة مفتاحية لبدء البحث.",
-    toastDocumentPremium: "هذه الوثيقة للمشتركين فقط.",
-    toastDocumentPreview: "معاينة الوثيقة جاهزة للربط لاحقاً.",
-    toastShare: "تم فتح نافذة المشاركة.",
-    toastSignin: "تمت محاكاة تسجيل الدخول بنجاح.",
-    toastSignup: "تم إنشاء حساب محلي بنجاح.",
-    toastReset: "تمت محاكاة رابط الاستعادة.",
-    toastHistory: "تمت إضافة المحتوى إلى السجل.",
-    toastBio: "بطاقة السيرة جاهزة لصفحة مخصصة.",
-    toastContact: "استخدم contact@maktabatchs.org لإتمام الإطلاق.",
-    dashboardGreeting: "مرحباً، {name}",
-    userGuest: "زائر"
-  },
-  wo: {
-    topBanner: "Maktaba ofisiyel bu njàngale yi, waxtaan yi ak arsiif yu premium.",
-    notify: "Xoolal",
-    brandSubtitle: "Cheikh Abdoul Hamid Sarr",
-    navHome: "Dalal",
-    navVideo: "Wideyoo",
-    navAudio: "Audio",
-    navLibrary: "Maktaba",
-    navGallery: "Sawar",
-    navBio: "Dund",
-    navSubscription: "Abonnement",
-    navAdmin: "Admin",
-    languageLabel: "Làkk",
-    headerSignIn: "Dugg",
-    headerSubscribe: "Abonnéel",
-    heroEyebrow: "NJANGALE MU JËKK",
-    heroTitle: "Jottali, rafetlu ak fàttaliku buy dund",
-    heroSubtitle: "Cheikh Abdoul Hamid Sarr • Maktaba ofisiyel • Am na njàngale mu bees tey.",
-    heroPrimary: "Xoolal",
-    heroSecondary: "Abonnéel",
-    searchPlaceholder: "Wut wideyoo, audio, mbind, baat yu am solo...",
-    searchAction: "Wut",
-    heroChipOne: "4 làkk yu am",
-    heroChipTwo: "Arsiif yu ñu tabax",
-    heroChipThree: "Gaaw, wóor te SEO-ready",
-    statMembers: "jàmmkat yu njëkk",
-    statVideos: "wideyoo yu pilot",
-    statAudios: "audio yi",
-    statDocs: "dokimaa yi",
-    heroSpotlightLabel: "Li gën a fés ci ayu-bis bii",
-    heroSpotlightTitle: "Jébbale, rafet ak fàttaliku dund",
-    heroSpotlightText: "Jëfandikoo bu ñu teg ngir samm arsiif, yégle njàngale yi te dimbali xeetu ñaw.",
-    heroQuickOneTitle: "Waxtaan yu premium",
-    heroQuickOneText: "Kart yu mag, ag yoon gu gaaw ak favoris yu sa bopp",
-    heroQuickTwoTitle: "Wut gu xel",
-    heroQuickTwoText: "Wideyoo, audio, mbir yu diine ak arsiif yu taarix",
-    featuredEyebrow: "Li mujj",
-    featuredTitle: "Li gën a bees ci Maktabat",
-    featuredText: "Njàngale yi mujj a génn ci wone bu set, bu kawe te gaaw a xool.",
-    featuredBadge: "Tànn editorial",
-    featuredWatch: "Tàmbali seetaan",
-    featuredShare: "Séddoo",
-    featureCardOneLabel: "Platfom",
-    featureCardOneTitle: "Yooni wideyoo yu ñu tabax",
-    featureCardOneText: "Tabax bu yomb ci téeméer, dëkk ak dossier.",
-    featureCardTwoLabel: "Dossier",
-    featureCardTwoTitle: "Tëralinu contenu bu leer",
-    featureCardTwoText: "Contenu yi ñu warale ci nit ñi, dossier yi ak dëkk yi.",
-    featureCardThreeLabel: "Arsiif",
-    featureCardThreeTitle: "Wut ak seet",
-    featureCardThreeText: "Navigation bu tax nga gëna gaaw gis références yu am solo.",
-    searchResultsEyebrow: "Wut gu xel",
-    searchResultsTitle: "Njariñ yu gaaw ci biir maktaba bépp",
-    searchResultsText: "Wut ci téeméer, baat bu am solo, xeetu contenu walla nit ku taarix.",
-    searchResultsMeta: "{count} njariñ ngir “{query}”",
-    noResults: "Amul contenu bu mengook li nga wut. Jéemaat ak baneen téeméer walla baat.",
-    videoEyebrow: "Wideyothèque",
-    videoTitle: "Wideyothèque",
-    videoText: "Waxtaan, sermon, aar Islam ak Tarikha Tidjaniya, taarix ak laaj-ak-tontu.",
-    filterAll: "Seet lépp",
-    filterConferences: "Conference",
-    filterSermons: "Gamou",
-    filterTeachings: "Njàngale bes bi",
-    filterIslam: "Aar Islam",
-    filterTidjaniya: "Aar Tidjaniya",
-    filterHistory: "Dossier",
-    filterQA: "Laaj-Tontu",
-    watchNow: "Seet",
-    listenNow: "Deglu",
-    favoriteAdd: "Favori",
-    favoriteRemove: "Dindi",
-    accessFree: "Yeesal",
-    accessPremium: "Premium",
-    audioEyebrow: "Audiothèque",
-    audioTitle: "Audiothèque",
-    audioText: "Waxtaan audio, khassida, podcast, sermon ak arsiif bu baat ak lecteur intégré.",
-    audioCurrentLabel: "Li di dox",
-    audioPlaylistLabel: "Playlist bi am",
-    audioBookmark: "Yokk ci favoris",
-    libraryEyebrow: "Maktaba dijitaal",
-    libraryTitle: "Maktaba dijitaal",
-    libraryText: "Maktaba bu ñu teg ba leer ngir jàng, xool lu gaaw ak yebbi ci abonnement bi.",
-    readPreview: "Xoolal",
-    download: "Télécharger",
-    subscriberOnly: "Ñi abonné rekk",
-    galleryEyebrow: "Galerie sawar",
-    galleryTitle: "Galerie sawar",
-    galleryText: "Sawar yu taarix, xew-xew, ndaje ak fan yu am solo ci njàngale yi.",
-    viewPhoto: "Xool sawar bi",
-    bioEyebrow: "Biographies",
-    bioTitle: "Biographies",
-    bioText: "Xëti boppam ngir Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, khalif yi, taalibe yi ak xarit yi.",
-    readBio: "Jàng biographie bi",
-    subscriptionEyebrow: "Gamou",
-    subscriptionTitle: "Findexu Gamou",
-    subscriptionText: "Contenu yi ñu tabax ci dëkk ak séries ngir nga gëna yomb a xool.",
-    priceBadge: "Offre weer wi",
-    pricePerMonth: "ci weer",
-    subscriptionLead: "Tabax bu leer ngir nga gis ay mbiri Gamou ak dajale yu mag yi.",
-    subscriptionBenefitOne: "Gamou yi ñu toftale ci dëkk",
-    subscriptionBenefitTwo: "Arsiif audio ak wideyoo",
-    subscriptionBenefitThree: "Dossier ak références yu bokk",
-    subscriptionBenefitFour: "Navigation gu gaaw ci téeméer yi",
-    subscriptionPrimary: "Ubbi findex bi",
-    subscriptionSecondary: "Jokkoo ak ekib bi",
-    paymentTitle: "Tëralin wu yokk",
-    paymentWave: "Arsiif audio",
-    paymentCard: "Arsiif wideyoo",
-    paymentMobile: "Références dokimaa",
-    paymentText: "Matee yu yokk mën nañu leen tabax fii ci xeet walla ci série.",
-    securityOneTitle: "Gaaw",
-    securityOneText: "Yebbi bu ñu gëna baaxal ci mobile ak desktop",
-    securityTwoTitle: "Wóor",
-    securityTwoText: "Tëralinu contenu bu leer",
-    securityThreeTitle: "Seetkat",
-    securityThreeText: "SEO ñu xalaat ko dale ci tabax xët wi",
-    accountsEyebrow: "Compte utilisateur",
-    accountsTitle: "Inscription, connexion ak expérience personnelle",
-    accountsText: "Ku nekk dina am dashboard, historique, favoris ak espace bu boppam.",
-    accountStatusLabel: "Espace membre",
-    accountGuestTitle: "Sos sa compte ngir tàmbali",
-    accountGuestText: "Inscription, connexion ak mot de passe oublié am nañu leen ci interface bi.",
-    accountReadyTitle: "Sa espace personnel noppi na",
-    accountReadyText: "Jot ci sa contenu yi nga bëgg, historique ak doxaat seetaan ci bépp appareil.",
-    accountCtaOne: "Sos compte",
-    accountCtaTwo: "Dugg",
-    dashboardEyebrow: "Dashboard personnel",
-    dashboardStatus: "Preview",
-    historyTitle: "Historique lecture",
-    favoritesTitle: "Favoris",
-    continueTitle: "Kontinye jàng",
-    emptyHistory: "Amul lecture bu bees.",
-    emptyFavorites: "Amul favori ba tey.",
-    emptyContinue: "Amul contenu bu war a kontinye.",
-    adminEyebrow: "Tableau d’administration",
-    adminTitle: "Cockpit editorial bu noppi ngir saytu lépp",
-    adminText: "Saytu contenu, abonnement, utilisateurs ak statistiques ci benn interface.",
-    adminActionOne: "Yokk wideyoo",
-    adminActionTwo: "Yokk audio",
-    adminActionThree: "Yokk mbind",
-    adminActionFour: "Yokk téere PDF",
-    adminActionFive: "Saytu utilisateurs",
-    adminActionSix: "Saytu abonnements",
-    adminStatsTitle: "Statistiques",
-    adminStatsBadge: "Vue plateforme",
-    footerTagline: "Fàttaliku dund bu njàngale yi ak cosaanu Cheikh Seydi El Hadj Malick Sy.",
-    footerContactLabel: "Jokkoo",
-    footerFollowLabel: "Réseaux sociaux",
-    footerRights: "Ñu ko tabax ngir daldi nangu junni nit ci addina bi.",
-    authEyebrow: "Compte utilisateur",
-    authTitle: "Dugg ci sa espace membre",
-    authSignin: "Connexion",
-    authSignup: "Inscription",
-    authReset: "Mot de passe oublié",
-    authName: "Tur bu mat",
-    authEmail: "Email",
-    authPassword: "Mot de passe",
-    authSubmitSignin: "Dugg",
-    authSubmitSignup: "Sos ma compte",
-    authSubmitReset: "Yónnee lien bi",
-    statMembersLong: "Membres",
-    statVideosLong: "Wideyoo",
-    statAudiosLong: "Audio",
-    statDocsLong: "Dokimaa",
-    statViewsLong: "Vues",
-    toastNotifications: "Yëgle yi dugg nañu.",
-    toastFavoriteAdded: "Yokku na ci favoris.",
-    toastFavoriteRemoved: "Muuñ na ci favoris.",
-    toastSearchEmpty: "Bindal ab baat bu am solo ngir wut.",
-    toastDocumentPremium: "Dokimaa bii premium la.",
-    toastDocumentPreview: "Xoolal dokimaa bi noppi na.",
-    toastShare: "Palanteer séddoo ubbi na.",
-    toastSignin: "Connexion locale jàll na.",
-    toastSignup: "Compte local sos nañu ko.",
-    toastReset: "Lien réinitialisation bi am na.",
-    toastHistory: "Contenu bi dugg na ci historique bi.",
-    toastBio: "Fiche biographie bi noppi na.",
-    toastContact: "Jëfandikoo contact@maktabatchs.org ngir sëfli projé bi.",
-    dashboardGreeting: "Asalaam, {name}",
-    userGuest: "gan"
-  }
-};
-
-const categories = [
-  { key: "all", labelKey: "filterAll" },
-  { key: "teachings", labelKey: "filterTeachings" },
-  { key: "conferences", labelKey: "filterConferences" },
-  { key: "sermons", labelKey: "filterSermons" },
-  { key: "history", labelKey: "filterHistory" },
-  { key: "qa", labelKey: "filterQA" }
-];
-
-const metrics = [
-  { key: "members", value: "1 250", labelKey: "statMembersLong" },
-  { key: "videos", value: "07", labelKey: "statVideosLong" },
-  { key: "audios", value: "05", labelKey: "statAudiosLong" },
-  { key: "documents", value: "06", labelKey: "statDocsLong" },
-  { key: "views", value: "58K", labelKey: "statViewsLong" }
-];
-
-const audioCategoryLabels = {
-  archive: { fr: "Archives sonores", en: "Sound archives", ar: "ارشيف صوتي", wo: "Arsiif bu baat" },
-  conference: { fr: "Conferences audio", en: "Audio talks", ar: "محاضرات صوتية", wo: "Waxtaan audio" },
-  khassida: { fr: "Khassidas", en: "Khassidas", ar: "قصائد", wo: "Khassida" },
-  podcast: { fr: "Podcasts", en: "Podcasts", ar: "بودكاست", wo: "Podcast" },
-  sermon: { fr: "Sermons audio", en: "Audio sermons", ar: "خطب صوتية", wo: "Sermon audio" }
-};
-
-const editorialMeta = {
-  "audio-archive": { byline: "Maktabat Audio", metric: "8.1K", age: "4d" },
-  "audio-conference": { byline: "Maktabat Audio", metric: "10.8K", age: "2d" },
-  "audio-khassida": { byline: "Maktabat Audio", metric: "12.6K", age: "1d" },
-  "audio-podcast": { byline: "Maktabat Audio", metric: "6.4K", age: "5d" },
-  "audio-sermon": { byline: "Maktabat Audio", metric: "9.2K", age: "3d" },
-  "bio-cheikh": { byline: "Dossier editorial", metric: "3.1K", age: "maj" },
-  "bio-disciples": { byline: "Dossier editorial", metric: "2.2K", age: "maj" },
-  "bio-khalifes": { byline: "Dossier editorial", metric: "2.5K", age: "maj" },
-  "bio-seydi": { byline: "Dossier editorial", metric: "4.8K", age: "maj" },
-  "doc-articles": { byline: "Archives Maktabat", metric: "1.9K", age: "pdf" },
-  "doc-books": { byline: "Archives Maktabat", metric: "2.4K", age: "pdf" },
-  "doc-history": { byline: "Archives Maktabat", metric: "2.1K", age: "pdf" },
-  "doc-manuscripts": { byline: "Archives Maktabat", metric: "1.3K", age: "pdf" },
-  "doc-pdf": { byline: "Archives Maktabat", metric: "3.6K", age: "pdf" },
-  "doc-speeches": { byline: "Archives Maktabat", metric: "2.7K", age: "pdf" },
-  "gallery-history": { byline: "Collection visuelle", metric: "520", age: "photo" },
-  "gallery-lecture-01": { byline: "Collection visuelle", metric: "1.1K", age: "photo" },
-  "gallery-lecture-02": { byline: "Collection visuelle", metric: "860", age: "photo" },
-  "gallery-lecture-03": { byline: "Collection visuelle", metric: "790", age: "photo" },
-  "gallery-rencontre": { byline: "Collection visuelle", metric: "610", age: "photo" },
-  "video-conference": { byline: "Cheikh Abdoul Hamid Sarr", metric: "41.3K", age: "3d" },
-  "video-history": { byline: "Cheikh Seydi El Hadj Malick Sy", metric: "28.7K", age: "5d" },
-  "video-islam": { byline: "Cheikh Abdoul Hamid Sarr", metric: "22.4K", age: "4d" },
-  "video-qa": { byline: "Maktabat CHS", metric: "18.9K", age: "2d" },
-  "video-sermon": { byline: "Cheikh Abdoul Hamid Sarr", metric: "31.5K", age: "3d" },
-  "video-teaching": { byline: "Cheikh Abdoul Hamid Sarr", metric: "25.8K", age: "2d" },
-  "video-tidjaniya": { byline: "Cheikh Abdoul Hamid Sarr", metric: "19.7K", age: "6d" }
-};
-
-const fallbackImages = {
-  "audio-archive": "assets/images/archive-01.jpeg",
-  "audio-conference": "assets/images/lecture-01.jpeg",
-  "audio-khassida": "assets/images/lecture-02.jpeg",
-  "audio-podcast": "assets/images/rencontre-01.jpeg",
-  "audio-sermon": "assets/images/hero-cheikh.jpeg"
-};
-
-const catalog = {
-  videos: [
-    {
-      id: "video-conference",
-      type: "video",
-      category: "conferences",
-      image: "assets/images/lecture-01.jpeg",
-      video: "assets/videos/conference-01.mp4",
-      duration: "48 min",
-      premium: false,
-      title: {
-        fr: "Conférence Dakar : la voie de la transmission",
-        en: "Master lecture: The path of transmission",
-        ar: "محاضرة كبرى: طريق التبليغ",
-        wo: "Waxtaan wu mag: Yoonu jébbale"
-      },
-      description: {
-        fr: "Une conférence de Dakar centrée sur la transmission du savoir, la discipline spirituelle et la responsabilité de préserver l’héritage.",
-        en: "A strong introduction to knowledge transmission, spiritual discipline and the responsibility of preserving the legacy.",
-        ar: "مدخل قوي إلى نقل العلم والانضباط الروحي ومسؤولية حفظ التراث.",
-        wo: "Ubbi yoon bu bare solo ci jébbale xam-xam, njub ak warugaru samm cosaan."
-      },
-      keywords: ["conférence", "transmission", "tidjaniya", "lecture", "محاضرة", "waxtaan"]
-    },
-    {
-      id: "video-sermon",
-      type: "video",
-      category: "sermons",
-      image: "assets/images/hero-cheikh.jpeg",
-      video: "assets/videos/sermon-01.mp4",
-      duration: "32 min",
-      premium: true,
-      title: {
-        fr: "Gamou Dakar : patience, éthique et constance",
-        en: "Sermon: patience, ethics and constancy",
-        ar: "خطبة: الصبر والأخلاق والثبات",
-        wo: "Sermon: muñ, jikko ak sax"
-      },
-      description: {
-        fr: "Un rappel spirituel issu des contenus de Gamou, centré sur la patience, l’éthique du croyant et la fidélité aux principes.",
-        en: "A spiritual reminder centered on patience, the ethics of the believer and faithfulness to principles.",
-        ar: "تذكير روحي يتمحور حول الصبر وأخلاق المؤمن والثبات على المبادئ.",
-        wo: "Fàttali bu xel ci muñ, jikko ju gëmkat ak sax ci njub."
-      },
-      keywords: ["sermon", "patience", "éthique", "khoutba", "صبر", "muñ"]
-    },
-    {
-      id: "video-teaching",
-      type: "video",
-      category: "teachings",
-      image: "assets/images/lecture-02.jpeg",
-      video: "assets/videos/enseignement-01.mp4",
-      duration: "55 min",
-      premium: true,
-      title: {
-        fr: "Enseignement du jour : adab, méthode et élévation",
-        en: "Teaching: adab, method and elevation",
-        ar: "درس: الأدب والمنهج والارتقاء",
-        wo: "Njàngale: adab, pexe ak yéeg"
-      },
-      description: {
-        fr: "Une session structurée choisie comme enseignement du jour autour du comportement, de l’étude et de l’élévation intérieure.",
-        en: "A structured session on etiquette, study and inner elevation.",
-        ar: "جلسة منظمة حول آداب السلوك وطلب العلم والارتقاء الداخلي.",
-        wo: "Jàngat bu tabax ci adab, yoonu jàng ak yéeg gu biir."
-      },
-      keywords: ["enseignement", "adab", "méthode", "درس", "njàngale"]
-    },
-    {
-      id: "video-islam",
-      type: "video",
-      category: "conferences",
-      image: "assets/images/rencontre-01.jpeg",
-      video: "assets/videos/archive-01.mp4",
-      duration: "41 min",
-      premium: false,
-      title: {
-        fr: "Conférence Université : clarté, pédagogie et argumentation",
-        en: "Defense of Islam: clarity, pedagogy and argumentation",
-        ar: "الدفاع عن الإسلام: وضوح وتربية وبرهان",
-        wo: "Aar Islam: leer, njàngale ak lay"
-      },
-      description: {
-        fr: "Une conférence donnée en milieu universitaire pour expliquer, défendre et transmettre les fondements avec sagesse.",
-        en: "A pedagogical talk to explain, defend and transmit core principles with wisdom.",
-        ar: "مداخلة تربوية لشرح الأصول والدفاع عنها ونقلها بالحكمة.",
-        wo: "Waxtaan wu njàngale ngir leeral, aar ak jottali cosaan yi ak xel mu rafet."
-      },
-      keywords: ["islam", "défense", "clarité", "wisdom", "الإسلام", "aar"]
-    },
-    {
-      id: "video-tidjaniya",
-      type: "video",
-      category: "conferences",
-      image: "assets/images/marche-01.jpeg",
-      video: "assets/videos/conference-01.mp4",
-      duration: "37 min",
-      premium: true,
-      title: {
-        fr: "Conférence Kaolack : défense de la Tarikha Tidjaniya",
-        en: "Defense of the Tidjaniya path",
-        ar: "الدفاع عن الطريقة التجانية",
-        wo: "Aar Tarikha Tidjaniya"
-      },
-      description: {
-        fr: "Une conférence de Kaolack consacrée aux principes, à la chaîne de transmission et à la mission éducative de la Tarikha.",
-        en: "A calm explanation of principles, transmission lineage and the educational mission of the path.",
-        ar: "شرح هادئ للمبادئ وسلسلة الإسناد والرسالة التربوية للطريقة.",
-        wo: "Leeral gu dal ci cosaan, silsila ak missionu njàngale bu Tarikha bi."
-      },
-      keywords: ["tidjaniya", "tarikha", "défense", "طريقة", "tarixa"]
-    },
-    {
-      id: "video-history",
-      type: "video",
-      category: "history",
-      image: "assets/images/seydi-malick.jpeg",
-      video: "assets/videos/enseignement-01.mp4",
-      duration: "29 min",
-      premium: false,
-      title: {
-        fr: "Dossier vidéo : Cheikh Seydi El Hadj Malick Sy",
-        en: "History of Cheikh Seydi El Hadj Malick Sy",
-        ar: "تاريخ الشيخ سيدي الحاج مالك سي",
-        wo: "Taarixu Cheikh Seydi El Hadj Malick Sy"
-      },
-      description: {
-        fr: "Un dossier vidéo pour retrouver l’itinéraire, l’influence et l’héritage de Cheikh Seydi El Hadj Malick Sy.",
-        en: "A historical capsule dedicated to the journey, influence and legacy of the great master.",
-        ar: "عرض تاريخي موجز عن المسار والتأثير والإرث الخاص بالشيخ الكبير.",
-        wo: "Capsule bu taarix ci yoonu dund, aw yëngu-yëngu ak cosaanu mag mi."
-      },
-      keywords: ["histoire", "malick sy", "héritage", "تاريخ", "taarix"]
-    },
-    {
-      id: "video-qa",
-      type: "video",
-      category: "qa",
-      image: "assets/images/archive-01.jpeg",
-      video: "assets/videos/sermon-01.mp4",
-      duration: "26 min",
-      premium: false,
-      title: {
-        fr: "Questions-Réponses : foi, pratique et transmission",
-        en: "Q&A: faith, practice and transmission",
-        ar: "أسئلة وأجوبة: الإيمان والممارسة والنقل",
-        wo: "Laaj-Tontu: ngëm, jëf ak jébbale"
-      },
-      description: {
-        fr: "Des réponses accessibles à des questions fréquentes liées à la pratique religieuse et à la voie spirituelle.",
-        en: "Accessible answers to frequent questions about religious practice and spiritual path.",
-        ar: "إجابات واضحة عن الأسئلة المتكررة حول الممارسة الدينية والسلوك الروحي.",
-        wo: "Tontu yu leer ci laaj yu bari ci jëf ju diine ak yoonu xel."
-      },
-      keywords: ["questions", "réponses", "pratique", "سؤال", "laaj"]
-    }
-  ],
-  audios: [
-    {
-      id: "audio-khassida",
-      type: "audio",
-      category: "khassida",
-      source: "assets/videos/sermon-01.mp4",
-      duration: "22 min",
-      premium: true,
-      title: {
-        fr: "Khassida : mémoire et invocation",
-        en: "Khassida: memory and invocation",
-        ar: "قصيدة: الذاكرة والذكر",
-        wo: "Khassida: fàttali ak zikr"
-      },
-      description: {
-        fr: "Une écoute méditative pour prolonger la présence spirituelle et l’invocation.",
-        en: "A meditative listening experience to extend spiritual presence and remembrance.",
-        ar: "استماع تأملي يطيل الحضور الروحي والذكر.",
-        wo: "Déglu gu xel ngir yokk présence spirituelle ak zikr."
-      },
-      keywords: ["khassida", "invocation", "zikr", "قصيدة", "zikr"]
-    },
-    {
-      id: "audio-conference",
-      type: "audio",
-      category: "conference",
-      source: "assets/videos/conference-01.mp4",
-      duration: "44 min",
-      premium: false,
-      title: {
-        fr: "Conférence audio : éducation du cœur",
-        en: "Audio talk: educating the heart",
-        ar: "محاضرة صوتية: تربية القلب",
-        wo: "Waxtaan audio: yaru xol"
-      },
-      description: {
-        fr: "Un format audio pour écouter les enseignements en mobilité.",
-        en: "An audio format built for learning on the move.",
-        ar: "صيغة صوتية للاستماع إلى الدروس أثناء التنقل.",
-        wo: "Formato audio ngir déglu njàngale yi su ngay tukki."
-      },
-      keywords: ["audio", "conférence", "éducation", "محاضرة", "yaru"]
-    },
-    {
-      id: "audio-sermon",
-      type: "audio",
-      category: "sermon",
-      source: "assets/videos/enseignement-01.mp4",
-      duration: "28 min",
-      premium: true,
-      title: {
-        fr: "Sermon audio : discipline et sincérité",
-        en: "Audio sermon: discipline and sincerity",
-        ar: "خطبة صوتية: الانضباط والإخلاص",
-        wo: "Sermon audio: discipline ak njub"
-      },
-      description: {
-        fr: "Une prise de parole resserrée sur l’éthique de l’engagement spirituel.",
-        en: "A focused address on the ethics of spiritual commitment.",
-        ar: "كلمة مركزة حول أخلاق الالتزام الروحي.",
-        wo: "Waxtaan wu gatt ci jikko ju engagement spirituel."
-      },
-      keywords: ["sermon", "discipline", "sincérité", "خطبة", "njub"]
-    },
-    {
-      id: "audio-podcast",
-      type: "audio",
-      category: "podcast",
-      source: "assets/videos/archive-01.mp4",
-      duration: "19 min",
-      premium: false,
-      title: {
-        fr: "Podcast : transmission et actualité",
-        en: "Podcast: transmission and current relevance",
-        ar: "بودكاست: النقل والواقع",
-        wo: "Podcast: jébbale ak jamono jii"
-      },
-      description: {
-        fr: "Un échange éditorial sur la manière de faire vivre l’héritage dans le présent.",
-        en: "An editorial conversation on keeping the legacy alive today.",
-        ar: "حوار تحريري حول إحياء التراث في الحاضر.",
-        wo: "Waxtaan editorial ci ni ñuy dundal cosaan ci jamono jii."
-      },
-      keywords: ["podcast", "actualité", "transmission", "بودكاست", "jamono"]
-    },
-    {
-      id: "audio-archive",
-      type: "audio",
-      category: "archive",
-      source: "assets/videos/sermon-01.mp4",
-      duration: "31 min",
-      premium: true,
-      title: {
-        fr: "Archives sonores : voix et mémoire",
-        en: "Sound archives: voices and memory",
-        ar: "أرشيف صوتي: أصوات وذاكرة",
-        wo: "Arsiif bu baat: baat ak fàttali"
-      },
-      description: {
-        fr: "Une archive patrimoniale pour préserver l’empreinte orale des enseignements.",
-        en: "A heritage archive preserving the oral imprint of the teachings.",
-        ar: "أرشيف تراثي يحفظ الأثر الشفهي للدروس.",
-        wo: "Arsiif bu cosaan ngir samm rëbbu baat ci njàngale yi."
-      },
-      keywords: ["archive", "voix", "mémoire", "أرشيف", "arsiif"]
-    }
-  ],
-  documents: [
-    {
-      id: "doc-articles",
-      type: "document",
-      image: "assets/images/lecture-02.jpeg",
-      premium: false,
-      title: {
-        fr: "Livres de référence",
-        en: "Reference articles",
-        ar: "مقالات مرجعية",
-        wo: "Mbind yu référence"
-      },
-      description: {
-        fr: "Une entrée principale pour les livres de référence liés aux enseignements, à la pratique et à l’héritage.",
-        en: "A collection of themed articles on teachings, practice and legacy.",
-        ar: "مجموعة مقالات موضوعية حول الدروس والممارسة والتراث.",
-        wo: "Dajale mbind ci njàngale, jëf ak cosaan."
-      },
-      keywords: ["articles", "référence", "enseignement"]
-    },
-    {
-      id: "doc-books",
-      type: "document",
-      image: "assets/images/hero-cheikh.jpeg",
-      premium: true,
-      title: {
-        fr: "Bibliothèque PDF",
-        en: "Digital books",
-        ar: "كتب رقمية",
-        wo: "Téere dijitaal"
-      },
-      description: {
-        fr: "Un espace dédié aux PDF classés par auteur, thème, ville et période.",
-        en: "Books organized by author, theme and era for structured consultation.",
-        ar: "كتب منظمة حسب المؤلف والموضوع والحقبة.",
-        wo: "Téere yi ñu xeexale ci bindkat, téeméer ak jamono."
-      },
-      keywords: ["livres", "books", "كتب", "téere"]
-    },
-    {
-      id: "doc-manuscripts",
-      type: "document",
-      image: "assets/images/archive-01.jpeg",
-      premium: true,
-      title: {
-        fr: "Dossier Cheikh Ahmeth Tidiane Cherif",
-        en: "Manuscripts and rare pieces",
-        ar: "مخطوطات ووثائق نادرة",
-        wo: "Manuscript ak dogal yu rare"
-      },
-      description: {
-        fr: "Dossier consacré à Cheikh Ahmeth Tidiane Cherif avec textes, repères et documents à classer.",
-        en: "A premium space to preserve manuscripts and sensitive historical material.",
-        ar: "فضاء مميز لحفظ المخطوطات والوثائق التاريخية الحساسة.",
-        wo: "Barab premium ngir denc manuscript ak dokimaa yu am solo lool."
-      },
-      keywords: ["manuscrits", "rare", "archives"]
-    },
-    {
-      id: "doc-pdf",
-      type: "document",
-      image: "assets/images/marche-01.jpeg",
-      premium: false,
-      title: {
-        fr: "Dossier Cheikh Seydi El Hadj Malick Sy",
-        en: "PDF documents",
-        ar: "وثائق PDF",
-        wo: "Dokimaa PDF"
-      },
-      description: {
-        fr: "Dossier documentaire autour de Cheikh Seydi El Hadj Malick Sy, avec livres, PDF et archives à retrouver.",
-        en: "PDFs available for download or online reading depending on access level.",
-        ar: "ملفات PDF للقراءة أو التنزيل حسب مستوى الوصول.",
-        wo: "PDF yu manees a jàng walla yebbi ci niveau d’accès bi."
-      },
-      keywords: ["pdf", "documents", "dokimaa"]
-    },
-    {
-      id: "doc-speeches",
-      type: "document",
-      image: "assets/images/rencontre-01.jpeg",
-      premium: false,
-      title: {
-        fr: "Dossier Cheikh Seydi Ahmeth Sy",
-        en: "Speeches and addresses",
-        ar: "خطابات وكلمات",
-        wo: "Kàddu ak allocutions"
-      },
-      description: {
-        fr: "Dossier regroupant les contenus, interventions et documents liés à Cheikh Seydi Ahmeth Sy.",
-        en: "A curated archive of important speeches for public transmission of ideas.",
-        ar: "أرشيف منظم للخطابات المهمة في نقل الرسالة.",
-        wo: "Xàll bu ñu def ci kàddu yu am solo ci jébbale kàddu yi."
-      },
-      keywords: ["discours", "allocutions", "speech"]
-    },
-    {
-      id: "doc-history",
-      type: "document",
-      image: "assets/images/seydi-malick.jpeg",
-      premium: true,
-      title: {
-        fr: "Dossier Sérigne Babacar Sy",
-        en: "Historical writings",
-        ar: "نصوص تاريخية",
-        wo: "Mbind yu taarix"
-      },
-      description: {
-        fr: "Dossier pour les archives, écrits et contenus de référence consacrés à Sérigne Babacar Sy.",
-        en: "Texts that contextualize the journey of major figures and disciples.",
-        ar: "نصوص تؤطر مسار الشخصيات الكبرى والتلاميذ.",
-        wo: "Mbind yu waral yoonu nit ñu mag ak taalibe yi."
-      },
-      keywords: ["histoire", "écrits", "history", "taarix"]
-    }
-  ],
-  biographies: [
-    {
-      id: "bio-cheikh",
-      type: "biography",
-      image: "assets/images/hero-cheikh.jpeg",
-      title: {
-        fr: "Dossier Cheikh Abdoul Hamid Sarr",
-        en: "Cheikh Abdoul Hamid Sarr",
-        ar: "الشيخ عبدول حميد سار",
-        wo: "Cheikh Abdoul Hamid Sarr"
-      },
-      description: {
-        fr: "Dossier principal dédié à sa trajectoire, à ses enseignements, à ses interventions et à son rayonnement.",
-        en: "A dedicated page for his journey, teachings, interventions and influence.",
-        ar: "صفحة مخصصة لمساره وتعليمه ومداخلاته وإشعاعه.",
-        wo: "Xët bu ñu jagleel yoonam, njàngaleem, kàddu yu mu wax ak leeram."
-      },
-      keywords: ["cheikh", "sarr", "biographie"]
-    },
-    {
-      id: "bio-seydi",
-      type: "biography",
-      image: "assets/images/seydi-malick.jpeg",
-      title: {
-        fr: "Dossier Khalifes",
-        en: "Cheikh Seydi El Hadj Malick Sy",
-        ar: "الشيخ سيدي الحاج مالك سي",
-        wo: "Cheikh Seydi El Hadj Malick Sy"
-      },
-      description: {
-        fr: "Un espace structuré pour retrouver les Khalifes, leurs repères et les contenus à classer.",
-        en: "A structured biography to understand his legacy, pedagogy and lasting influence.",
-        ar: "سيرة منظمة لفهم تراثه وتربيته وتأثيره المستمر.",
-        wo: "Biographie bu tabax ngir xam cosaanam, njàngaleem ak leeram bu sax."
-      },
-      keywords: ["malick sy", "histoire", "biographie"]
-    },
-    {
-      id: "bio-khalifes",
-      type: "biography",
-      image: "assets/images/archive-01.jpeg",
-      title: {
-        fr: "Dossier disciples et compagnons",
-        en: "The Khalifes",
-        ar: "الخلفاء",
-        wo: "Khalif yi"
-      },
-      description: {
-        fr: "Un espace pour rassembler les disciples, les compagnons et les figures de continuité.",
-        en: "A space gathering the figures of continuity and their successive contributions.",
-        ar: "فضاء يجمع شخصيات الاستمرارية وإسهاماتهم المتعاقبة.",
-        wo: "Barab bu dajale nit ñi jox yoon ak liggéey yi ñu wéyal."
-      },
-      keywords: ["khalifes", "succession", "héritage"]
-    },
-    {
-      id: "bio-disciples",
-      type: "biography",
-      image: "assets/images/rencontre-01.jpeg",
-      title: {
-        fr: "Dossier archives de transmission",
-        en: "Disciples and companions",
-        ar: "التلاميذ والرفاق",
-        wo: "Taalibe yi ak xarit yi"
-      },
-      description: {
-        fr: "Un dossier complémentaire pour relier les œuvres, les témoignages et la chaîne de transmission.",
-        en: "Biographical portraits linking works, testimonies and the chain of transmission.",
-        ar: "صور تعريفية تربط الأعمال والشهادات وسلسلة النقل.",
-        wo: "Portrait yu biographie ngir boole liggéey yi, seede yi ak silsila bi."
-      },
-      keywords: ["disciples", "compagnons", "taalibe"]
-    }
-  ],
-  gallery: [
-    {
-      id: "gallery-lecture-01",
-      type: "gallery",
-      image: "assets/images/hero-cheikh.jpeg",
-      size: "large",
-      title: {
-        fr: "Dossier El Hadj Mansour Sy",
-        en: "Main portrait",
-        ar: "الصورة الرئيسية",
-        wo: "Sawar bu njëkk"
-      },
-      description: {
-        fr: "Dossier visuel et documentaire consacré à El Hadj Mansour Sy.",
-        en: "A strong visual carrying the homepage and the identity of the platform.",
-        ar: "صورة قوية لقيادة الصفحة الرئيسية وهوية المنصة.",
-        wo: "Sawar su am doole ngir jox xët wu njëkk ak identité bi."
-      },
-      keywords: ["portrait", "accueil", "main"]
-    },
-    {
-      id: "gallery-lecture-02",
-      type: "gallery",
-      image: "assets/images/lecture-01.jpeg",
-      size: "medium",
-      title: {
-        fr: "Dossier El Hadj Abdoul Aziz Sy",
-        en: "Reading and transmission",
-        ar: "القراءة والنقل",
-        wo: "Jàng ak jébbale"
-      },
-      description: {
-        fr: "Dossier de classement pour les contenus liés à El Hadj Abdoul Aziz Sy.",
-        en: "A study moment feeding the living library.",
-        ar: "لحظة دراسة تغذي المكتبة الحية.",
-        wo: "Waxtu jàng moo dundal maktaba bi."
-      },
-      keywords: ["lecture", "étude", "reading"]
-    },
-    {
-      id: "gallery-lecture-03",
-      type: "gallery",
-      image: "assets/images/lecture-02.jpeg",
-      size: "small",
-      title: {
-        fr: "Dossier El Hadj Habib Sy",
-        en: "Focus and presence",
-        ar: "تركيز وحضور",
-        wo: "Fas yéene ak présence"
-      },
-      description: {
-        fr: "Dossier dédié à El Hadj Habib Sy avec archives, repères et contenus de transmission.",
-        en: "An image telling the relationship to knowledge and text.",
-        ar: "صورة تروي العلاقة بالعلم والنص.",
-        wo: "Sawar su wax diggante xam-xam ak mbind."
-      },
-      keywords: ["focus", "knowledge", "présence"]
-    },
-    {
-      id: "gallery-rencontre",
-      type: "gallery",
-      image: "assets/images/rencontre-01.jpeg",
-      size: "small",
-      title: {
-        fr: "Dossier Cheikh SEYDI Hadj Malick",
-        en: "Meeting and exchange",
-        ar: "لقاء وتبادل",
-        wo: "Ndaje ak waxtaan"
-      },
-      description: {
-        fr: "Dossier complémentaire pour regrouper les contenus autour de Cheikh SEYDI Hadj Malick.",
-        en: "Human exchange at the center of transmission.",
-        ar: "تبادل إنساني في قلب التبليغ.",
-        wo: "Waxtaanu nit ñi ci biiru jébbale bi."
-      },
-      keywords: ["meeting", "échange", "rencontre"]
-    },
-    {
-      id: "gallery-history",
-      type: "gallery",
-      image: "assets/images/archive-01.jpeg",
-      size: "small",
-      title: {
-        fr: "Dossier Cheikh Seydi Ahmeth Sy",
-        en: "Historical archive",
-        ar: "أرشيف تاريخي",
-        wo: "Arsiif bu taarix"
-      },
-      description: {
-        fr: "Dossier visuel pour les archives et les repères liés à Cheikh Seydi Ahmeth Sy.",
-        en: "A visual memory linking generations.",
-        ar: "ذاكرة بصرية تربط الأجيال.",
-        wo: "Fàttaliku gis ngir boole xeeti nit."
-      },
-      keywords: ["archive", "histoire", "arsiif"]
-    }
-  ]
-};
-
-const state = {
-  language: localStorage.getItem(STORAGE_KEYS.language) || "fr",
-  theme: localStorage.getItem(STORAGE_KEYS.theme) || "light",
-  activeCategory: "all",
-  favorites: JSON.parse(localStorage.getItem(STORAGE_KEYS.favorites) || "[]"),
-  history: JSON.parse(localStorage.getItem(STORAGE_KEYS.history) || "[]"),
-  user: JSON.parse(localStorage.getItem(STORAGE_KEYS.user) || "null"),
-  currentFeaturedId: "video-teaching",
-  currentAudioId: "audio-khassida",
-  currentAuthView: "signin"
-};
-
-const elements = {
-  body: document.body,
-  languageSelect: document.querySelector("#languageSelect"),
-  themeToggle: document.querySelector("#themeToggle"),
-  menuToggle: document.querySelector("#menuToggle"),
-  featuredSection: document.querySelector("#featured"),
-  featuredRail: document.querySelector("#featuredRail"),
-  videoFilters: document.querySelector("#videoFilters"),
-  videoRail: document.querySelector("#videoRail"),
-  audioPlayer: document.querySelector("#audioPlayer"),
-  audioPlayerSource: document.querySelector("#audioPlayerSource"),
-  audioTitle: document.querySelector("#audioCurrentTitle"),
-  audioDescription: document.querySelector("#audioCurrentDescription"),
-  audioCategory: document.querySelector("#audioCurrentCategory"),
-  audioDuration: document.querySelector("#audioCurrentDuration"),
-  audioAccess: document.querySelector("#audioAccessBadge"),
-  audioPlaylist: document.querySelector("#audioPlaylist"),
-  audioBookmarkAction: document.querySelector("#audioBookmarkAction"),
-  documentsGrid: document.querySelector("#documentsGrid"),
-  galleryGrid: document.querySelector("#galleryGrid"),
-  bioGrid: document.querySelector("#bioGrid"),
-  statsGrid: document.querySelector("#statsGrid"),
-  toast: document.querySelector("#toast"),
-  searchForm: document.querySelector("#heroSearchForm"),
-  searchInput: document.querySelector("#heroSearchInput"),
-  searchSection: document.querySelector("#searchSection"),
-  searchResultsGrid: document.querySelector("#searchResultsGrid"),
-  searchResultsMeta: document.querySelector("#searchResultsMeta"),
-  authModal: document.querySelector("#authModal"),
-  authSwitchers: document.querySelectorAll(".auth-switcher__button"),
-  authPanels: document.querySelectorAll("[data-auth-panel]"),
-  historyList: document.querySelector("#historyList"),
-  favoritesList: document.querySelector("#favoritesList"),
-  continueList: document.querySelector("#continueList"),
-  dashboardGreeting: document.querySelector("#dashboardGreeting"),
-  accountSummaryTitle: document.querySelector("#accountSummaryTitle"),
-  accountSummaryText: document.querySelector("#accountSummaryText"),
-  notifyToggle: document.querySelector("#notifyToggle")
-};
-
-function t(key) {
-  return translations[state.language][key] || translations.fr[key] || key;
-}
-
-function formatMessage(key, values = {}) {
-  return Object.entries(values).reduce(
-    (message, [valueKey, value]) => message.replaceAll(`{${valueKey}}`, value),
-    t(key)
-  );
-}
-
-function getLocalized(value) {
-  return value?.[state.language] || value?.fr || "";
-}
-
-function saveState() {
-  localStorage.setItem(STORAGE_KEYS.theme, state.theme);
-  localStorage.setItem(STORAGE_KEYS.language, state.language);
-  localStorage.setItem(STORAGE_KEYS.favorites, JSON.stringify(state.favorites));
-  localStorage.setItem(STORAGE_KEYS.history, JSON.stringify(state.history));
-  localStorage.setItem(STORAGE_KEYS.user, JSON.stringify(state.user));
-}
-
-function showToast(key) {
-  elements.toast.textContent = t(key);
-  elements.toast.classList.add("is-visible");
-  clearTimeout(showToast.timeoutId);
-  showToast.timeoutId = setTimeout(() => {
-    elements.toast.classList.remove("is-visible");
-  }, 2800);
-}
-
-function findById(id) {
-  return [...catalog.videos, ...catalog.audios, ...catalog.documents, ...catalog.biographies, ...catalog.gallery].find((item) => item.id === id);
-}
-
-function updateTheme() {
-  elements.body.dataset.theme = state.theme;
-  if (elements.themeToggle) {
-    elements.themeToggle.setAttribute("aria-label", state.theme === "dark" ? "Passer au mode clair" : "Passer au mode sombre");
-  }
-}
-
-function applyLanguage() {
-  document.documentElement.lang = state.language === "wo" ? "fr" : state.language;
-  document.documentElement.dir = state.language === "ar" ? "rtl" : "ltr";
-
-  document.querySelectorAll("[data-i18n]").forEach((node) => {
-    node.textContent = t(node.dataset.i18n);
-  });
-
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
-    node.setAttribute("placeholder", t(node.dataset.i18nPlaceholder));
-  });
-
-  if (elements.languageSelect) {
-    elements.languageSelect.value = state.language;
-  }
-  renderFilters();
-  renderFeatured();
-  renderVideos();
-  renderAudio();
-  renderDocuments();
-  renderGallery();
-  renderBiographies();
-  renderStats();
-  renderDashboard();
-  renderSearchResults(elements.searchInput.value.trim());
-}
-
-function renderFilters() {
-  if (!elements.videoFilters) return;
-
-  elements.videoFilters.innerHTML = categories
-    .map(
-      (category) => `
-        <button
-          class="chip ${state.activeCategory === category.key ? "is-active" : ""}"
-          type="button"
-          data-filter="${category.key}"
-        >
-          ${t(category.labelKey)}
-        </button>
-      `
-    )
-    .join("");
-}
-
-function getAudioCategoryLabel(category) {
-  const label = audioCategoryLabels[category];
-  return label ? getLocalized(label) : category;
-}
-
-function getEditorialEyebrow(item) {
-  if (item.type === "video") {
-    return t(categories.find((category) => category.key === item.category)?.labelKey || "filterAll");
-  }
-
-  if (item.type === "audio") {
-    return getAudioCategoryLabel(item.category);
-  }
-
-  if (item.type === "document") {
-    return item.premium ? t("subscriberOnly") : t("libraryEyebrow");
-  }
-
-  if (item.type === "biography") {
-    return "DOSSIER";
-  }
-
-  if (item.type === "gallery") {
-    return "DOSSIER";
-  }
-
-  return item.type;
-}
-
-function getEditorialImage(item) {
-  return item.image || fallbackImages[item.id] || "assets/images/lecture-01.jpeg";
-}
-
-function getEditorialBadge(item) {
-  if (item.duration) {
-    return item.duration.replace("min", "MIN").replace("Min", "MIN");
-  }
-
-  if (item.type === "document") {
-    return "PDF";
-  }
-
-  if (item.type === "biography") {
-    return "DOSSIER";
-  }
-
-  if (item.type === "gallery") {
-    return "DOSSIER";
-  }
-
-  return item.premium ? t("accessPremium") : t("accessFree");
-}
-
-function getEditorialMetaLine(item) {
-  const meta = editorialMeta[item.id];
-  if (!meta) {
-    return item.duration || "";
-  }
-
-  return [meta.byline, meta.metric, meta.age].filter(Boolean).join(" • ");
-}
-
-function renderEditorialCard({
-  item,
-  primaryActionAttr,
-  primaryActionLabel,
-  secondaryActionMarkup = "",
-  includeFavorite = false,
-  variant = "default",
-  showSummary = true,
-  showActions = true
-}) {
-  const favoriteMarkup = includeFavorite && showActions
-    ? `
-        <button
-          class="editorial-card__favorite ${state.favorites.includes(item.id) ? "is-active" : ""}"
-          type="button"
-          data-favorite-id="${item.id}"
-          aria-label="${state.favorites.includes(item.id) ? t("favoriteRemove") : t("favoriteAdd")}"
-        >
-          ★
-        </button>
-      `
-    : "";
-
-  return `
-    <article class="editorial-card editorial-card--${variant}">
-      <button class="editorial-card__media" type="button" ${primaryActionAttr} aria-label="${primaryActionLabel} : ${getLocalized(item.title)}">
-        <img src="${getEditorialImage(item)}" alt="${getLocalized(item.title)}" loading="lazy">
-        <span class="editorial-card__badge">${getEditorialBadge(item)}</span>
-      </button>
-      <div class="editorial-card__body">
-        <span class="editorial-card__eyebrow">${getEditorialEyebrow(item)}</span>
-        <h3 class="editorial-card__title">${getLocalized(item.title)}</h3>
-        <p class="editorial-card__meta">${getEditorialMetaLine(item)}</p>
-        ${showSummary ? `<p class="editorial-card__summary">${getLocalized(item.description)}</p>` : ""}
-        ${
-          showActions
-            ? `
-                <div class="editorial-card__actions">
-                  <button class="editorial-card__action" type="button" ${primaryActionAttr}>${primaryActionLabel}</button>
-                  ${secondaryActionMarkup}
-                  ${favoriteMarkup}
-                </div>
-              `
-            : ""
-        }
-      </div>
-    </article>
-  `;
-}
-
-function renderFeatured() {
-  if (!elements.featuredRail) return;
-
-  const active = catalog.videos.find((item) => item.id === state.currentFeaturedId) || catalog.videos[0];
-  const remaining = catalog.videos.filter((item) => item.id !== active.id).slice(0, 2);
-  const featuredItems = [active, ...remaining];
-
-  elements.featuredRail.innerHTML = featuredItems
-    .map((item, index) =>
-      renderEditorialCard({
-        item,
-        primaryActionAttr: `data-play-video="${item.id}"`,
-        primaryActionLabel: t("watchNow"),
-        variant: index === 0 ? "lead" : "minimal",
-        showSummary: false,
-        showActions: false
-      })
-    )
-    .join("");
-}
-
-function renderVideos() {
-  if (!elements.videoRail) return;
-
-  const items =
-    state.activeCategory === "all"
-      ? catalog.videos
-      : catalog.videos.filter((item) => item.category === state.activeCategory);
-
-  elements.videoRail.innerHTML = items
-    .map((item) =>
-      renderEditorialCard({
-        item,
-        primaryActionAttr: `data-play-video="${item.id}"`,
-        primaryActionLabel: t("watchNow"),
-        variant: "minimal",
-        showSummary: false,
-        showActions: false
-      })
-    )
-    .join("");
-}
-
-function renderAudio() {
-  if (!elements.audioTitle || !elements.audioPlayerSource || !elements.audioPlaylist || !elements.audioBookmarkAction) return;
-
-  const current = catalog.audios.find((item) => item.id === state.currentAudioId) || catalog.audios[0];
-
-  elements.audioTitle.textContent = getLocalized(current.title);
-  elements.audioDescription.textContent = getLocalized(current.description);
-  elements.audioCategory.textContent = getAudioCategoryLabel(current.category);
-  elements.audioDuration.textContent = current.duration;
-  elements.audioAccess.textContent = current.premium ? t("accessPremium") : t("accessFree");
-  elements.audioBookmarkAction.textContent = state.favorites.includes(current.id) ? t("favoriteRemove") : t("audioBookmark");
-
-  const currentAudioSource = elements.audioPlayerSource.getAttribute("src");
-  if (currentAudioSource !== current.source) {
-    elements.audioPlayer.pause();
-    elements.audioPlayerSource.setAttribute("src", current.source);
-    elements.audioPlayer.load();
-  }
-
-  elements.audioPlaylist.innerHTML = catalog.audios
-    .map((item) =>
-      renderEditorialCard({
-        item,
-        primaryActionAttr: `data-audio-id="${item.id}"`,
-        primaryActionLabel: t("listenNow"),
-        variant: "minimal",
-        showSummary: false,
-        showActions: false
-      })
-    )
-    .join("");
-}
-
-function renderDocuments() {
-  if (!elements.documentsGrid) return;
-
-  elements.documentsGrid.innerHTML = catalog.documents
-    .map((item) =>
-      renderEditorialCard({
-        item,
-        primaryActionAttr: `data-doc-preview="${item.id}"`,
-        primaryActionLabel: t("readPreview"),
-        secondaryActionMarkup: `<button class="editorial-card__action" type="button" data-doc-download="${item.id}">${t("download")}</button>`
-      })
-    )
-    .join("");
-}
-
-function renderGallery() {
-  if (!elements.galleryGrid) return;
-
-  elements.galleryGrid.innerHTML = catalog.gallery
-    .map((item) =>
-      renderEditorialCard({
-        item,
-        primaryActionAttr: `data-gallery-open="${item.id}"`,
-        primaryActionLabel: t("viewPhoto"),
-        variant: "minimal",
-        showSummary: false,
-        showActions: false
-      })
-    )
-    .join("");
-}
-
-function renderBiographies() {
-  if (!elements.bioGrid) return;
-
-  elements.bioGrid.innerHTML = catalog.biographies
-    .map((item) =>
-      renderEditorialCard({
-        item,
-        primaryActionAttr: `data-bio-id="${item.id}"`,
-        primaryActionLabel: t("readBio"),
-        variant: "minimal",
-        showSummary: false,
-        showActions: false
-      })
-    )
-    .join("");
-}
-
-function renderStats() {
-  if (!elements.statsGrid) return;
-
-  elements.statsGrid.innerHTML = metrics
-    .map(
-      (metric) => `
-        <article>
-          <strong>${metric.value}</strong>
-          <span>${t(metric.labelKey)}</span>
-        </article>
-      `
-    )
-    .join("");
-}
-
-function historyEntryMarkup(entry) {
-  return `
-    <article class="dashboard-item">
-      <small>${entry.type.toUpperCase()} • ${entry.progress}%</small>
-      <strong>${getLocalized(entry.item.title)}</strong>
-      <p>${entry.item.duration || getLocalized(entry.item.description)}</p>
-    </article>
-  `;
-}
-
-function renderDashboard() {
-  if (!elements.dashboardGreeting || !elements.accountSummaryTitle || !elements.accountSummaryText || !elements.historyList || !elements.favoritesList || !elements.continueList) {
+  if (!config) {
     return;
   }
 
-  const userName = state.user?.name || t("userGuest");
+  const state = {
+    items: [],
+    users: [],
+    currentUser: null,
+    settings: null,
+    heroIndex: 0,
+    heroTimer: null
+  };
 
-  elements.dashboardGreeting.textContent = formatMessage("dashboardGreeting", { name: userName });
+  document.addEventListener("DOMContentLoaded", init);
+  document.addEventListener("click", handleDocumentClick);
+  document.addEventListener("submit", handleDocumentSubmit);
 
-  if (state.user) {
-    elements.accountSummaryTitle.textContent = t("accountReadyTitle");
-    elements.accountSummaryText.textContent = t("accountReadyText");
-  } else {
-    elements.accountSummaryTitle.textContent = t("accountGuestTitle");
-    elements.accountSummaryText.textContent = t("accountGuestText");
+  function init() {
+    syncState();
+    renderSiteChrome();
+    renderPage();
+    initHeroCarousel();
   }
 
-  const enrichedHistory = state.history
-    .map((entry) => ({
-      ...entry,
-      item: findById(entry.id)
-    }))
-    .filter((entry) => entry.item);
+  function syncState() {
+    ensureSettings();
+    state.users = readJson(config.STORAGE_KEYS.users, []);
+    state.settings = {
+      ...config.DEFAULT_SETTINGS,
+      ...readJson(config.STORAGE_KEYS.settings, {})
+    };
+    state.items = mergeItems(config.DEFAULT_ITEMS, readJson(config.STORAGE_KEYS.customItems, []));
+    state.currentUser = getCurrentUser();
+  }
 
-  const favoritesItems = state.favorites
-    .map((id) => findById(id))
-    .filter(Boolean)
-    .map(
-      (item) => `
-        <article class="dashboard-item">
-          <small>${item.type.toUpperCase()}</small>
-          <strong>${getLocalized(item.title)}</strong>
-          <p>${getLocalized(item.description)}</p>
-        </article>
-      `
+  function ensureSettings() {
+    const stored = readJson(config.STORAGE_KEYS.settings, {});
+    if (!stored.adminPassword) {
+      writeJson(config.STORAGE_KEYS.settings, {
+        ...config.DEFAULT_SETTINGS,
+        ...stored
+      });
+    }
+  }
+
+  function readJson(key, fallback) {
+    try {
+      const raw = window.localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    } catch {
+      return fallback;
+    }
+  }
+
+  function writeJson(key, value) {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function mergeItems(defaultItems, customItems) {
+    return [...defaultItems, ...customItems].sort((left, right) => {
+      const leftFeatured = left.featured ? 1 : 0;
+      const rightFeatured = right.featured ? 1 : 0;
+      return rightFeatured - leftFeatured;
+    });
+  }
+
+  function getCurrentUser() {
+    const currentUserId = window.localStorage.getItem(config.STORAGE_KEYS.currentUserId);
+    return state.users.find((user) => user.id === currentUserId) || null;
+  }
+
+  function saveUsers(users) {
+    writeJson(config.STORAGE_KEYS.users, users);
+    state.users = users;
+    state.currentUser = getCurrentUser();
+  }
+
+  function setCurrentUser(userId) {
+    if (userId) {
+      window.localStorage.setItem(config.STORAGE_KEYS.currentUserId, userId);
+    } else {
+      window.localStorage.removeItem(config.STORAGE_KEYS.currentUserId);
+    }
+    state.currentUser = getCurrentUser();
+  }
+
+  function getItemById(itemId) {
+    return state.items.find((item) => item.id === itemId) || null;
+  }
+
+  function isPremiumPlayable(item) {
+    return (item.kind === "video" || item.kind === "audio") && !item.isDaily;
+  }
+
+  function hasUnlockedItem(itemId) {
+    if (!state.currentUser) {
+      return false;
+    }
+
+    return Array.isArray(state.currentUser.purchases) && state.currentUser.purchases.includes(itemId);
+  }
+
+  function isFavorite(itemId) {
+    if (!state.currentUser) {
+      return false;
+    }
+
+    return Array.isArray(state.currentUser.favorites) && state.currentUser.favorites.includes(itemId);
+  }
+
+  function renderSiteChrome() {
+    const headerHost = document.querySelector("[data-site-header]");
+    const footerHost = document.querySelector("[data-site-footer]");
+    const modalHost = document.querySelector("[data-site-modals]");
+    const currentPage = document.body.dataset.page || "home";
+    const accountLabel = state.currentUser ? "Mon compte" : "Login";
+
+    if (headerHost) {
+      headerHost.innerHTML = `
+        <header class="site-header">
+          <div class="site-header__stripe"></div>
+          <div class="container site-header__inner">
+            <div class="site-header__lead">
+              <button class="menu-toggle" type="button" data-drawer-toggle aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <a class="brand" href="/">
+                <span class="brand__title">MAKTABAT</span>
+                <span class="brand__subtitle">Cheikh Abdoul Hamid Sarr</span>
+              </a>
+              <a class="header-login" href="/compte">${accountLabel}</a>
+            </div>
+
+            <nav class="desktop-nav" aria-label="Navigation principale">
+              ${config.NAV_ITEMS.map((item) => `
+                <a class="${item.slug === currentPage ? "is-active" : ""}" href="${item.href}">
+                  ${escapeHtml(item.label)}
+                </a>
+              `).join("")}
+            </nav>
+          </div>
+
+          <div class="drawer-backdrop is-hidden" id="drawerBackdrop" data-drawer-close></div>
+          <aside class="drawer is-hidden" id="mobileDrawer" aria-hidden="true">
+            <div class="drawer__head">
+              <strong>Menu</strong>
+              <button class="drawer__close" type="button" data-drawer-close aria-label="Fermer le menu">x</button>
+            </div>
+            <nav class="drawer__nav" aria-label="Navigation mobile">
+              ${config.NAV_ITEMS.map((item) => `
+                <a class="${item.slug === currentPage ? "is-active" : ""}" href="${item.href}">
+                  ${escapeHtml(item.label)}
+                </a>
+              `).join("")}
+            </nav>
+            <div class="drawer__categories">
+              <p class="section-label">Categories</p>
+              ${config.CATEGORY_TILES.map((tile) => `
+                <a href="${tile.href}">${escapeHtml(tile.title)}</a>
+              `).join("")}
+            </div>
+          </aside>
+        </header>
+      `;
+    }
+
+    if (footerHost) {
+      footerHost.innerHTML = `
+        <footer class="site-footer">
+          <div class="container site-footer__inner">
+            <div>
+              <p class="section-label">MAKTABAT</p>
+              <h2>Maktabat Cheikh Abdoul Hamid Sarr</h2>
+              <p>
+                La memoire vivante des enseignements de Cheikh Abdoul Hamid Sarr et de l'heritage de Cheikh Seydi El Hadj Malick Sy.
+              </p>
+            </div>
+            <div class="site-footer__meta">
+              <p><strong>Contact</strong><br>${escapeHtml(state.settings.supportEmail)}</p>
+              <p><strong>Reseaux</strong><br>Facebook - YouTube - TikTok - Instagram - Telegram</p>
+            </div>
+          </div>
+        </footer>
+      `;
+    }
+
+    if (modalHost) {
+      modalHost.innerHTML = `
+        <div class="modal-shell is-hidden" id="siteModal" aria-hidden="true">
+          <div class="modal-shell__backdrop" data-modal-close></div>
+          <div class="modal-card" id="siteModalCard"></div>
+        </div>
+        <div class="toast" id="siteToast" aria-live="polite"></div>
+      `;
+    }
+  }
+
+  function renderPage() {
+    syncState();
+    const page = document.body.dataset.page;
+
+    if (page === "home") {
+      renderHome();
+    }
+
+    if (page === "mediatheque") {
+      renderMediatheque();
+    }
+
+    if (page === "bibliotheque") {
+      renderBibliotheque();
+    }
+
+    if (page === "compte") {
+      renderCompte();
+    }
+
+    if (page === "admin") {
+      renderAdmin();
+    }
+  }
+
+  function renderHome() {
+    renderHeroSlide(state.heroIndex);
+
+    renderInto("#dailySpotlight", buildFeatureCard(findDailyVideo()));
+
+    const newest = state.items.filter((item) => item.featured && item.id !== "video-day").slice(0, 3);
+    renderInto("#newestFeed", newest.map((item) => buildStackCard(item)).join(""));
+
+    renderInto(
+      "#categoryGrid",
+      config.CATEGORY_TILES.map((tile) => `
+        <a class="category-tile" href="${tile.href}">
+          <p class="category-tile__title">${escapeHtml(tile.title)}</p>
+          <p class="category-tile__text">${escapeHtml(tile.description)}</p>
+        </a>
+      `).join("")
     );
 
-  const historyMarkup = enrichedHistory.slice(0, 3).map(historyEntryMarkup);
-  const continueMarkup = enrichedHistory.slice(0, 3).map(historyEntryMarkup);
+    const premiumItems = state.items.filter(isPremiumPlayable).slice(0, 8);
+    renderInto("#premiumRail", premiumItems.map((item) => buildMediaCard(item, { compact: true })).join(""));
 
-  elements.historyList.innerHTML =
-    historyMarkup.length > 0 ? historyMarkup.join("") : `<div class="list-empty">${t("emptyHistory")}</div>`;
-  elements.favoritesList.innerHTML =
-    favoritesItems.length > 0 ? favoritesItems.join("") : `<div class="list-empty">${t("emptyFavorites")}</div>`;
-  elements.continueList.innerHTML =
-    continueMarkup.length > 0 ? continueMarkup.join("") : `<div class="list-empty">${t("emptyContinue")}</div>`;
-}
+    const libraryPreview = state.items.filter((item) => item.kind === "document" || item.kind === "article").slice(0, 3);
+    renderInto("#libraryPreview", libraryPreview.map((item) => buildInfoCard(item)).join(""));
 
-function buildSearchIndex() {
-  return [...catalog.videos, ...catalog.audios, ...catalog.documents, ...catalog.biographies, ...catalog.gallery];
-}
-
-function renderSearchResults(query) {
-  if (!elements.searchSection || !elements.searchResultsGrid || !elements.searchResultsMeta) return;
-
-  if (!query) {
-    elements.searchSection.classList.add("is-hidden");
-    elements.searchResultsGrid.innerHTML = "";
-    elements.searchResultsMeta.textContent = t("searchResultsText");
-    return;
+    const dossierPreview = state.items.filter((item) => item.kind === "folder").slice(0, 6);
+    renderInto("#dossierPreview", dossierPreview.map((item) => buildInfoCard(item)).join(""));
   }
 
-  const normalizedQuery = query.toLowerCase();
-  const results = buildSearchIndex().filter((item) => {
-    const fields = [
-      getLocalized(item.title),
-      getLocalized(item.description),
-      ...(item.keywords || []),
-      ...Object.values(item.title || {}),
-      ...Object.values(item.description || {})
-    ]
-      .join(" ")
-      .toLowerCase();
-
-    return fields.includes(normalizedQuery);
-  });
-
-  elements.searchSection.classList.remove("is-hidden");
-  elements.searchResultsMeta.textContent = formatMessage("searchResultsMeta", {
-    count: String(results.length),
-    query
-  });
-
-  if (results.length === 0) {
-    elements.searchResultsGrid.innerHTML = `<div class="list-empty">${t("noResults")}</div>`;
-    return;
+  function renderMediatheque() {
+    renderInto("#freeVideoSpotlight", buildFeatureCard(findDailyVideo()));
+    renderInto(
+      "#conferenceVideos",
+      state.items
+        .filter((item) => item.collection === "conference")
+        .map((item) => buildMediaCard(item))
+        .join("")
+    );
+    renderInto(
+      "#gamouVideos",
+      state.items
+        .filter((item) => item.collection === "gamou")
+        .map((item) => buildMediaCard(item))
+        .join("")
+    );
+    renderInto(
+      "#audioGrid",
+      state.items
+        .filter((item) => item.collection === "audio")
+        .map((item) => buildMediaCard(item))
+        .join("")
+    );
   }
 
-  elements.searchResultsGrid.innerHTML = results
-    .map(
-      (item) => `
-        <article class="search-result">
-          <small>${item.type.toUpperCase()}</small>
-          <h3>${getLocalized(item.title)}</h3>
-          <p>${getLocalized(item.description)}</p>
-          <div class="search-result__actions">
-            <button class="outline-button" type="button" data-search-open="${item.id}">${item.type === "video" ? t("watchNow") : t("readPreview")}</button>
-            <button class="outline-button" type="button" data-favorite-id="${item.id}">${state.favorites.includes(item.id) ? t("favoriteRemove") : t("favoriteAdd")}</button>
-          </div>
-        </article>
-      `
-    )
-    .join("");
-}
+  function renderBibliotheque() {
+    renderInto(
+      "#documentGrid",
+      state.items
+        .filter((item) => item.collection === "document")
+        .map((item) => buildInfoCard(item))
+        .join("")
+    );
+    renderInto(
+      "#articleGrid",
+      state.items
+        .filter((item) => item.collection === "article")
+        .map((item) => buildInfoCard(item))
+        .join("")
+    );
+    renderInto(
+      "#folderGrid",
+      state.items
+        .filter((item) => item.collection === "folder")
+        .map((item) => buildInfoCard(item))
+        .join("")
+    );
+    renderInto(
+      "#photoGrid",
+      state.items
+        .filter((item) => item.collection === "photo")
+        .map((item) => buildInfoCard(item))
+        .join("")
+    );
+  }
 
-function persistFavorite(id) {
-  const alreadyFavorite = state.favorites.includes(id);
+  function renderCompte() {
+    const authPanel = document.querySelector("#authPanel");
+    const dashboardPanel = document.querySelector("#dashboardPanel");
 
-  state.favorites = alreadyFavorite
-    ? state.favorites.filter((favoriteId) => favoriteId !== id)
-    : [id, ...state.favorites];
-
-  saveState();
-  renderVideos();
-  renderAudio();
-  renderSearchResults(elements.searchInput.value.trim());
-  renderDashboard();
-  showToast(alreadyFavorite ? "toastFavoriteRemoved" : "toastFavoriteAdded");
-}
-
-function pushHistory(item) {
-  state.history = [
-    {
-      id: item.id,
-      type: item.type,
-      progress: Math.max(18, Math.floor(Math.random() * 68) + 18),
-      timestamp: Date.now()
-    },
-    ...state.history.filter((entry) => entry.id !== item.id)
-  ].slice(0, 8);
-
-  saveState();
-  renderDashboard();
-}
-
-function openItem(id) {
-  const item = findById(id);
-  if (!item) return;
-
-  if (item.type === "video") {
-    state.currentFeaturedId = id;
-    renderFeatured();
-    if (elements.featuredSection) {
-      elements.featuredSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!authPanel || !dashboardPanel) {
+      return;
     }
-    pushHistory(item);
-    showToast("toastHistory");
-  } else if (item.type === "audio") {
-    state.currentAudioId = id;
-    renderAudio();
-    elements.audioPlayer.scrollIntoView({ behavior: "smooth", block: "center" });
-    elements.audioPlayer.play().catch(() => undefined);
-    pushHistory(item);
-    showToast("toastHistory");
-  } else if (item.type === "biography") {
-    showToast("toastBio");
-  } else if (item.type === "document") {
-    showToast(item.premium ? "toastDocumentPremium" : "toastDocumentPreview");
-  } else if (item.type === "gallery") {
-    showToast("toastDocumentPreview");
+
+    if (!state.currentUser) {
+      authPanel.innerHTML = `
+        <h2>Connexion et inscription</h2>
+        <p class="muted-copy">Le paiement premium et l'historique personnel passent par un compte local du site.</p>
+
+        <div class="auth-tabs">
+          <form class="auth-form" id="loginForm">
+            <h3>Connexion</h3>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required>
+            </label>
+            <label>
+              <span>Mot de passe</span>
+              <input type="password" name="password" required>
+            </label>
+            <button class="button button--primary" type="submit">Se connecter</button>
+          </form>
+
+          <form class="auth-form" id="signupForm">
+            <h3>Inscription</h3>
+            <label>
+              <span>Nom complet</span>
+              <input type="text" name="name" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required>
+            </label>
+            <label>
+              <span>Mot de passe</span>
+              <input type="password" name="password" required minlength="6">
+            </label>
+            <button class="button button--primary" type="submit">Creer mon compte</button>
+          </form>
+        </div>
+
+        <form class="auth-form auth-form--reset" id="resetForm">
+          <h3>Mot de passe oublie</h3>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required>
+          </label>
+          <button class="button button--ghost" type="submit">Recevoir le lien</button>
+        </form>
+      `;
+
+      dashboardPanel.innerHTML = `
+        <h2>Votre espace personnel</h2>
+        <p class="muted-copy">
+          Une fois connecte, vous retrouvez les contenus debloques, l'historique, les favoris et la reprise de lecture.
+        </p>
+        <div class="account-benefits">
+          <div class="mini-card">
+            <strong>Historique</strong>
+            <span>Chaque lecture est memorisee dans votre compte.</span>
+          </div>
+          <div class="mini-card">
+            <strong>Favoris</strong>
+            <span>Marquez les videos, audios ou dossiers a revoir plus tard.</span>
+          </div>
+          <div class="mini-card">
+            <strong>Acces premium</strong>
+            <span>Un contenu paye reste debloque pour vos prochaines ecoutes.</span>
+          </div>
+        </div>
+      `;
+
+      return;
+    }
+
+    const purchases = state.currentUser.purchases || [];
+    const favorites = state.currentUser.favorites || [];
+    const history = state.currentUser.history || [];
+
+    authPanel.innerHTML = `
+      <h2>${escapeHtml(state.currentUser.name)}</h2>
+      <p class="muted-copy">${escapeHtml(state.currentUser.email)}</p>
+      <div class="mini-card-list">
+        <div class="mini-card">
+          <strong>${purchases.length}</strong>
+          <span>contenu(x) premium debloque(s)</span>
+        </div>
+        <div class="mini-card">
+          <strong>${favorites.length}</strong>
+          <span>favori(s)</span>
+        </div>
+        <div class="mini-card">
+          <strong>${history.length}</strong>
+          <span>lecture(s) recentes</span>
+        </div>
+      </div>
+      <button class="button button--ghost" type="button" data-logout-user>Se deconnecter</button>
+    `;
+
+    dashboardPanel.innerHTML = `
+      <h2>Tableau de bord personnel</h2>
+      <div class="dashboard-grid">
+        <div class="dashboard-block">
+          <h3>Contenus debloques</h3>
+          ${buildSimpleList(purchases)}
+        </div>
+        <div class="dashboard-block">
+          <h3>Favoris</h3>
+          ${buildSimpleList(favorites)}
+        </div>
+        <div class="dashboard-block">
+          <h3>Historique recent</h3>
+          ${buildHistoryList(history)}
+        </div>
+      </div>
+    `;
   }
-}
 
-function shareCurrent(title) {
-  const url = encodeURIComponent(window.location.href);
-  const text = encodeURIComponent(title);
-  const shareUrl = `https://wa.me/?text=${text}%20${url}`;
-  window.open(shareUrl, "_blank", "noopener");
-  showToast("toastShare");
-}
+  function renderAdmin() {
+    const lockPanel = document.querySelector("#adminLockPanel");
+    const consolePanel = document.querySelector("#adminConsole");
 
-function openModal(view = "signin") {
-  state.currentAuthView = view;
-  elements.authModal.classList.remove("is-hidden");
-  elements.authModal.setAttribute("aria-hidden", "false");
-  switchAuthView(view);
-}
+    if (!lockPanel || !consolePanel) {
+      return;
+    }
 
-function closeModal() {
-  elements.authModal.classList.add("is-hidden");
-  elements.authModal.setAttribute("aria-hidden", "true");
-}
+    const isUnlocked = window.localStorage.getItem(config.STORAGE_KEYS.adminUnlocked) === "true";
 
-function switchAuthView(view) {
-  state.currentAuthView = view;
-  elements.authSwitchers.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.authView === view);
-  });
+    if (!isUnlocked) {
+      lockPanel.innerHTML = `
+        <h2>Acces admin prive</h2>
+        <p class="muted-copy">Entrez le mot de passe admin pour gerer les contenus et les reglages premium.</p>
+        <form class="auth-form" id="adminUnlockForm">
+          <label>
+            <span>Mot de passe admin</span>
+            <input type="password" name="password" required>
+          </label>
+          <button class="button button--primary" type="submit">Ouvrir l'admin</button>
+        </form>
+        <p class="admin-note">
+          Cette administration est locale au navigateur. Pour une securite reelle et des paiements verifies, il faudra connecter un backend.
+        </p>
+      `;
+      consolePanel.classList.add("is-hidden");
+      return;
+    }
 
-  elements.authPanels.forEach((panel) => {
-    panel.classList.toggle("is-active", panel.dataset.authPanel === view);
-  });
-}
+    lockPanel.innerHTML = `
+      <div class="admin-headline">
+        <div>
+          <h2>Session admin ouverte</h2>
+          <p class="muted-copy">Vous pouvez maintenant modifier les contenus par categorie.</p>
+        </div>
+        <button class="button button--ghost" type="button" data-lock-admin>Fermer la session admin</button>
+      </div>
+    `;
+    consolePanel.classList.remove("is-hidden");
 
-function initializeObservers() {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-        }
-      });
-    },
-    { threshold: 0.14 }
-  );
-
-  document.querySelectorAll("[data-reveal]").forEach((node) => observer.observe(node));
-}
-
-function bindEvents() {
-  if (elements.languageSelect) {
-    elements.languageSelect.addEventListener("change", (event) => {
-      state.language = event.target.value;
-      saveState();
-      applyLanguage();
-    });
+    renderInto("#adminStats", buildAdminStats());
+    renderInto("#adminSettingsPanel", buildAdminSettingsPanel());
+    renderInto("#adminEditorPanel", buildAdminEditorPanel());
+    renderInto("#adminItemsPanel", buildAdminItemsPanel());
   }
 
-  if (elements.themeToggle) {
-    elements.themeToggle.addEventListener("click", () => {
-      state.theme = state.theme === "dark" ? "light" : "dark";
-      saveState();
-      updateTheme();
-    });
+  function buildAdminStats() {
+    const usersCount = state.users.length;
+    const videosCount = state.items.filter((item) => item.kind === "video").length;
+    const audiosCount = state.items.filter((item) => item.kind === "audio").length;
+    const docsCount = state.items.filter((item) => item.kind === "document" || item.kind === "article").length;
+    const viewsCount = state.users.reduce((count, user) => count + (user.history || []).length, 0);
+
+    return [
+      buildStatCard("Membres", usersCount),
+      buildStatCard("Videos", videosCount),
+      buildStatCard("Audios", audiosCount),
+      buildStatCard("Documents", docsCount),
+      buildStatCard("Vues", viewsCount)
+    ].join("");
   }
 
-  if (elements.menuToggle) {
-    elements.menuToggle.addEventListener("click", () => {
-      document.body.classList.toggle("menu-open");
-    });
+  function buildStatCard(label, value) {
+    return `
+      <article class="stat-card">
+        <strong>${value}</strong>
+        <span>${escapeHtml(label)}</span>
+      </article>
+    `;
   }
 
-  document.addEventListener("click", (event) => {
-    const filterButton = event.target.closest("[data-filter]");
-    const favoriteButton = event.target.closest("[data-favorite-id]");
-    const videoButton = event.target.closest("[data-play-video]");
-    const audioButton = event.target.closest("[data-audio-id]");
-    const previewButton = event.target.closest("[data-doc-preview]");
-    const downloadButton = event.target.closest("[data-doc-download]");
-    const searchButton = event.target.closest("[data-search-open]");
-    const bioButton = event.target.closest("[data-bio-id]");
-    const galleryButton = event.target.closest("[data-gallery-open]");
-    const closeModalButton = event.target.closest("[data-close-modal]");
-    const authOpenButton = event.target.closest("#openAuthHeader, #openAuthHero, #pricingSubscribe, #accountSignupAction, #accountSigninAction");
-    const authSwitchButton = event.target.closest("[data-auth-view]");
-    const socialButton = event.target.closest("[data-network]");
+  function buildAdminSettingsPanel() {
+    return `
+      <h2>Reglages premium</h2>
+      <form class="auth-form" id="adminSettingsForm">
+        <label>
+          <span>Mot de passe admin</span>
+          <input type="text" name="adminPassword" value="${escapeHtml(state.settings.adminPassword)}" required>
+        </label>
+        <label>
+          <span>Prix Wave en FCFA</span>
+          <input type="number" name="wavePrice" min="0" value="${escapeHtml(String(state.settings.wavePrice))}" required>
+        </label>
+        <label>
+          <span>URL du QR Wave</span>
+          <input type="url" name="waveQrUrl" value="${escapeHtml(state.settings.waveQrUrl)}" required>
+        </label>
+        <label>
+          <span>Email de contact</span>
+          <input type="email" name="supportEmail" value="${escapeHtml(state.settings.supportEmail)}" required>
+        </label>
+        <button class="button button--primary" type="submit">Enregistrer les reglages</button>
+      </form>
+    `;
+  }
 
-    if (filterButton) {
-      state.activeCategory = filterButton.dataset.filter;
-      renderFilters();
-      renderVideos();
+  function buildAdminEditorPanel() {
+    return `
+      <h2>Ajouter un contenu</h2>
+      <form class="auth-form" id="adminItemForm">
+        <label>
+          <span>Titre</span>
+          <input type="text" name="title" required>
+        </label>
+        <label>
+          <span>Type</span>
+          <select name="kind" required>
+            <option value="video">Video</option>
+            <option value="audio">Audio</option>
+            <option value="document">Document PDF</option>
+            <option value="article">Article</option>
+            <option value="image">Image</option>
+            <option value="folder">Dossier</option>
+          </select>
+        </label>
+        <label>
+          <span>Categorie</span>
+          <select name="category" required>
+            ${config.ADMIN_CATEGORIES.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join("")}
+          </select>
+        </label>
+        <label>
+          <span>Description</span>
+          <textarea name="description" rows="4" required></textarea>
+        </label>
+        <label>
+          <span>Duree ou etiquette</span>
+          <input type="text" name="duration" placeholder="25 min, PDF, Article..." required>
+        </label>
+        <label>
+          <span>Image de couverture (URL ou chemin)</span>
+          <input type="text" name="cover" placeholder="/assets/images/hero-cheikh.jpeg">
+        </label>
+        <label>
+          <span>Source du media ou du fichier (URL ou chemin)</span>
+          <input type="text" name="mediaSrc" placeholder="/assets/videos/conference-01.mp4">
+        </label>
+        <label class="checkbox-field">
+          <input type="checkbox" name="featured">
+          <span>Mettre en avant sur l'accueil</span>
+        </label>
+        <button class="button button--primary" type="submit">Ajouter le contenu</button>
+      </form>
+    `;
+  }
+
+  function buildAdminItemsPanel() {
+    const customItems = readJson(config.STORAGE_KEYS.customItems, []);
+
+    return `
+      <div class="admin-items-head">
+        <div>
+          <h2>Contenus ajoutes depuis l'admin</h2>
+          <p class="muted-copy">${customItems.length} contenu(x) personnalise(s)</p>
+        </div>
+      </div>
+      <div class="admin-item-list">
+        ${customItems.length
+          ? customItems.map((item) => `
+              <article class="admin-item">
+                <div>
+                  <strong>${escapeHtml(item.title)}</strong>
+                  <p>${escapeHtml(item.kind)} - ${escapeHtml(item.category)} - ${escapeHtml(item.duration)}</p>
+                </div>
+                <button class="button button--ghost button--small" type="button" data-delete-custom-item="${item.id}">Supprimer</button>
+              </article>
+            `).join("")
+          : `<p class="empty-state">Aucun contenu ajoute pour le moment.</p>`}
+      </div>
+    `;
+  }
+
+  function buildFeatureCard(item) {
+    if (!item) {
+      return "";
+    }
+
+    return `
+      <article class="feature-card">
+        <div class="feature-card__media">
+          <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+        </div>
+        <div class="feature-card__body">
+          <p class="section-label">${escapeHtml(item.category)}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.description)}</p>
+          <div class="meta-row">
+            <span>${escapeHtml(item.duration)}</span>
+            <span>${escapeHtml(item.label || item.access.toUpperCase())}</span>
+          </div>
+          <div class="action-row">
+            <button class="button button--primary" type="button" data-open-item="${item.id}">Ouvrir</button>
+            <button class="button button--ghost" type="button" data-favorite-item="${item.id}">Favori</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function buildStackCard(item) {
+    return `
+      <article class="stack-card">
+        <div class="stack-card__media">
+          <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+          <span class="stack-card__badge">${escapeHtml(item.duration)}</span>
+        </div>
+        <div class="stack-card__body">
+          <p class="section-label">${escapeHtml(item.category)}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.description)}</p>
+          <div class="action-row">
+            <button class="button button--primary button--small" type="button" data-open-item="${item.id}">Ouvrir</button>
+            <button class="button button--ghost button--small" type="button" data-favorite-item="${item.id}">Favori</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function buildMediaCard(item, options = {}) {
+    const classes = options.compact ? "media-card media-card--compact" : "media-card";
+    const accessLabel = hasUnlockedItem(item.id) ? "DEBLOQUE" : item.label || item.access.toUpperCase();
+
+    return `
+      <article class="${classes}">
+        <div class="media-card__media">
+          <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+        </div>
+        <div class="media-card__body">
+          <p class="section-label">${escapeHtml(item.category)}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.description)}</p>
+          <div class="meta-row">
+            <span>${escapeHtml(item.duration)}</span>
+            <span>${escapeHtml(accessLabel)}</span>
+          </div>
+          <div class="action-row">
+            <button class="button button--primary button--small" type="button" data-open-item="${item.id}">
+              ${item.kind === "audio" ? "Ecouter" : "Voir"}
+            </button>
+            <button class="button button--ghost button--small" type="button" data-favorite-item="${item.id}">Favori</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function buildInfoCard(item) {
+    return `
+      <article class="info-card">
+        <div class="info-card__media">
+          <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+        </div>
+        <div class="info-card__body">
+          <p class="section-label">${escapeHtml(item.category)}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.description)}</p>
+          <div class="meta-row">
+            <span>${escapeHtml(item.duration)}</span>
+            <span>${escapeHtml(item.label || item.access.toUpperCase())}</span>
+          </div>
+          <div class="action-row">
+            <button class="button button--primary button--small" type="button" data-open-item="${item.id}">Ouvrir</button>
+            <button class="button button--ghost button--small" type="button" data-favorite-item="${item.id}">Favori</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function buildSimpleList(itemIds) {
+    if (!itemIds.length) {
+      return `<p class="empty-state">Aucun contenu pour le moment.</p>`;
+    }
+
+    return `
+      <div class="dashboard-list">
+        ${itemIds.map((itemId) => {
+          const item = getItemById(itemId);
+          if (!item) {
+            return "";
+          }
+
+          return `
+            <button class="dashboard-item" type="button" data-open-item="${item.id}">
+              <strong>${escapeHtml(item.title)}</strong>
+              <span>${escapeHtml(item.category)}</span>
+            </button>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
+
+  function buildHistoryList(historyEntries) {
+    if (!historyEntries.length) {
+      return `<p class="empty-state">Aucune lecture recente pour le moment.</p>`;
+    }
+
+    return `
+      <div class="dashboard-list">
+        ${historyEntries.slice(0, 8).map((entry) => {
+          const item = getItemById(entry.id);
+          if (!item) {
+            return "";
+          }
+
+          return `
+            <button class="dashboard-item" type="button" data-open-item="${item.id}">
+              <strong>${escapeHtml(item.title)}</strong>
+              <span>${new Date(entry.at).toLocaleString("fr-FR")}</span>
+            </button>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
+
+  function renderHeroSlide(index) {
+    const slide = config.HERO_SLIDES[index];
+    const carousel = document.querySelector("#heroCarousel");
+    const label = document.querySelector("#heroLabel");
+    const title = document.querySelector("#heroTitle");
+    const text = document.querySelector("#heroText");
+    const dots = document.querySelector("#heroDots");
+
+    if (!carousel || !slide) {
+      return;
+    }
+
+    carousel.innerHTML = `
+      <div class="hero-slide is-active">
+        <img src="${escapeHtml(slide.image)}" alt="${escapeHtml(slide.title)}" loading="eager">
+        <div class="hero-slide__shade"></div>
+      </div>
+    `;
+
+    if (label) {
+      label.textContent = slide.label;
+    }
+
+    if (title) {
+      title.textContent = slide.title;
+    }
+
+    if (text) {
+      text.textContent = slide.text;
+    }
+
+    if (dots) {
+      dots.innerHTML = config.HERO_SLIDES.map((_, dotIndex) => `
+        <button
+          class="hero-dot ${dotIndex === index ? "is-active" : ""}"
+          type="button"
+          data-hero-dot="${dotIndex}"
+          aria-label="Aller a l'image ${dotIndex + 1}"
+        ></button>
+      `).join("");
+    }
+  }
+
+  function initHeroCarousel() {
+    clearInterval(state.heroTimer);
+
+    if (document.body.dataset.page !== "home") {
+      return;
+    }
+
+    state.heroTimer = window.setInterval(() => {
+      state.heroIndex = (state.heroIndex + 1) % config.HERO_SLIDES.length;
+      renderHeroSlide(state.heroIndex);
+    }, 5000);
+  }
+
+  function nextHeroSlide(step) {
+    state.heroIndex = (state.heroIndex + step + config.HERO_SLIDES.length) % config.HERO_SLIDES.length;
+    renderHeroSlide(state.heroIndex);
+    initHeroCarousel();
+  }
+
+  function renderInto(selector, markup) {
+    const element = document.querySelector(selector);
+    if (!element) {
+      return;
+    }
+    element.innerHTML = markup;
+  }
+
+  function findDailyVideo() {
+    return state.items.find((item) => item.isDaily) || null;
+  }
+
+  function handleDocumentClick(event) {
+    const drawerToggle = event.target.closest("[data-drawer-toggle]");
+    const drawerClose = event.target.closest("[data-drawer-close]");
+    const modalClose = event.target.closest("[data-modal-close]");
+    const openItemButton = event.target.closest("[data-open-item]");
+    const favoriteButton = event.target.closest("[data-favorite-item]");
+    const unlockButton = event.target.closest("[data-activate-premium]");
+    const logoutUser = event.target.closest("[data-logout-user]");
+    const lockAdmin = event.target.closest("[data-lock-admin]");
+    const deleteCustomItem = event.target.closest("[data-delete-custom-item]");
+    const heroPrev = event.target.closest("#heroPrev");
+    const heroNext = event.target.closest("#heroNext");
+    const heroDot = event.target.closest("[data-hero-dot]");
+
+    if (drawerToggle) {
+      toggleDrawer(true);
+    }
+
+    if (drawerClose) {
+      toggleDrawer(false);
+    }
+
+    if (modalClose) {
+      closeModal();
+    }
+
+    if (openItemButton) {
+      const item = getItemById(openItemButton.dataset.openItem);
+      if (item) {
+        openItem(item);
+      }
     }
 
     if (favoriteButton) {
-      persistFavorite(favoriteButton.dataset.favoriteId);
+      toggleFavorite(favoriteButton.dataset.favoriteItem);
     }
 
-    if (videoButton) {
-      openItem(videoButton.dataset.playVideo);
+    if (unlockButton) {
+      activatePremium(unlockButton.dataset.activatePremium);
     }
 
-    if (audioButton) {
-      openItem(audioButton.dataset.audioId);
+    if (logoutUser) {
+      setCurrentUser("");
+      renderSiteChrome();
+      renderPage();
+      showToast("Vous etes deconnecte.");
     }
 
-    if (previewButton) {
-      openItem(previewButton.dataset.docPreview);
+    if (lockAdmin) {
+      window.localStorage.removeItem(config.STORAGE_KEYS.adminUnlocked);
+      renderPage();
+      showToast("Session admin fermee.");
     }
 
-    if (downloadButton) {
-      const doc = findById(downloadButton.dataset.docDownload);
-      showToast(doc?.premium ? "toastDocumentPremium" : "toastDocumentPreview");
+    if (deleteCustomItem) {
+      deleteAdminItem(deleteCustomItem.dataset.deleteCustomItem);
     }
 
-    if (searchButton) {
-      openItem(searchButton.dataset.searchOpen);
+    if (heroPrev) {
+      nextHeroSlide(-1);
     }
 
-    if (bioButton) {
-      openItem(bioButton.dataset.bioId);
+    if (heroNext) {
+      nextHeroSlide(1);
     }
 
-    if (galleryButton) {
-      openItem(galleryButton.dataset.galleryOpen);
+    if (heroDot) {
+      state.heroIndex = Number(heroDot.dataset.heroDot);
+      renderHeroSlide(state.heroIndex);
+      initHeroCarousel();
     }
+  }
 
-    if (closeModalButton) {
-      closeModal();
-    }
-
-    if (authOpenButton) {
-      const requestedView = authOpenButton.id === "accountSignupAction" ? "signup" : "signin";
-      openModal(requestedView);
-    }
-
-    if (authSwitchButton) {
-      switchAuthView(authSwitchButton.dataset.authView);
-    }
-
-    if (socialButton) {
-      shareCurrent(`Maktabat CHS • ${socialButton.dataset.network}`);
-    }
-  });
-
-  if (elements.searchForm && elements.searchInput && elements.searchSection) {
-    elements.searchForm.addEventListener("submit", (event) => {
+  function handleDocumentSubmit(event) {
+    if (event.target.matches("#globalSearchForm")) {
       event.preventDefault();
-      const query = elements.searchInput.value.trim();
+      const formData = new FormData(event.target);
+      runSearch(String(formData.get("query") || ""));
+    }
 
-      if (!query) {
-        showToast("toastSearchEmpty");
+    if (event.target.matches("#signupForm")) {
+      event.preventDefault();
+      handleSignup(new FormData(event.target));
+    }
+
+    if (event.target.matches("#loginForm")) {
+      event.preventDefault();
+      handleLogin(new FormData(event.target));
+    }
+
+    if (event.target.matches("#resetForm")) {
+      event.preventDefault();
+      showToast("Lien de reinitialisation simule.");
+    }
+
+    if (event.target.matches("#adminUnlockForm")) {
+      event.preventDefault();
+      handleAdminUnlock(new FormData(event.target));
+    }
+
+    if (event.target.matches("#adminSettingsForm")) {
+      event.preventDefault();
+      handleSettingsSave(new FormData(event.target));
+    }
+
+    if (event.target.matches("#adminItemForm")) {
+      event.preventDefault();
+      handleAdminItemCreate(new FormData(event.target), event.target);
+    }
+  }
+
+  function runSearch(query) {
+    const resultsContainer = document.querySelector("#searchResults");
+    if (!resultsContainer) {
+      return;
+    }
+
+    const cleanQuery = query.trim().toLowerCase();
+    if (!cleanQuery) {
+      resultsContainer.classList.add("is-hidden");
+      resultsContainer.innerHTML = "";
+      showToast("Saisissez un mot-cle pour lancer la recherche.");
+      return;
+    }
+
+    const results = state.items.filter((item) => {
+      const haystack = [item.title, item.description, item.category, item.kind].join(" ").toLowerCase();
+      return haystack.includes(cleanQuery);
+    });
+
+    resultsContainer.classList.remove("is-hidden");
+    resultsContainer.innerHTML = results.length
+      ? results.map((item) => buildInfoCard(item.kind === "video" || item.kind === "audio" ? item : item)).join("")
+      : `<p class="empty-state">Aucun contenu correspondant a votre recherche.</p>`;
+  }
+
+  function handleSignup(formData) {
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim().toLowerCase();
+    const password = String(formData.get("password") || "");
+
+    if (!name || !email || !password) {
+      showToast("Veuillez remplir tous les champs.");
+      return;
+    }
+
+    if (state.users.some((user) => user.email === email)) {
+      showToast("Un compte existe deja avec cet email.");
+      return;
+    }
+
+    const user = {
+      id: `user-${Date.now()}`,
+      name,
+      email,
+      password,
+      purchases: [],
+      favorites: [],
+      history: []
+    };
+
+    saveUsers([...state.users, user]);
+    setCurrentUser(user.id);
+    renderSiteChrome();
+    renderPage();
+    showToast("Compte cree avec succes.");
+  }
+
+  function handleLogin(formData) {
+    const email = String(formData.get("email") || "").trim().toLowerCase();
+    const password = String(formData.get("password") || "");
+    const user = state.users.find((entry) => entry.email === email && entry.password === password);
+
+    if (!user) {
+      showToast("Identifiants incorrects.");
+      return;
+    }
+
+    setCurrentUser(user.id);
+    renderSiteChrome();
+    renderPage();
+    showToast("Connexion reussie.");
+  }
+
+  function handleAdminUnlock(formData) {
+    const password = String(formData.get("password") || "");
+    if (password !== state.settings.adminPassword) {
+      showToast("Mot de passe admin incorrect.");
+      return;
+    }
+
+    window.localStorage.setItem(config.STORAGE_KEYS.adminUnlocked, "true");
+    renderPage();
+    showToast("Session admin ouverte.");
+  }
+
+  function handleSettingsSave(formData) {
+    const nextSettings = {
+      adminPassword: String(formData.get("adminPassword") || config.DEFAULT_ADMIN_PASSWORD).trim() || config.DEFAULT_ADMIN_PASSWORD,
+      wavePrice: Number(formData.get("wavePrice") || 500),
+      waveQrUrl: String(formData.get("waveQrUrl") || config.DEFAULT_SETTINGS.waveQrUrl).trim() || config.DEFAULT_SETTINGS.waveQrUrl,
+      supportEmail: String(formData.get("supportEmail") || config.DEFAULT_SETTINGS.supportEmail).trim() || config.DEFAULT_SETTINGS.supportEmail
+    };
+
+    writeJson(config.STORAGE_KEYS.settings, nextSettings);
+    syncState();
+    renderSiteChrome();
+    renderPage();
+    showToast("Reglages admin enregistres.");
+  }
+
+  function handleAdminItemCreate(formData, form) {
+    const title = String(formData.get("title") || "").trim();
+    const kind = String(formData.get("kind") || "").trim();
+    const category = String(formData.get("category") || "").trim();
+    const description = String(formData.get("description") || "").trim();
+    const duration = String(formData.get("duration") || "").trim();
+    const cover = String(formData.get("cover") || "").trim() || "/assets/images/hero-cheikh.jpeg";
+    const mediaSrc = String(formData.get("mediaSrc") || "").trim();
+    const featured = formData.get("featured") === "on";
+
+    if (!title || !kind || !category || !description || !duration) {
+      showToast("Tous les champs principaux sont requis.");
+      return;
+    }
+
+    const isDaily = kind === "video" && category === "Video du jour";
+    const access = (kind === "video" || kind === "audio") && !isDaily ? "premium" : "free";
+    const label = kind === "document" ? "PDF" : kind === "article" ? "ARTICLE" : kind === "folder" ? "DOSSIER" : kind === "image" ? "PHOTO" : access.toUpperCase();
+
+    const newItem = {
+      id: `${slugify(title)}-${Date.now()}`,
+      kind,
+      title,
+      description,
+      category,
+      collection: inferCollection(kind, category),
+      duration,
+      access,
+      isDaily,
+      cover,
+      mediaSrc,
+      label,
+      featured
+    };
+
+    const customItems = readJson(config.STORAGE_KEYS.customItems, []);
+    writeJson(config.STORAGE_KEYS.customItems, [...customItems, newItem]);
+    syncState();
+    renderPage();
+    form.reset();
+    showToast("Contenu ajoute.");
+  }
+
+  function deleteAdminItem(itemId) {
+    const customItems = readJson(config.STORAGE_KEYS.customItems, []);
+    writeJson(
+      config.STORAGE_KEYS.customItems,
+      customItems.filter((item) => item.id !== itemId)
+    );
+    syncState();
+    renderPage();
+    showToast("Contenu supprime.");
+  }
+
+  function inferCollection(kind, category) {
+    if (kind === "video" && category.startsWith("Conference")) {
+      return "conference";
+    }
+
+    if (kind === "video" && category.startsWith("Gamou")) {
+      return "gamou";
+    }
+
+    if (kind === "video" && category === "Video du jour") {
+      return "daily";
+    }
+
+    if (kind === "audio") {
+      return "audio";
+    }
+
+    if (kind === "document") {
+      return "document";
+    }
+
+    if (kind === "article") {
+      return "article";
+    }
+
+    if (kind === "image") {
+      return "photo";
+    }
+
+    if (kind === "folder") {
+      return "folder";
+    }
+
+    return "misc";
+  }
+
+  function slugify(value) {
+    return value
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function toggleDrawer(shouldOpen) {
+    const drawer = document.querySelector("#mobileDrawer");
+    const backdrop = document.querySelector("#drawerBackdrop");
+
+    if (!drawer || !backdrop) {
+      return;
+    }
+
+    drawer.classList.toggle("is-hidden", !shouldOpen);
+    backdrop.classList.toggle("is-hidden", !shouldOpen);
+    drawer.setAttribute("aria-hidden", shouldOpen ? "false" : "true");
+  }
+
+  function openItem(item) {
+    if (item.kind === "video" || item.kind === "audio") {
+      openMediaModal(item);
+      addHistory(item.id);
+      return;
+    }
+
+    openInfoModal(item);
+  }
+
+  function openMediaModal(item) {
+    const canAccessFull = !isPremiumPlayable(item) || hasUnlockedItem(item.id);
+    const tagName = item.kind === "audio" ? "audio" : "video";
+    const playerMarkup = tagName === "audio"
+      ? `<audio id="modalPlayer" controls preload="metadata" src="${escapeHtml(item.mediaSrc)}"></audio>`
+      : `<video id="modalPlayer" controls preload="metadata" playsinline src="${escapeHtml(item.mediaSrc)}"></video>`;
+
+    openModal(`
+      <div class="modal-head">
+        <div>
+          <p class="section-label">${escapeHtml(item.category)}</p>
+          <h2>${escapeHtml(item.title)}</h2>
+        </div>
+        <button class="drawer__close" type="button" data-modal-close aria-label="Fermer">x</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-media">${playerMarkup}</div>
+        <div class="modal-copy">
+          <p>${escapeHtml(item.description)}</p>
+          <div class="meta-row">
+            <span>${escapeHtml(item.duration)}</span>
+            <span>${canAccessFull ? "ACCES COMPLET" : "1 MIN GRATUITE"}</span>
+          </div>
+          <div class="paywall-card ${canAccessFull ? "is-hidden" : ""}" id="paywallCard">
+            <h3>Continuer la lecture</h3>
+            <p>
+              Connectez-vous puis reglez ${escapeHtml(String(state.settings.wavePrice))} FCFA par Wave pour debloquer ce contenu sur votre compte.
+            </p>
+            <div class="qr-card">
+              <img src="${escapeHtml(state.settings.waveQrUrl)}" alt="QR Wave">
+              <div>
+                <strong>Paiement Wave</strong>
+                <span>Le QR definitif pourra etre remplace ici depuis l'admin.</span>
+              </div>
+            </div>
+            <div class="action-row">
+              ${state.currentUser
+                ? `<button class="button button--primary" type="button" data-activate-premium="${item.id}">J'ai paye, activer l'acces</button>`
+                : `<a class="button button--primary" href="/compte">Se connecter</a>`}
+              <button class="button button--ghost" type="button" data-modal-close>Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `);
+
+    bindPremiumPreview(item);
+  }
+
+  function bindPremiumPreview(item) {
+    if (!isPremiumPlayable(item) || hasUnlockedItem(item.id)) {
+      return;
+    }
+
+    const player = document.querySelector("#modalPlayer");
+    const paywallCard = document.querySelector("#paywallCard");
+
+    if (!player || !paywallCard) {
+      return;
+    }
+
+    let gateTriggered = false;
+
+    const onTimeUpdate = () => {
+      if (gateTriggered || player.currentTime < 60) {
         return;
       }
 
-      renderSearchResults(query);
-      elements.searchSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+      gateTriggered = true;
+      player.pause();
+      paywallCard.classList.remove("is-hidden");
+      showToast("La minute gratuite est terminee. Connectez-vous puis payez pour continuer.");
+    };
 
-    elements.searchInput.addEventListener("input", (event) => {
-      const value = event.target.value.trim();
-      if (!value) {
-        renderSearchResults("");
-      }
-    });
+    player.addEventListener("timeupdate", onTimeUpdate);
   }
 
-  if (elements.featuredPlayAction) {
-    elements.featuredPlayAction.addEventListener("click", () => {
-      const item = findById(state.currentFeaturedId);
-      if (item) {
-        pushHistory(item);
-        showToast("toastHistory");
-      }
-    });
-  }
-
-  if (elements.featuredShareAction) {
-    elements.featuredShareAction.addEventListener("click", () => {
-      const item = findById(state.currentFeaturedId);
-      if (item) {
-        shareCurrent(getLocalized(item.title));
-      }
-    });
-  }
-
-  if (elements.audioBookmarkAction) {
-    elements.audioBookmarkAction.addEventListener("click", () => {
-      persistFavorite(state.currentAudioId);
-    });
-  }
-
-  if (elements.notifyToggle) {
-    elements.notifyToggle.addEventListener("click", () => {
-      showToast("toastNotifications");
-    });
-  }
-
-  const pricingContactButton = document.querySelector("#pricingContact");
-  if (pricingContactButton) {
-    pricingContactButton.addEventListener("click", () => {
-      showToast("toastContact");
-    });
-  }
-
-  document.querySelectorAll("#signinForm, #signupForm, #resetForm").forEach((form) => {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const formData = new FormData(form);
-
-      if (form.id === "signinForm") {
-        state.user = {
-          name: state.user?.name || formData.get("email").toString().split("@")[0],
-          email: formData.get("email")
-        };
-        saveState();
-        renderDashboard();
-        closeModal();
-        showToast("toastSignin");
-      }
-
-      if (form.id === "signupForm") {
-        state.user = {
-          name: formData.get("name"),
-          email: formData.get("email")
-        };
-        saveState();
-        renderDashboard();
-        closeModal();
-        showToast("toastSignup");
-      }
-
-      if (form.id === "resetForm") {
-        closeModal();
-        showToast("toastReset");
-      }
-
-      form.reset();
-    });
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeModal();
+  function activatePremium(itemId) {
+    if (!state.currentUser) {
+      window.location.href = "/compte";
+      return;
     }
-  });
-}
 
-function initialize() {
-  updateTheme();
-  applyLanguage();
-  bindEvents();
-  initializeObservers();
-}
+    const users = [...state.users];
+    const index = users.findIndex((user) => user.id === state.currentUser.id);
+    if (index === -1) {
+      return;
+    }
 
-initialize();
+    const purchases = new Set(users[index].purchases || []);
+    purchases.add(itemId);
+    users[index] = {
+      ...users[index],
+      purchases: Array.from(purchases)
+    };
+
+    saveUsers(users);
+    setCurrentUser(users[index].id);
+    renderSiteChrome();
+    renderPage();
+
+    const paywallCard = document.querySelector("#paywallCard");
+    if (paywallCard) {
+      paywallCard.classList.add("is-hidden");
+    }
+
+    showToast("Acces premium active pour ce contenu.");
+  }
+
+  function openInfoModal(item) {
+    const openFileButton = item.mediaSrc
+      ? `<a class="button button--primary" href="${escapeHtml(item.mediaSrc)}" target="_blank" rel="noreferrer">Ouvrir le fichier</a>`
+      : "";
+
+    const imageMarkup = item.kind === "image"
+      ? `<img src="${escapeHtml(item.mediaSrc || item.cover)}" alt="${escapeHtml(item.title)}">`
+      : `<img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}">`;
+
+    openModal(`
+      <div class="modal-head">
+        <div>
+          <p class="section-label">${escapeHtml(item.category)}</p>
+          <h2>${escapeHtml(item.title)}</h2>
+        </div>
+        <button class="drawer__close" type="button" data-modal-close aria-label="Fermer">x</button>
+      </div>
+      <div class="modal-body modal-body--info">
+        <div class="modal-media">${imageMarkup}</div>
+        <div class="modal-copy">
+          <p>${escapeHtml(item.description)}</p>
+          <div class="meta-row">
+            <span>${escapeHtml(item.duration)}</span>
+            <span>${escapeHtml(item.label || item.access.toUpperCase())}</span>
+          </div>
+          <div class="action-row">
+            ${openFileButton}
+            <button class="button button--ghost" type="button" data-favorite-item="${item.id}">Favori</button>
+          </div>
+        </div>
+      </div>
+    `);
+  }
+
+  function openModal(markup) {
+    const shell = document.querySelector("#siteModal");
+    const card = document.querySelector("#siteModalCard");
+    if (!shell || !card) {
+      return;
+    }
+
+    card.innerHTML = markup;
+    shell.classList.remove("is-hidden");
+    shell.setAttribute("aria-hidden", "false");
+  }
+
+  function closeModal() {
+    const shell = document.querySelector("#siteModal");
+    const card = document.querySelector("#siteModalCard");
+    if (!shell || !card) {
+      return;
+    }
+
+    card.innerHTML = "";
+    shell.classList.add("is-hidden");
+    shell.setAttribute("aria-hidden", "true");
+  }
+
+  function showToast(message) {
+    const toast = document.querySelector("#siteToast");
+    if (!toast) {
+      return;
+    }
+
+    toast.textContent = message;
+    toast.classList.add("is-visible");
+    window.clearTimeout(showToast.timeoutId);
+    showToast.timeoutId = window.setTimeout(() => {
+      toast.classList.remove("is-visible");
+    }, 2600);
+  }
+
+  function toggleFavorite(itemId) {
+    if (!state.currentUser) {
+      showToast("Connectez-vous pour gerer vos favoris.");
+      return;
+    }
+
+    const users = [...state.users];
+    const index = users.findIndex((user) => user.id === state.currentUser.id);
+    if (index === -1) {
+      return;
+    }
+
+    const favorites = new Set(users[index].favorites || []);
+    if (favorites.has(itemId)) {
+      favorites.delete(itemId);
+      showToast("Favori retire.");
+    } else {
+      favorites.add(itemId);
+      showToast("Ajoute aux favoris.");
+    }
+
+    users[index] = {
+      ...users[index],
+      favorites: Array.from(favorites)
+    };
+
+    saveUsers(users);
+    setCurrentUser(users[index].id);
+    renderSiteChrome();
+    renderPage();
+  }
+
+  function addHistory(itemId) {
+    if (!state.currentUser) {
+      return;
+    }
+
+    const users = [...state.users];
+    const index = users.findIndex((user) => user.id === state.currentUser.id);
+    if (index === -1) {
+      return;
+    }
+
+    const nextHistory = (users[index].history || []).filter((entry) => entry.id !== itemId);
+    nextHistory.unshift({
+      id: itemId,
+      at: new Date().toISOString()
+    });
+
+    users[index] = {
+      ...users[index],
+      history: nextHistory.slice(0, 20)
+    };
+
+    saveUsers(users);
+    setCurrentUser(users[index].id);
+  }
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+})();
