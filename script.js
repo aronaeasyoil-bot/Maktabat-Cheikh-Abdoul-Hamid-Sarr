@@ -43,9 +43,9 @@ const translations = {
     heroQuickOneText: "Grandes vignettes, accès rapide et favoris personnels",
     heroQuickTwoTitle: "Recherche intelligente",
     heroQuickTwoText: "Vidéos, audios, thèmes religieux et archives historiques",
-    featuredEyebrow: "Expérience immersive",
-    featuredTitle: "Une page d’accueil pensée comme une plateforme haut de gamme",
-    featuredText: "Une mise en avant éditoriale inspirée des grandes plateformes médias, adaptée à une bibliothèque spirituelle moderne.",
+    featuredEyebrow: "Nouveautés",
+    featuredTitle: "Nouveautés de la Maktabat",
+    featuredText: "Les derniers enseignements publiés, dans une présentation éditoriale claire, premium et rapide à parcourir.",
     featuredBadge: "Sélection éditoriale",
     featuredWatch: "Lancer la lecture",
     featuredShare: "Partager",
@@ -64,7 +64,7 @@ const translations = {
     searchResultsMeta: "{count} résultat(s) pour “{query}”",
     noResults: "Aucun contenu correspondant. Essayez un autre thème ou mot-clé.",
     videoEyebrow: "Vidéothèque",
-    videoTitle: "Les enseignements en grand format",
+    videoTitle: "Vidéothèque",
     videoText: "Conférences, sermons, défense de l’Islam et de la Tarikha Tidjaniya, histoire et questions-réponses.",
     filterAll: "Tout voir",
     filterConferences: "Conférences",
@@ -81,23 +81,23 @@ const translations = {
     accessFree: "Libre",
     accessPremium: "Premium",
     audioEyebrow: "Audiothèque",
-    audioTitle: "Écouter, méditer et conserver les voix de la transmission",
+    audioTitle: "Audiothèque",
     audioText: "Conférences audio, khassidas, podcasts, sermons et archives sonores avec lecteur intégré.",
     audioCurrentLabel: "Lecture en cours",
     audioPlaylistLabel: "Playlist disponible",
     audioBookmark: "Ajouter aux favoris",
     libraryEyebrow: "Bibliothèque numérique",
-    libraryTitle: "Articles, livres, manuscrits et documents historiques",
+    libraryTitle: "Bibliothèque numérique",
     libraryText: "Une bibliothèque structurée pour la lecture, l’annotation, la consultation rapide et le téléchargement selon l’abonnement.",
     readPreview: "Aperçu",
     download: "Télécharger",
     subscriberOnly: "Réservé aux abonnés",
     galleryEyebrow: "Galerie photos",
-    galleryTitle: "Archives visuelles et mémoire historique",
+    galleryTitle: "Galerie photos",
     galleryText: "Photos historiques, événements, rencontres et instants marquants autour des enseignements.",
     viewPhoto: "Voir la photo",
     bioEyebrow: "Biographies",
-    bioTitle: "Les figures clés de l’héritage spirituel",
+    bioTitle: "Biographies",
     bioText: "Des pages dédiées à Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, aux khalifes, disciples et compagnons.",
     readBio: "Lire la biographie",
     subscriptionEyebrow: "Système d’abonnement",
@@ -224,9 +224,9 @@ const translations = {
     heroQuickOneText: "Large thumbnails, quick access and personal favorites",
     heroQuickTwoTitle: "Smart search",
     heroQuickTwoText: "Videos, audio, religious themes and historical archives",
-    featuredEyebrow: "Immersive experience",
-    featuredTitle: "A homepage designed like a premium platform",
-    featuredText: "Editorial storytelling inspired by world-class media platforms, adapted to a modern spiritual library.",
+    featuredEyebrow: "New releases",
+    featuredTitle: "Newest from Maktabat",
+    featuredText: "The latest teachings published in a clean, premium and fast-scrolling editorial presentation.",
     featuredBadge: "Editorial selection",
     featuredWatch: "Start watching",
     featuredShare: "Share",
@@ -245,7 +245,7 @@ const translations = {
     searchResultsMeta: "{count} result(s) for “{query}”",
     noResults: "No matching content. Try another theme or keyword.",
     videoEyebrow: "Video library",
-    videoTitle: "Teachings in cinematic format",
+    videoTitle: "Video library",
     videoText: "Talks, sermons, defense of Islam and Tidjaniya, history and Q&A sessions.",
     filterAll: "View all",
     filterConferences: "Talks",
@@ -262,23 +262,23 @@ const translations = {
     accessFree: "Free",
     accessPremium: "Premium",
     audioEyebrow: "Audio library",
-    audioTitle: "Listen, reflect and preserve the living voices of transmission",
+    audioTitle: "Audio library",
     audioText: "Audio talks, khassidas, podcasts, sermons and sound archives with an integrated player.",
     audioCurrentLabel: "Now playing",
     audioPlaylistLabel: "Available playlist",
     audioBookmark: "Add to favorites",
     libraryEyebrow: "Digital library",
-    libraryTitle: "Articles, books, manuscripts and historical documents",
+    libraryTitle: "Digital library",
     libraryText: "A structured library for reading, annotation, fast consultation and subscription-based downloads.",
     readPreview: "Preview",
     download: "Download",
     subscriberOnly: "Subscribers only",
     galleryEyebrow: "Photo gallery",
-    galleryTitle: "Visual archives and historical memory",
+    galleryTitle: "Photo gallery",
     galleryText: "Historic photographs, events, meetings and key moments around the teachings.",
     viewPhoto: "View photo",
     bioEyebrow: "Biographies",
-    bioTitle: "The key figures of the spiritual legacy",
+    bioTitle: "Biographies",
     bioText: "Dedicated pages for Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, khalifes, disciples and companions.",
     readBio: "Read biography",
     subscriptionEyebrow: "Subscription system",
@@ -405,9 +405,9 @@ const translations = {
     heroQuickOneText: "بطاقات كبيرة ووصول سريع ومفضلة شخصية",
     heroQuickTwoTitle: "بحث ذكي",
     heroQuickTwoText: "فيديوهات وصوتيات وموضوعات دينية وأرشيف تاريخي",
-    featuredEyebrow: "تجربة غامرة",
-    featuredTitle: "صفحة رئيسية بروح منصة فاخرة",
-    featuredText: "إبراز تحريري مستلهم من المنصات الإعلامية العالمية ومكيّف مع مكتبة روحية حديثة.",
+    featuredEyebrow: "الأحدث",
+    featuredTitle: "أحدث ما في المكتبة",
+    featuredText: "أحدث الدروس المنشورة ضمن عرض تحريري واضح وفاخر وسريع التصفح.",
     featuredBadge: "اختيار تحريري",
     featuredWatch: "ابدأ المشاهدة",
     featuredShare: "مشاركة",
@@ -426,7 +426,7 @@ const translations = {
     searchResultsMeta: "{count} نتيجة لعبارة “{query}”",
     noResults: "لا توجد نتائج مطابقة. جرّب موضوعاً أو كلمة أخرى.",
     videoEyebrow: "مكتبة الفيديو",
-    videoTitle: "الدروس بصيغة سينمائية",
+    videoTitle: "مكتبة الفيديو",
     videoText: "محاضرات وخطب والدفاع عن الإسلام والطريقة التجانية والتاريخ والأسئلة والأجوبة.",
     filterAll: "عرض الكل",
     filterConferences: "محاضرات",
@@ -443,23 +443,23 @@ const translations = {
     accessFree: "مفتوح",
     accessPremium: "مميز",
     audioEyebrow: "مكتبة الصوت",
-    audioTitle: "استمع وتأمل واحفظ الأصوات الحية للنقل",
+    audioTitle: "مكتبة الصوت",
     audioText: "محاضرات صوتية وقصائد وبودكاست وخطب وأرشيف صوتي مع مشغل مدمج.",
     audioCurrentLabel: "يعمل الآن",
     audioPlaylistLabel: "قائمة التشغيل",
     audioBookmark: "أضف إلى المفضلة",
     libraryEyebrow: "المكتبة الرقمية",
-    libraryTitle: "مقالات وكتب ومخطوطات ووثائق تاريخية",
+    libraryTitle: "المكتبة الرقمية",
     libraryText: "مكتبة منظمة للقراءة والمراجعة السريعة والتنزيل حسب الاشتراك.",
     readPreview: "معاينة",
     download: "تنزيل",
     subscriberOnly: "خاص بالمشتركين",
     galleryEyebrow: "معرض الصور",
-    galleryTitle: "الأرشيف البصري والذاكرة التاريخية",
+    galleryTitle: "معرض الصور",
     galleryText: "صور تاريخية وفعاليات ولقاءات ولحظات بارزة حول الدروس.",
     viewPhoto: "عرض الصورة",
     bioEyebrow: "السير",
-    bioTitle: "الشخصيات الأساسية في الإرث الروحي",
+    bioTitle: "السير",
     bioText: "صفحات مخصصة للشيخ عبدول حميد سار والشيخ سيدي الحاج مالك سي والخلفاء والتلاميذ والرفاق.",
     readBio: "قراءة السيرة",
     subscriptionEyebrow: "نظام الاشتراك",
@@ -586,9 +586,9 @@ const translations = {
     heroQuickOneText: "Kart yu mag, ag yoon gu gaaw ak favoris yu sa bopp",
     heroQuickTwoTitle: "Wut gu xel",
     heroQuickTwoText: "Wideyoo, audio, mbir yu diine ak arsiif yu taarix",
-    featuredEyebrow: "Jafe-jafe bu rafet",
-    featuredTitle: "Xët wu njëkk wu mel ni platfom bu kawe",
-    featuredText: "Jëfandikoo bu soloo bu gën a mel ni platfom yu mag, waaye waral bésal diggante jàngum xol.",
+    featuredEyebrow: "Li mujj",
+    featuredTitle: "Li gën a bees ci Maktabat",
+    featuredText: "Njàngale yi mujj a génn ci wone bu set, bu kawe te gaaw a xool.",
     featuredBadge: "Tànn editorial",
     featuredWatch: "Tàmbali seetaan",
     featuredShare: "Séddoo",
@@ -607,7 +607,7 @@ const translations = {
     searchResultsMeta: "{count} njariñ ngir “{query}”",
     noResults: "Amul contenu bu mengook li nga wut. Jéemaat ak baneen téeméer walla baat.",
     videoEyebrow: "Wideyothèque",
-    videoTitle: "Njàngale yi ci fasoŋ bu mag",
+    videoTitle: "Wideyothèque",
     videoText: "Waxtaan, sermon, aar Islam ak Tarikha Tidjaniya, taarix ak laaj-ak-tontu.",
     filterAll: "Seet lépp",
     filterConferences: "Waxtaan",
@@ -624,23 +624,23 @@ const translations = {
     accessFree: "Yeesal",
     accessPremium: "Premium",
     audioEyebrow: "Audiothèque",
-    audioTitle: "Déglu, xalaat te denc baat yu dund yu jébbale",
+    audioTitle: "Audiothèque",
     audioText: "Waxtaan audio, khassida, podcast, sermon ak arsiif bu baat ak lecteur intégré.",
     audioCurrentLabel: "Li di dox",
     audioPlaylistLabel: "Playlist bi am",
     audioBookmark: "Yokk ci favoris",
     libraryEyebrow: "Maktaba dijitaal",
-    libraryTitle: "Mbind, téere, manuscript ak dokimaa yu taarix",
+    libraryTitle: "Maktaba dijitaal",
     libraryText: "Maktaba bu ñu teg ba leer ngir jàng, xool lu gaaw ak yebbi ci abonnement bi.",
     readPreview: "Xoolal",
     download: "Télécharger",
     subscriberOnly: "Ñi abonné rekk",
     galleryEyebrow: "Galerie sawar",
-    galleryTitle: "Arsiif gu gis ak fàttaliku taarix",
+    galleryTitle: "Galerie sawar",
     galleryText: "Sawar yu taarix, xew-xew, ndaje ak fan yu am solo ci njàngale yi.",
     viewPhoto: "Xool sawar bi",
     bioEyebrow: "Biographies",
-    bioTitle: "Nit ñi gën a am solo ci cosaanu xol",
+    bioTitle: "Biographies",
     bioText: "Xëti boppam ngir Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, khalif yi, taalibe yi ak xarit yi.",
     readBio: "Jàng biographie bi",
     subscriptionEyebrow: "Sistemu abonnement",
@@ -1368,17 +1368,10 @@ const elements = {
   languageSelect: document.querySelector("#languageSelect"),
   themeToggle: document.querySelector("#themeToggle"),
   menuToggle: document.querySelector("#menuToggle"),
+  featuredSection: document.querySelector("#featured"),
+  featuredRail: document.querySelector("#featuredRail"),
   videoFilters: document.querySelector("#videoFilters"),
   videoRail: document.querySelector("#videoRail"),
-  featuredVideo: document.querySelector("#featuredVideo"),
-  featuredVideoSource: document.querySelector("#featuredVideoSource"),
-  featuredTitle: document.querySelector("#featuredTitleText"),
-  featuredDescription: document.querySelector("#featuredDescriptionText"),
-  featuredCategory: document.querySelector("#featuredCategoryText"),
-  featuredDuration: document.querySelector("#featuredDurationText"),
-  featuredAccess: document.querySelector("#featuredAccessBadge"),
-  featuredPlayAction: document.querySelector("#featuredPlayAction"),
-  featuredShareAction: document.querySelector("#featuredShareAction"),
   audioPlayer: document.querySelector("#audioPlayer"),
   audioPlayerSource: document.querySelector("#audioPlayerSource"),
   audioTitle: document.querySelector("#audioCurrentTitle"),
@@ -1559,9 +1552,12 @@ function renderEditorialCard({
   primaryActionAttr,
   primaryActionLabel,
   secondaryActionMarkup = "",
-  includeFavorite = false
+  includeFavorite = false,
+  variant = "default",
+  showSummary = true,
+  showActions = true
 }) {
-  const favoriteMarkup = includeFavorite
+  const favoriteMarkup = includeFavorite && showActions
     ? `
         <button
           class="editorial-card__favorite ${state.favorites.includes(item.id) ? "is-active" : ""}"
@@ -1575,7 +1571,7 @@ function renderEditorialCard({
     : "";
 
   return `
-    <article class="editorial-card">
+    <article class="editorial-card editorial-card--${variant}">
       <button class="editorial-card__media" type="button" ${primaryActionAttr} aria-label="${primaryActionLabel} : ${getLocalized(item.title)}">
         <img src="${getEditorialImage(item)}" alt="${getLocalized(item.title)}" loading="lazy">
         <span class="editorial-card__badge">${getEditorialBadge(item)}</span>
@@ -1584,33 +1580,42 @@ function renderEditorialCard({
         <span class="editorial-card__eyebrow">${getEditorialEyebrow(item)}</span>
         <h3 class="editorial-card__title">${getLocalized(item.title)}</h3>
         <p class="editorial-card__meta">${getEditorialMetaLine(item)}</p>
-        <p class="editorial-card__summary">${getLocalized(item.description)}</p>
-        <div class="editorial-card__actions">
-          <button class="editorial-card__action" type="button" ${primaryActionAttr}>${primaryActionLabel}</button>
-          ${secondaryActionMarkup}
-          ${favoriteMarkup}
-        </div>
+        ${showSummary ? `<p class="editorial-card__summary">${getLocalized(item.description)}</p>` : ""}
+        ${
+          showActions
+            ? `
+                <div class="editorial-card__actions">
+                  <button class="editorial-card__action" type="button" ${primaryActionAttr}>${primaryActionLabel}</button>
+                  ${secondaryActionMarkup}
+                  ${favoriteMarkup}
+                </div>
+              `
+            : ""
+        }
       </div>
     </article>
   `;
 }
 
 function renderFeatured() {
-  const featured = catalog.videos.find((item) => item.id === state.currentFeaturedId) || catalog.videos[0];
+  if (!elements.featuredRail) return;
 
-  elements.featuredTitle.textContent = getLocalized(featured.title);
-  elements.featuredDescription.textContent = getLocalized(featured.description);
-  elements.featuredCategory.textContent = t(categories.find((category) => category.key === featured.category)?.labelKey || "filterAll");
-  elements.featuredDuration.textContent = featured.duration;
-  elements.featuredAccess.textContent = featured.premium ? t("accessPremium") : t("accessFree");
-  elements.featuredVideo.setAttribute("poster", featured.image);
+  const active = catalog.videos.find((item) => item.id === state.currentFeaturedId) || catalog.videos[0];
+  const remaining = catalog.videos.filter((item) => item.id !== active.id).slice(0, 2);
+  const featuredItems = [active, ...remaining];
 
-  const currentSource = elements.featuredVideoSource.getAttribute("src");
-  if (currentSource !== featured.video) {
-    elements.featuredVideo.pause();
-    elements.featuredVideoSource.setAttribute("src", featured.video);
-    elements.featuredVideo.load();
-  }
+  elements.featuredRail.innerHTML = featuredItems
+    .map((item, index) =>
+      renderEditorialCard({
+        item,
+        primaryActionAttr: `data-play-video="${item.id}"`,
+        primaryActionLabel: t("watchNow"),
+        variant: index === 0 ? "lead" : "minimal",
+        showSummary: false,
+        showActions: false
+      })
+    )
+    .join("");
 }
 
 function renderVideos() {
@@ -1625,7 +1630,9 @@ function renderVideos() {
         item,
         primaryActionAttr: `data-play-video="${item.id}"`,
         primaryActionLabel: t("watchNow"),
-        includeFavorite: true
+        variant: "minimal",
+        showSummary: false,
+        showActions: false
       })
     )
     .join("");
@@ -1654,7 +1661,9 @@ function renderAudio() {
         item,
         primaryActionAttr: `data-audio-id="${item.id}"`,
         primaryActionLabel: t("listenNow"),
-        includeFavorite: true
+        variant: "minimal",
+        showSummary: false,
+        showActions: false
       })
     )
     .join("");
@@ -1679,7 +1688,10 @@ function renderGallery() {
       renderEditorialCard({
         item,
         primaryActionAttr: `data-gallery-open="${item.id}"`,
-        primaryActionLabel: t("viewPhoto")
+        primaryActionLabel: t("viewPhoto"),
+        variant: "minimal",
+        showSummary: false,
+        showActions: false
       })
     )
     .join("");
@@ -1691,7 +1703,10 @@ function renderBiographies() {
       renderEditorialCard({
         item,
         primaryActionAttr: `data-bio-id="${item.id}"`,
-        primaryActionLabel: t("readBio")
+        primaryActionLabel: t("readBio"),
+        variant: "minimal",
+        showSummary: false,
+        showActions: false
       })
     )
     .join("");
@@ -1856,8 +1871,9 @@ function openItem(id) {
   if (item.type === "video") {
     state.currentFeaturedId = id;
     renderFeatured();
-    elements.featuredVideo.scrollIntoView({ behavior: "smooth", block: "center" });
-    elements.featuredVideo.play().catch(() => undefined);
+    if (elements.featuredSection) {
+      elements.featuredSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
     pushHistory(item);
     showToast("toastHistory");
   } else if (item.type === "audio") {
@@ -2031,21 +2047,24 @@ function bindEvents() {
     }
   });
 
-  elements.featuredPlayAction.addEventListener("click", () => {
-    const item = findById(state.currentFeaturedId);
-    if (item) {
-      pushHistory(item);
-      elements.featuredVideo.play().catch(() => undefined);
-      showToast("toastHistory");
-    }
-  });
+  if (elements.featuredPlayAction) {
+    elements.featuredPlayAction.addEventListener("click", () => {
+      const item = findById(state.currentFeaturedId);
+      if (item) {
+        pushHistory(item);
+        showToast("toastHistory");
+      }
+    });
+  }
 
-  elements.featuredShareAction.addEventListener("click", () => {
-    const item = findById(state.currentFeaturedId);
-    if (item) {
-      shareCurrent(getLocalized(item.title));
-    }
-  });
+  if (elements.featuredShareAction) {
+    elements.featuredShareAction.addEventListener("click", () => {
+      const item = findById(state.currentFeaturedId);
+      if (item) {
+        shareCurrent(getLocalized(item.title));
+      }
+    });
+  }
 
   elements.audioBookmarkAction.addEventListener("click", () => {
     persistFavorite(state.currentAudioId);

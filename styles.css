@@ -2262,3 +2262,204 @@ body.menu-open .nav {
     font-size: 11rem;
   }
 }
+
+.featured,
+.content-section {
+  padding-block: 3.2rem 0;
+}
+
+.featured .section-heading,
+.content-section .section-heading {
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  align-items: start;
+}
+
+.featured .section-heading .eyebrow,
+.content-section .section-heading .eyebrow {
+  display: none;
+}
+
+.featured .section-heading h2,
+.content-section .section-heading h2 {
+  max-width: 18ch;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+}
+
+.featured .section-heading p,
+.content-section .section-heading p {
+  max-width: 48rem;
+  margin: 0;
+  color: #666666;
+  font-size: 1.02rem;
+}
+
+.featured-feed {
+  gap: 2.7rem;
+}
+
+.editorial-card--lead .editorial-card__media img,
+.editorial-card--minimal .editorial-card__media img {
+  aspect-ratio: 16 / 9;
+}
+
+.editorial-card--lead .editorial-card__badge,
+.editorial-card--minimal .editorial-card__badge {
+  padding: 0.48rem 0.74rem;
+  border-radius: 0;
+  background: rgba(17, 17, 17, 0.86);
+}
+
+.editorial-card--lead .editorial-card__body,
+.editorial-card--minimal .editorial-card__body {
+  padding: 1.35rem 0 0;
+}
+
+.editorial-card--lead .editorial-card__eyebrow,
+.editorial-card--minimal .editorial-card__eyebrow {
+  margin-bottom: 0.85rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.editorial-card--lead .editorial-card__title {
+  font-size: clamp(2.2rem, 4.2vw, 3.35rem);
+}
+
+.editorial-card--minimal .editorial-card__title {
+  font-size: clamp(1.9rem, 3vw, 2.55rem);
+}
+
+.editorial-card--lead .editorial-card__meta,
+.editorial-card--minimal .editorial-card__meta {
+  margin-top: 0.55rem;
+  font-size: 1rem;
+  color: #7a7a7a;
+}
+
+#video .editorial-feed,
+#gallery .editorial-feed,
+#biographies .editorial-feed,
+#library .editorial-feed {
+  gap: 2rem;
+}
+
+#video .editorial-card--minimal .editorial-card__title,
+#gallery .editorial-card--minimal .editorial-card__title,
+#biographies .editorial-card--minimal .editorial-card__title,
+#library .editorial-card__title {
+  font-size: clamp(1.75rem, 2.4vw, 2.15rem);
+}
+
+.chip-row {
+  margin-bottom: 1.8rem;
+}
+
+.chip {
+  background: #ffffff;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.audio-layout {
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.audio-player,
+.playlist {
+  border-radius: 0;
+}
+
+.audio-player {
+  padding: 1.5rem;
+}
+
+.playlist__header h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.65rem;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+}
+
+.documents-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gallery-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bios-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 920px) {
+  .documents-grid,
+  .gallery-grid,
+  .bios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .featured,
+  .content-section {
+    padding-block: 2.5rem 0;
+  }
+
+  .featured .section-heading h2,
+  .content-section .section-heading h2 {
+    max-width: none;
+    font-size: clamp(1.85rem, 8vw, 2.7rem);
+  }
+
+  .featured .section-heading p,
+  .content-section .section-heading p {
+    font-size: 0.98rem;
+  }
+
+  .featured-feed,
+  #video .editorial-feed,
+  #gallery .editorial-feed,
+  #biographies .editorial-feed,
+  #library .editorial-feed {
+    gap: 2.3rem;
+  }
+
+  .header-inner {
+    grid-template-columns: 2.35rem 1fr 3.75rem;
+  }
+
+  .brand-copy strong {
+    font-size: 1.56rem;
+  }
+
+  .header-actions .secondary-button.compact {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand-copy strong {
+    font-size: 1.48rem;
+  }
+
+  .header-actions .secondary-button.compact {
+    font-size: 0.68rem;
+  }
+
+  .featured .section-heading h2,
+  .content-section .section-heading h2 {
+    font-size: clamp(1.7rem, 10vw, 2.35rem);
+  }
+
+  .editorial-card--lead .editorial-card__title,
+  .editorial-card--minimal .editorial-card__title {
+    font-size: clamp(1.7rem, 8vw, 2.35rem);
+  }
+}
