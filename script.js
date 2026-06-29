@@ -116,7 +116,7 @@
     const footerHost = document.querySelector("[data-site-footer]");
     const modalHost = document.querySelector("[data-site-modals]");
     const currentPage = document.body.dataset.page || "home";
-    const accountLabel = state.currentUser ? "Mon compte" : "Login";
+    const accountLabel = state.currentUser ? "Compte" : "Login";
 
     if (headerHost) {
       headerHost.innerHTML = `
@@ -133,7 +133,15 @@
                 <span class="brand__title">MAKTABAT</span>
                 <span class="brand__subtitle">Cheikh Abdoul Hamid Sarr</span>
               </a>
-              <a class="header-login" href="/compte">${accountLabel}</a>
+              <a class="header-login" href="/compte" aria-label="${accountLabel}">
+                <span class="header-login__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <circle cx="12" cy="8" r="3.5"></circle>
+                    <path d="M5 19c0-3.1 3.1-5.5 7-5.5s7 2.4 7 5.5"></path>
+                  </svg>
+                </span>
+                <span class="header-login__label">${accountLabel}</span>
+              </a>
             </div>
 
             <nav class="desktop-nav" aria-label="Navigation principale">
