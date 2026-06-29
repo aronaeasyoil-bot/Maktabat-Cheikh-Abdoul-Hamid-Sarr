@@ -47,13 +47,6 @@
   <div class="site-shell">
     <header class="site-header">
       <div class="top-ribbon"></div>
-      <div class="top-banner container">
-        <div class="top-banner__panel">
-          <strong class="top-banner__brand">Maktabat Business</strong>
-          <p data-i18n="topBanner">La bibliothèque officielle des enseignements, conférences et archives spirituelles premium.</p>
-        </div>
-        <button class="ghost-pill" id="notifyToggle" type="button" data-i18n="notify">Explorer</button>
-      </div>
 
       <div class="header-inner container">
         <button class="menu-toggle" id="menuToggle" type="button" aria-label="Ouvrir le menu">
@@ -70,14 +63,15 @@
         </a>
 
         <nav class="nav" id="primaryNav">
-          <a href="#home" data-i18n="navHome">Accueil</a>
-          <a href="#video" data-i18n="navVideo">Vidéothèque</a>
-          <a href="#audio" data-i18n="navAudio">Audiothèque</a>
-          <a href="#library" data-i18n="navLibrary">Bibliothèque</a>
-          <a href="#gallery" data-i18n="navGallery">Galerie</a>
-          <a href="#biographies" data-i18n="navBio">Biographies</a>
-          <a href="#subscription" data-i18n="navSubscription">Abonnement</a>
-          <a href="#admin" data-i18n="navAdmin">Administration</a>
+          <a href="#home">Accueil</a>
+          <a href="#featured">Enseignement du jour</a>
+          <a href="#video">Vidéo du jour</a>
+          <a href="#audio">Audiothèque</a>
+          <a href="#library">Livres et PDF</a>
+          <a href="#gallery">Dossiers</a>
+          <a href="#moukhadam">Moukhadam</a>
+          <a href="#gamou">Gamou</a>
+          <a href="#conferences">Conférences</a>
         </nav>
 
         <div class="header-actions">
@@ -94,7 +88,6 @@
             <span class="icon-toggle__circle"></span>
           </button>
           <button class="secondary-button compact" id="openAuthHeader" type="button" data-i18n="headerSignIn">SIGN IN</button>
-          <a class="primary-button compact" href="#subscription" data-i18n="headerSubscribe">SUBSCRIBE</a>
         </div>
       </div>
     </header>
@@ -120,15 +113,14 @@
         </div>
 
         <div class="hero-copy" data-reveal>
-          <p class="eyebrow" data-i18n="heroEyebrow">ENSEIGNEMENT A LA UNE</p>
-          <h1 data-i18n="heroTitle">Transmission, excellence et mémoire vivante</h1>
-          <p class="hero-subtitle" data-i18n="heroSubtitle">
+          <p class="eyebrow">ENSEIGNEMENT A LA UNE</p>
+          <h1>Transmission, excellence et mémoire vivante</h1>
+          <p class="hero-subtitle">
             Cheikh Abdoul Hamid Sarr • Bibliothèque officielle • Nouvel enseignement disponible.
           </p>
 
           <div class="hero-actions">
-            <a class="primary-button" href="#video" data-i18n="heroPrimary">Découvrir</a>
-            <button class="secondary-button" id="openAuthHero" type="button" data-i18n="heroSecondary">S’abonner</button>
+            <a class="primary-button" href="#video">Découvrir</a>
           </div>
 
           <form class="hero-search" id="heroSearchForm">
@@ -151,11 +143,10 @@
       <section class="featured container" id="featured">
         <div class="section-heading" data-reveal>
           <div>
-            <p class="eyebrow" data-i18n="featuredEyebrow">Nouveautés</p>
-            <h2 data-i18n="featuredTitle">Nouveautés de la Maktabat</h2>
+            <h2>Enseignement du jour</h2>
           </div>
-          <p data-i18n="featuredText">
-            Les derniers enseignements publiés, dans une présentation éditoriale claire, premium et rapide à parcourir.
+          <p>
+            Une sélection mise en avant pour l’écoute, l’étude et la transmission.
           </p>
         </div>
         <div class="editorial-feed editorial-feed--single featured-feed" id="featuredRail" data-reveal></div>
@@ -175,11 +166,10 @@
       <section class="content-section container" id="video">
         <div class="section-heading" data-reveal>
           <div>
-            <p class="eyebrow" data-i18n="videoEyebrow">Vidéothèque</p>
-            <h2 data-i18n="videoTitle">Les enseignements en grand format</h2>
+            <h2>Vidéo du jour</h2>
           </div>
-          <p data-i18n="videoText">
-            Conférences, sermons, défense de l’Islam et de la Tarikha Tidjaniya, histoire et questions-réponses.
+          <p>
+            Gamou, conférences, enseignements et questions-réponses classés pour un accès direct.
           </p>
         </div>
         <div class="chip-row" id="videoFilters" data-reveal></div>
@@ -231,11 +221,10 @@
       <section class="content-section container" id="library">
         <div class="section-heading" data-reveal>
           <div>
-            <p class="eyebrow" data-i18n="libraryEyebrow">Bibliothèque numérique</p>
-            <h2 data-i18n="libraryTitle">Articles, livres, manuscrits et documents historiques</h2>
+            <h2>Bibliothèque (livres et PDF)</h2>
           </div>
-          <p data-i18n="libraryText">
-            Une bibliothèque structurée pour la lecture, l’annotation, la consultation rapide et le téléchargement selon l’abonnement.
+          <p>
+            Livres, PDF et dossiers classés par figures, œuvres et grandes familles de transmission.
           </p>
         </div>
         <div class="documents-grid editorial-feed editorial-feed--three" id="documentsGrid" data-reveal></div>
@@ -244,11 +233,10 @@
       <section class="content-section container" id="gallery">
         <div class="section-heading" data-reveal>
           <div>
-            <p class="eyebrow" data-i18n="galleryEyebrow">Galerie photos</p>
-            <h2 data-i18n="galleryTitle">Archives visuelles et mémoire historique</h2>
+            <h2>Dossiers des Cheikhs</h2>
           </div>
-          <p data-i18n="galleryText">
-            Photos historiques, événements, rencontres et instants marquants autour des enseignements.
+          <p>
+            Classement principal des dossiers consacrés aux grandes figures et aux héritiers de la transmission.
           </p>
         </div>
         <div class="gallery-grid editorial-feed editorial-feed--three" id="galleryGrid" data-reveal></div>
@@ -257,157 +245,122 @@
       <section class="content-section container" id="biographies">
         <div class="section-heading" data-reveal>
           <div>
-            <p class="eyebrow" data-i18n="bioEyebrow">Biographies</p>
-            <h2 data-i18n="bioTitle">Les figures clés de l’héritage spirituel</h2>
+            <h2>Dossiers principaux</h2>
           </div>
-          <p data-i18n="bioText">
-            Des pages dédiées à Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, aux khalifes, disciples et compagnons.
+          <p>
+            Dossiers structurés pour les figures majeures, les khalifes, les disciples et les compagnons.
           </p>
         </div>
         <div class="bios-grid editorial-feed editorial-feed--two" id="bioGrid" data-reveal></div>
       </section>
 
-      <section class="content-section container" id="subscription">
+      <section class="content-section container" id="moukhadam">
         <div class="section-heading" data-reveal>
           <div>
-            <p class="eyebrow" data-i18n="subscriptionEyebrow">Système d’abonnement</p>
-            <h2 data-i18n="subscriptionTitle">Un accès premium simple, accessible et prêt à évoluer</h2>
+            <h2>Dossiers Moukhadam</h2>
           </div>
-          <p data-i18n="subscriptionText">
-            Déverrouillez les contenus premium, la bibliothèque complète et les téléchargements avec une tarification claire.
+          <p>
+            Deux grands ensembles avec des sous-dossiers pour chaque Moukhadam et leurs archives associées.
           </p>
         </div>
 
         <div class="subscription-layout">
           <article class="pricing-card panel" data-reveal>
-            <span class="pill" data-i18n="priceBadge">Offre mensuelle</span>
-            <div class="price-line">
-              <strong>500 FCFA</strong>
-              <span data-i18n="pricePerMonth">par mois</span>
-            </div>
-            <p data-i18n="subscriptionLead">
-              L’offre idéale pour accéder aux vidéos premium, aux archives audio et aux documents réservés aux abonnés.
+            <span class="pill">Dossier</span>
+            <h3>Dossier Moukhadam Cheikh Ahmeth Tidiane Cherif</h3>
+            <p>
+              Ce dossier regroupe les sous-dossiers dédiés à chaque Moukhadam, avec les repères utiles pour l’étude et le classement.
             </p>
             <ul class="benefit-list">
-              <li data-i18n="subscriptionBenefitOne">Accès aux vidéos premium</li>
-              <li data-i18n="subscriptionBenefitTwo">Audiothèque complète et archives sonores</li>
-              <li data-i18n="subscriptionBenefitThree">Téléchargement des documents autorisés</li>
-              <li data-i18n="subscriptionBenefitFour">Historique, favoris et continuer la lecture</li>
+              <li>Sous-dossiers pour chaque Moukhadam</li>
+              <li>Enseignements, conférences et repères</li>
+              <li>Textes, notes et archives de transmission</li>
             </ul>
-            <div class="hero-actions">
-              <button class="primary-button" id="pricingSubscribe" type="button" data-i18n="subscriptionPrimary">Commencer l’abonnement</button>
-              <button class="secondary-button" id="pricingContact" type="button" data-i18n="subscriptionSecondary">Contacter l’équipe</button>
-            </div>
           </article>
 
           <article class="payment-card panel" data-reveal>
-            <h3 data-i18n="paymentTitle">Moyens de paiement pris en charge</h3>
-            <div class="payment-methods">
-              <span class="payment-pill" data-i18n="paymentWave">Wave Sénégal</span>
-              <span class="payment-pill" data-i18n="paymentCard">Carte bancaire</span>
-              <span class="payment-pill" data-i18n="paymentMobile">Extension Mobile Money</span>
-            </div>
-            <p data-i18n="paymentText">
-              Le design est déjà prêt pour brancher un tunnel de paiement sécurisé et faire évoluer les méthodes de paiement dans le futur.
+            <h3>Dossier Moukhadam Cheikh Seydi Hadj Malick Sy</h3>
+            <p>
+              Ce dossier centralise les sous-dossiers par Moukhadam et les éléments utiles pour naviguer dans l’héritage de cette chaîne.
             </p>
-            <div class="security-grid">
-              <article>
-                <strong data-i18n="securityOneTitle">Rapide</strong>
-                <span data-i18n="securityOneText">Chargement optimisé pour mobile et desktop</span>
-              </article>
-              <article>
-                <strong data-i18n="securityTwoTitle">Sécurisé</strong>
-                <span data-i18n="securityTwoText">Architecture prête pour authentification et paiement</span>
-              </article>
-              <article>
-                <strong data-i18n="securityThreeTitle">Référencé</strong>
-                <span data-i18n="securityThreeText">SEO pensé dès la structure de la page</span>
-              </article>
-            </div>
+            <ul class="benefit-list">
+              <li>Sous-dossiers pour chaque Moukhadam</li>
+              <li>Conférences, rappels et classements</li>
+              <li>Archives écrites, audio et vidéo</li>
+            </ul>
           </article>
         </div>
       </section>
 
-      <section class="content-section container" id="accounts">
+      <section class="content-section container" id="gamou">
         <div class="section-heading" data-reveal>
           <div>
-            <p class="eyebrow" data-i18n="accountsEyebrow">Comptes utilisateurs</p>
-            <h2 data-i18n="accountsTitle">Inscription, connexion et expérience personnelle</h2>
+            <h2>Gamou</h2>
           </div>
-          <p data-i18n="accountsText">
-            Chaque membre retrouve son tableau de bord, son historique de lecture, ses favoris et son espace personnel.
+          <p>
+            Classement des Gamou par localité pour retrouver rapidement les contenus liés à chaque rassemblement.
           </p>
         </div>
 
         <div class="accounts-layout">
           <article class="account-card panel" data-reveal>
-            <span class="pill" data-i18n="accountStatusLabel">Espace membre</span>
-            <h3 id="accountSummaryTitle" data-i18n="accountGuestTitle">Créez votre compte pour démarrer</h3>
-            <p id="accountSummaryText" data-i18n="accountGuestText">
-              Inscription, connexion et mot de passe oublié sont déjà prévus dans l’interface.
-            </p>
-            <div class="hero-actions">
-              <button class="primary-button" id="accountSignupAction" type="button" data-i18n="accountCtaOne">Créer un compte</button>
-              <button class="secondary-button" id="accountSigninAction" type="button" data-i18n="accountCtaTwo">Se connecter</button>
-            </div>
+            <span class="pill">Villes</span>
+            <h3>Classement Gamou</h3>
+            <ul class="benefit-list">
+              <li>Gamou Dakar</li>
+              <li>Gamou Kaolack</li>
+              <li>Gamou Thiès</li>
+              <li>Gamou Tivaoune</li>
+            </ul>
           </article>
 
           <article class="dashboard-shell panel" data-reveal>
-            <div class="dashboard-shell__header">
-              <div>
-                <span class="pill" data-i18n="dashboardEyebrow">Tableau de bord personnel</span>
-                <h3 id="dashboardGreeting">Bonjour, invité</h3>
-              </div>
-              <span class="status-badge" data-i18n="dashboardStatus">Prévisualisation</span>
-            </div>
-
-            <div class="dashboard-grid">
-              <section>
-                <h4 data-i18n="historyTitle">Historique de lecture</h4>
-                <div class="dashboard-list" id="historyList"></div>
-              </section>
-              <section>
-                <h4 data-i18n="favoritesTitle">Favoris</h4>
-                <div class="dashboard-list" id="favoritesList"></div>
-              </section>
-              <section>
-                <h4 data-i18n="continueTitle">Continuer la lecture</h4>
-                <div class="dashboard-list" id="continueList"></div>
-              </section>
-            </div>
+            <span class="pill">Autres localités</span>
+            <h3>Suite des Gamou</h3>
+            <ul class="benefit-list">
+              <li>Gamou Paal</li>
+              <li>Gamou Ndar</li>
+              <li>Archives complémentaires par zone</li>
+              <li>Repères pour classer les éditions</li>
+            </ul>
           </article>
         </div>
       </section>
 
-      <section class="content-section container" id="admin">
+      <section class="content-section container" id="conferences">
         <div class="section-heading" data-reveal>
           <div>
-            <p class="eyebrow" data-i18n="adminEyebrow">Tableau d’administration</p>
-            <h2 data-i18n="adminTitle">Un cockpit éditorial prêt pour la gestion complète</h2>
+            <h2>Conférences</h2>
           </div>
-          <p data-i18n="adminText">
-            Gestion des contenus, abonnements, utilisateurs et statistiques dans une seule interface.
+          <p>
+            Conférences classées par ville, université et lieux de transmission pour retrouver rapidement les séries disponibles.
           </p>
         </div>
 
         <div class="admin-layout">
           <article class="admin-actions panel" data-reveal>
             <div class="admin-actions__grid">
-              <button type="button" class="admin-action" data-i18n="adminActionOne">Ajouter vidéos</button>
-              <button type="button" class="admin-action" data-i18n="adminActionTwo">Ajouter audios</button>
-              <button type="button" class="admin-action" data-i18n="adminActionThree">Ajouter articles</button>
-              <button type="button" class="admin-action" data-i18n="adminActionFour">Ajouter livres PDF</button>
-              <button type="button" class="admin-action" data-i18n="adminActionFive">Gérer utilisateurs</button>
-              <button type="button" class="admin-action" data-i18n="adminActionSix">Gérer abonnements</button>
+              <button type="button" class="admin-action">Conférence Dakar</button>
+              <button type="button" class="admin-action">Conférence Kaolack</button>
+              <button type="button" class="admin-action">Conférence Thiès</button>
+              <button type="button" class="admin-action">Conférence Université</button>
+              <button type="button" class="admin-action">Conférence Pikine</button>
+              <button type="button" class="admin-action">Conférence Ndar</button>
+              <button type="button" class="admin-action">Conférence Parcelle</button>
+              <button type="button" class="admin-action">Conférence Keur Moukhadam</button>
             </div>
           </article>
 
           <article class="admin-stats panel" data-reveal>
             <div class="admin-stats__header">
-              <h3 data-i18n="adminStatsTitle">Statistiques</h3>
-              <span class="pill" data-i18n="adminStatsBadge">Vue plateforme</span>
+              <h3>Repères de classement</h3>
+              <span class="pill">Dossiers</span>
             </div>
-            <div class="stats-grid" id="statsGrid"></div>
+            <ul class="benefit-list">
+              <li>Séries classées par localité</li>
+              <li>Enseignements, sermons et questions-réponses</li>
+              <li>Accès rapide aux cycles les plus consultés</li>
+            </ul>
           </article>
         </div>
       </section>

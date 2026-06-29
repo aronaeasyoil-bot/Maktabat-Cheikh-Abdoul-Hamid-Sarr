@@ -2463,3 +2463,125 @@ body.menu-open .nav {
     font-size: clamp(1.7rem, 8vw, 2.35rem);
   }
 }
+
+.top-banner {
+  display: none !important;
+}
+
+.top-ribbon {
+  height: 0.55rem;
+}
+
+.site-header {
+  background: rgba(255, 255, 255, 0.99);
+}
+
+.header-inner {
+  grid-template-columns: auto 1fr;
+  min-height: 72px;
+  gap: 0.4rem;
+}
+
+.brand {
+  position: static;
+  left: auto;
+  top: auto;
+  transform: none;
+  justify-self: center;
+}
+
+.brand-copy strong {
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
+}
+
+.header-actions {
+  display: none;
+}
+
+.menu-toggle {
+  display: inline-flex !important;
+  flex-direction: column;
+  width: 3rem;
+  height: 3rem;
+  gap: 0.18rem;
+}
+
+.menu-toggle span {
+  width: 1.45rem;
+  height: 2.5px;
+  margin: 0.18rem 0;
+}
+
+.nav {
+  top: calc(100% + 0.25rem);
+  left: 0.9rem;
+  right: 0.9rem;
+}
+
+.hero {
+  padding-top: 0.4rem;
+}
+
+.hero-actions {
+  margin-top: 1.2rem;
+}
+
+.featured-feed {
+  margin-top: 0.6rem;
+}
+
+.benefit-list {
+  margin-top: 1.15rem;
+}
+
+.benefit-list li {
+  color: #464646;
+}
+
+.pricing-card strong {
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+}
+
+.account-card h3,
+.dashboard-shell h3,
+.admin-stats h3,
+.pricing-card h3,
+.payment-card h3 {
+  margin: 0.8rem 0 0.5rem;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.05;
+}
+
+.admin-actions__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-action {
+  min-height: 74px;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .top-ribbon {
+    height: 0.42rem;
+  }
+
+  .header-inner {
+    grid-template-columns: auto 1fr;
+    min-height: 64px;
+  }
+
+  .brand-copy strong {
+    font-size: 1.34rem;
+  }
+
+  .nav {
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .admin-actions__grid {
+    grid-template-columns: 1fr;
+  }
+}

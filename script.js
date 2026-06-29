@@ -30,7 +30,7 @@ const translations = {
     searchPlaceholder: "Rechercher vidéos, audios, articles, mots-clés...",
     searchAction: "Rechercher",
     heroChipOne: "4 langues disponibles",
-    heroChipTwo: "500 FCFA / mois",
+    heroChipTwo: "Archives classées",
     heroChipThree: "Rapide, sécurisé et SEO-ready",
     statMembers: "membres fondateurs",
     statVideos: "vidéos pilotes",
@@ -50,14 +50,14 @@ const translations = {
     featuredWatch: "Lancer la lecture",
     featuredShare: "Partager",
     featureCardOneLabel: "Plateforme",
-    featureCardOneTitle: "Parcours vidéo façon TED, MasterClass et Netflix",
-    featureCardOneText: "Des rails fluides, une navigation instantanée et des vignettes généreuses pour les enseignements majeurs.",
-    featureCardTwoLabel: "Abonnement",
-    featureCardTwoTitle: "500 FCFA par mois, simple et extensible",
-    featureCardTwoText: "Wave Sénégal, carte bancaire et extension Mobile Money prête à être branchée côté backend.",
-    featureCardThreeLabel: "Diffusion",
-    featureCardThreeTitle: "Multilingue, partage social et mode sombre",
-    featureCardThreeText: "Une plateforme conçue pour toucher des milliers d’utilisateurs en Afrique et dans la diaspora.",
+    featureCardOneTitle: "Parcours vidéo classés",
+    featureCardOneText: "Une organisation simple des contenus, par thèmes, villes et dossiers.",
+    featureCardTwoLabel: "Dossiers",
+    featureCardTwoTitle: "Classement clair des contenus",
+    featureCardTwoText: "Les contenus sont organisés par figures, dossiers et localités.",
+    featureCardThreeLabel: "Archives",
+    featureCardThreeTitle: "Recherche et consultation",
+    featureCardThreeText: "Une navigation pensée pour retrouver rapidement les références utiles.",
     searchResultsEyebrow: "Recherche intelligente",
     searchResultsTitle: "Résultats instantanés dans toute la bibliothèque",
     searchResultsText: "Recherchez par thème, mot-clé, type de contenu ou figure historique.",
@@ -68,11 +68,11 @@ const translations = {
     videoText: "Conférences, sermons, défense de l’Islam et de la Tarikha Tidjaniya, histoire et questions-réponses.",
     filterAll: "Tout voir",
     filterConferences: "Conférences",
-    filterSermons: "Sermons",
-    filterTeachings: "Enseignements",
+    filterSermons: "Gamou",
+    filterTeachings: "Enseignement du jour",
     filterIslam: "Défense de l’Islam",
     filterTidjaniya: "Défense de la Tidjaniya",
-    filterHistory: "Histoire",
+    filterHistory: "Dossiers",
     filterQA: "Questions-Réponses",
     watchNow: "Voir",
     listenNow: "Ecouter",
@@ -100,27 +100,27 @@ const translations = {
     bioTitle: "Biographies",
     bioText: "Des pages dédiées à Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, aux khalifes, disciples et compagnons.",
     readBio: "Lire la biographie",
-    subscriptionEyebrow: "Système d’abonnement",
-    subscriptionTitle: "Un accès premium simple, accessible et prêt à évoluer",
-    subscriptionText: "Déverrouillez les contenus premium, la bibliothèque complète et les téléchargements avec une tarification claire.",
+    subscriptionEyebrow: "Gamou",
+    subscriptionTitle: "Classement des Gamou",
+    subscriptionText: "Les contenus sont classés par localité et par série pour faciliter la consultation.",
     priceBadge: "Offre mensuelle",
     pricePerMonth: "par mois",
-    subscriptionLead: "L’offre idéale pour accéder aux vidéos premium, aux archives audio et aux documents réservés aux abonnés.",
-    subscriptionBenefitOne: "Accès aux vidéos premium",
-    subscriptionBenefitTwo: "Audiothèque complète et archives sonores",
-    subscriptionBenefitThree: "Téléchargement des documents autorisés",
-    subscriptionBenefitFour: "Historique, favoris et continuer la lecture",
-    subscriptionPrimary: "Commencer l’abonnement",
+    subscriptionLead: "Une organisation claire pour retrouver les contenus liés aux Gamou et aux grandes rencontres.",
+    subscriptionBenefitOne: "Gamou classés par ville",
+    subscriptionBenefitTwo: "Archives audio et vidéo",
+    subscriptionBenefitThree: "Repères et dossiers associés",
+    subscriptionBenefitFour: "Navigation rapide par thème",
+    subscriptionPrimary: "Ouvrir le classement",
     subscriptionSecondary: "Contacter l’équipe",
-    paymentTitle: "Moyens de paiement pris en charge",
-    paymentWave: "Wave Sénégal",
-    paymentCard: "Carte bancaire",
-    paymentMobile: "Extension Mobile Money",
-    paymentText: "Le design est déjà prêt pour brancher un tunnel de paiement sécurisé et faire évoluer les méthodes de paiement dans le futur.",
+    paymentTitle: "Classement complémentaire",
+    paymentWave: "Archives audio",
+    paymentCard: "Archives vidéo",
+    paymentMobile: "Repères documentaires",
+    paymentText: "Les contenus complémentaires peuvent être rangés ici par type ou par série.",
     securityOneTitle: "Rapide",
     securityOneText: "Chargement optimisé pour mobile et desktop",
     securityTwoTitle: "Sécurisé",
-    securityTwoText: "Architecture prête pour authentification et paiement",
+    securityTwoText: "Organisation claire des contenus",
     securityThreeTitle: "Référencé",
     securityThreeText: "SEO pensé dès la structure de la page",
     accountsEyebrow: "Comptes utilisateurs",
@@ -143,13 +143,13 @@ const translations = {
     emptyContinue: "Aucun contenu en reprise pour le moment.",
     adminEyebrow: "Tableau d’administration",
     adminTitle: "Un cockpit éditorial prêt pour la gestion complète",
-    adminText: "Gestion des contenus, abonnements, utilisateurs et statistiques dans une seule interface.",
+    adminText: "Gestion des contenus, des dossiers et des statistiques dans une seule interface.",
     adminActionOne: "Ajouter vidéos",
     adminActionTwo: "Ajouter audios",
     adminActionThree: "Ajouter articles",
     adminActionFour: "Ajouter livres PDF",
     adminActionFive: "Gérer utilisateurs",
-    adminActionSix: "Gérer abonnements",
+    adminActionSix: "Gérer dossiers",
     adminStatsTitle: "Statistiques",
     adminStatsBadge: "Vue plateforme",
     footerTagline: "La mémoire vivante des enseignements de Cheikh Abdoul Hamid Sarr et de l’héritage de Cheikh Seydi El Hadj Malick Sy.",
@@ -211,7 +211,7 @@ const translations = {
     searchPlaceholder: "Search videos, audio, articles, keywords...",
     searchAction: "Search",
     heroChipOne: "4 available languages",
-    heroChipTwo: "500 FCFA / month",
+    heroChipTwo: "Organized archives",
     heroChipThree: "Fast, secure and SEO-ready",
     statMembers: "founding members",
     statVideos: "pilot videos",
@@ -231,14 +231,14 @@ const translations = {
     featuredWatch: "Start watching",
     featuredShare: "Share",
     featureCardOneLabel: "Platform",
-    featureCardOneTitle: "TED, MasterClass and Netflix inspired video journeys",
-    featureCardOneText: "Smooth rails, instant navigation and generous thumbnails for the most important teachings.",
-    featureCardTwoLabel: "Subscription",
-    featureCardTwoTitle: "500 FCFA per month, simple and expandable",
-    featureCardTwoText: "Wave Senegal, bank card and a future Mobile Money extension ready for backend integration.",
-    featureCardThreeLabel: "Reach",
-    featureCardThreeTitle: "Multilingual, social sharing and dark mode",
-    featureCardThreeText: "A platform designed to reach thousands of users across Africa and the diaspora.",
+    featureCardOneTitle: "Organized video pathways",
+    featureCardOneText: "A simple structure across themes, cities and reference folders.",
+    featureCardTwoLabel: "Folders",
+    featureCardTwoTitle: "Clear content organization",
+    featureCardTwoText: "Content is organized by figures, folders and localities.",
+    featureCardThreeLabel: "Archives",
+    featureCardThreeTitle: "Search and consultation",
+    featureCardThreeText: "Navigation designed to find useful references quickly.",
     searchResultsEyebrow: "Smart search",
     searchResultsTitle: "Instant results across the entire library",
     searchResultsText: "Search by theme, keyword, content type or historical figure.",
@@ -248,12 +248,12 @@ const translations = {
     videoTitle: "Video library",
     videoText: "Talks, sermons, defense of Islam and Tidjaniya, history and Q&A sessions.",
     filterAll: "View all",
-    filterConferences: "Talks",
-    filterSermons: "Sermons",
-    filterTeachings: "Teachings",
+    filterConferences: "Conferences",
+    filterSermons: "Gamou",
+    filterTeachings: "Teaching of the day",
     filterIslam: "Defense of Islam",
     filterTidjaniya: "Defense of Tidjaniya",
-    filterHistory: "History",
+    filterHistory: "Dossiers",
     filterQA: "Q&A",
     watchNow: "Watch",
     listenNow: "Listen",
@@ -269,7 +269,7 @@ const translations = {
     audioBookmark: "Add to favorites",
     libraryEyebrow: "Digital library",
     libraryTitle: "Digital library",
-    libraryText: "A structured library for reading, annotation, fast consultation and subscription-based downloads.",
+    libraryText: "A structured library for reading, consultation and document organization.",
     readPreview: "Preview",
     download: "Download",
     subscriberOnly: "Subscribers only",
@@ -281,27 +281,27 @@ const translations = {
     bioTitle: "Biographies",
     bioText: "Dedicated pages for Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, khalifes, disciples and companions.",
     readBio: "Read biography",
-    subscriptionEyebrow: "Subscription system",
-    subscriptionTitle: "Simple, accessible premium access ready to grow",
-    subscriptionText: "Unlock premium content, the full library and downloads with clear pricing.",
+    subscriptionEyebrow: "Gamou",
+    subscriptionTitle: "Gamou index",
+    subscriptionText: "Content is organized by locality and series for easier browsing.",
     priceBadge: "Monthly offer",
     pricePerMonth: "per month",
-    subscriptionLead: "The ideal offer to access premium videos, audio archives and documents reserved for subscribers.",
-    subscriptionBenefitOne: "Access to premium videos",
-    subscriptionBenefitTwo: "Full audio library and sound archives",
-    subscriptionBenefitThree: "Download eligible documents",
-    subscriptionBenefitFour: "History, favorites and continue watching",
-    subscriptionPrimary: "Start subscription",
+    subscriptionLead: "A clear structure to locate Gamou-related material and major gatherings.",
+    subscriptionBenefitOne: "Gamou organized by city",
+    subscriptionBenefitTwo: "Audio and video archives",
+    subscriptionBenefitThree: "Related folders and references",
+    subscriptionBenefitFour: "Fast thematic browsing",
+    subscriptionPrimary: "Open index",
     subscriptionSecondary: "Contact the team",
-    paymentTitle: "Supported payment methods",
-    paymentWave: "Wave Senegal",
-    paymentCard: "Bank card",
-    paymentMobile: "Mobile Money extension",
-    paymentText: "The interface is already ready for secure payment integration and future payment method expansion.",
+    paymentTitle: "Additional organization",
+    paymentWave: "Audio archives",
+    paymentCard: "Video archives",
+    paymentMobile: "Document references",
+    paymentText: "Complementary material can be organized here by type or by series.",
     securityOneTitle: "Fast",
     securityOneText: "Optimized loading on mobile and desktop",
     securityTwoTitle: "Secure",
-    securityTwoText: "Architecture ready for authentication and payments",
+    securityTwoText: "Clear content organization",
     securityThreeTitle: "Searchable",
     securityThreeText: "SEO planned from the page structure",
     accountsEyebrow: "User accounts",
@@ -324,13 +324,13 @@ const translations = {
     emptyContinue: "No resume content yet.",
     adminEyebrow: "Admin dashboard",
     adminTitle: "An editorial cockpit ready for full management",
-    adminText: "Manage content, subscriptions, users and statistics in one interface.",
+    adminText: "Manage content, folders, users and statistics in one interface.",
     adminActionOne: "Add videos",
     adminActionTwo: "Add audio",
     adminActionThree: "Add articles",
     adminActionFour: "Add PDF books",
     adminActionFive: "Manage users",
-    adminActionSix: "Manage subscriptions",
+    adminActionSix: "Manage folders",
     adminStatsTitle: "Statistics",
     adminStatsBadge: "Platform overview",
     footerTagline: "The living memory of Cheikh Abdoul Hamid Sarr's teachings and the legacy of Cheikh Seydi El Hadj Malick Sy.",
@@ -392,7 +392,7 @@ const translations = {
     searchPlaceholder: "ابحث في الفيديوهات والتسجيلات والمقالات والكلمات المفتاحية...",
     searchAction: "بحث",
     heroChipOne: "أربع لغات متاحة",
-    heroChipTwo: "500 فرنك إفريقي / الشهر",
+    heroChipTwo: "أرشيف منظم",
     heroChipThree: "سريع وآمن ومهيأ لمحركات البحث",
     statMembers: "أعضاء مؤسسون",
     statVideos: "فيديوهات أولية",
@@ -412,14 +412,14 @@ const translations = {
     featuredWatch: "ابدأ المشاهدة",
     featuredShare: "مشاركة",
     featureCardOneLabel: "المنصة",
-    featureCardOneTitle: "رحلات فيديو مستلهمة من TED وMasterClass وNetflix",
-    featureCardOneText: "مسارات سلسة وتنقل فوري وصور مصغرة واسعة لأهم الدروس.",
-    featureCardTwoLabel: "الاشتراك",
-    featureCardTwoTitle: "500 فرنك إفريقي شهرياً بشكل بسيط وقابل للتوسع",
-    featureCardTwoText: "Wave Senegal وبطاقات بنكية وإضافة Mobile Money جاهزة للربط الخلفي.",
-    featureCardThreeLabel: "الانتشار",
-    featureCardThreeTitle: "متعدد اللغات ومشاركة اجتماعية ووضع ليلي",
-    featureCardThreeText: "منصة صممت للوصول إلى آلاف المستخدمين في إفريقيا والمهجر.",
+    featureCardOneTitle: "مسارات فيديو منظمة",
+    featureCardOneText: "تنظيم بسيط حسب الموضوع والمدينة والملف.",
+    featureCardTwoLabel: "الملفات",
+    featureCardTwoTitle: "تنظيم واضح للمحتوى",
+    featureCardTwoText: "المحتوى منظم حسب الشخصيات والملفات والمحليات.",
+    featureCardThreeLabel: "الأرشيف",
+    featureCardThreeTitle: "البحث والاستشارة",
+    featureCardThreeText: "تصفح يساعد على العثور بسرعة على المراجع المفيدة.",
     searchResultsEyebrow: "بحث ذكي",
     searchResultsTitle: "نتائج فورية في كامل المكتبة",
     searchResultsText: "ابحث حسب الموضوع أو الكلمة المفتاحية أو نوع المحتوى أو الشخصية التاريخية.",
@@ -429,12 +429,12 @@ const translations = {
     videoTitle: "مكتبة الفيديو",
     videoText: "محاضرات وخطب والدفاع عن الإسلام والطريقة التجانية والتاريخ والأسئلة والأجوبة.",
     filterAll: "عرض الكل",
-    filterConferences: "محاضرات",
-    filterSermons: "خطب",
-    filterTeachings: "دروس",
+    filterConferences: "مؤتمرات",
+    filterSermons: "غامو",
+    filterTeachings: "درس اليوم",
     filterIslam: "الدفاع عن الإسلام",
     filterTidjaniya: "الدفاع عن التجانية",
-    filterHistory: "التاريخ",
+    filterHistory: "الملفات",
     filterQA: "أسئلة وأجوبة",
     watchNow: "شاهد",
     listenNow: "استمع",
@@ -462,23 +462,23 @@ const translations = {
     bioTitle: "السير",
     bioText: "صفحات مخصصة للشيخ عبدول حميد سار والشيخ سيدي الحاج مالك سي والخلفاء والتلاميذ والرفاق.",
     readBio: "قراءة السيرة",
-    subscriptionEyebrow: "نظام الاشتراك",
-    subscriptionTitle: "وصول مميز بسيط ومتاح وجاهز للتوسع",
-    subscriptionText: "افتح المحتوى المميز والمكتبة الكاملة والتنزيلات بتسعير واضح.",
+    subscriptionEyebrow: "غامو",
+    subscriptionTitle: "فهرس الغامو",
+    subscriptionText: "المحتوى منظم حسب المحلية والسلسلة لتسهيل التصفح.",
     priceBadge: "عرض شهري",
     pricePerMonth: "شهرياً",
-    subscriptionLead: "العرض المثالي للوصول إلى الفيديوهات المميزة والأرشيف الصوتي والوثائق المخصصة للمشتركين.",
-    subscriptionBenefitOne: "الوصول إلى الفيديوهات المميزة",
-    subscriptionBenefitTwo: "المكتبة الصوتية الكاملة والأرشيف الصوتي",
-    subscriptionBenefitThree: "تنزيل الوثائق المسموح بها",
-    subscriptionBenefitFour: "السجل والمفضلة ومتابعة المشاهدة",
-    subscriptionPrimary: "ابدأ الاشتراك",
+    subscriptionLead: "تنظيم واضح للعثور على مواد الغامو والتجمعات الكبرى.",
+    subscriptionBenefitOne: "غامو مرتب حسب المدينة",
+    subscriptionBenefitTwo: "أرشيف صوتي ومرئي",
+    subscriptionBenefitThree: "ملفات ومراجع مرتبطة",
+    subscriptionBenefitFour: "تصفح سريع حسب الموضوع",
+    subscriptionPrimary: "فتح الفهرس",
     subscriptionSecondary: "اتصل بالفريق",
-    paymentTitle: "وسائل الدفع المدعومة",
-    paymentWave: "Wave Senegal",
-    paymentCard: "بطاقة بنكية",
-    paymentMobile: "إضافة Mobile Money",
-    paymentText: "الواجهة جاهزة لربط دفع آمن وتوسيع وسائل الدفع مستقبلاً.",
+    paymentTitle: "تنظيم إضافي",
+    paymentWave: "أرشيف صوتي",
+    paymentCard: "أرشيف مرئي",
+    paymentMobile: "مراجع وثائقية",
+    paymentText: "يمكن ترتيب المواد التكميلية هنا حسب النوع أو حسب السلسلة.",
     securityOneTitle: "سريع",
     securityOneText: "تحميل محسن للهاتف والكمبيوتر",
     securityTwoTitle: "آمن",
@@ -573,7 +573,7 @@ const translations = {
     searchPlaceholder: "Wut wideyoo, audio, mbind, baat yu am solo...",
     searchAction: "Wut",
     heroChipOne: "4 làkk yu am",
-    heroChipTwo: "500 FCFA / weer",
+    heroChipTwo: "Arsiif yu ñu tabax",
     heroChipThree: "Gaaw, wóor te SEO-ready",
     statMembers: "jàmmkat yu njëkk",
     statVideos: "wideyoo yu pilot",
@@ -593,14 +593,14 @@ const translations = {
     featuredWatch: "Tàmbali seetaan",
     featuredShare: "Séddoo",
     featureCardOneLabel: "Platfom",
-    featureCardOneTitle: "Yooni wideyoo yu mel ni TED, MasterClass ak Netflix",
-    featureCardOneText: "Rails yu doy, navigation gu gaaw ak vignettes yu yaatu ci njàngale yu mag yi.",
-    featureCardTwoLabel: "Abonnement",
-    featureCardTwoTitle: "500 FCFA ci weer, yomb te man a yokku",
-    featureCardTwoText: "Wave Sénégal, carte bancaire ak Mobile Money ci kanam, leer na ngir backend.",
-    featureCardThreeLabel: "Yëngu-yëngu",
-    featureCardThreeTitle: "Làkk yu bare, séddoo social ak mode guddi",
-    featureCardThreeText: "Platfom bu ñu def ngir jot ci ay junni nit ci Afrik ak diaspora.",
+    featureCardOneTitle: "Yooni wideyoo yu ñu tabax",
+    featureCardOneText: "Tabax bu yomb ci téeméer, dëkk ak dossier.",
+    featureCardTwoLabel: "Dossier",
+    featureCardTwoTitle: "Tëralinu contenu bu leer",
+    featureCardTwoText: "Contenu yi ñu warale ci nit ñi, dossier yi ak dëkk yi.",
+    featureCardThreeLabel: "Arsiif",
+    featureCardThreeTitle: "Wut ak seet",
+    featureCardThreeText: "Navigation bu tax nga gëna gaaw gis références yu am solo.",
     searchResultsEyebrow: "Wut gu xel",
     searchResultsTitle: "Njariñ yu gaaw ci biir maktaba bépp",
     searchResultsText: "Wut ci téeméer, baat bu am solo, xeetu contenu walla nit ku taarix.",
@@ -610,12 +610,12 @@ const translations = {
     videoTitle: "Wideyothèque",
     videoText: "Waxtaan, sermon, aar Islam ak Tarikha Tidjaniya, taarix ak laaj-ak-tontu.",
     filterAll: "Seet lépp",
-    filterConferences: "Waxtaan",
-    filterSermons: "Sermon",
-    filterTeachings: "Njàngale",
+    filterConferences: "Conference",
+    filterSermons: "Gamou",
+    filterTeachings: "Njàngale bes bi",
     filterIslam: "Aar Islam",
     filterTidjaniya: "Aar Tidjaniya",
-    filterHistory: "Taarix",
+    filterHistory: "Dossier",
     filterQA: "Laaj-Tontu",
     watchNow: "Seet",
     listenNow: "Deglu",
@@ -643,27 +643,27 @@ const translations = {
     bioTitle: "Biographies",
     bioText: "Xëti boppam ngir Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, khalif yi, taalibe yi ak xarit yi.",
     readBio: "Jàng biographie bi",
-    subscriptionEyebrow: "Sistemu abonnement",
-    subscriptionTitle: "Jot premium bu yomb te man a yokku",
-    subscriptionText: "Ubbi contenu premium, maktaba bépp ak téléchargement ak prii bu leer.",
+    subscriptionEyebrow: "Gamou",
+    subscriptionTitle: "Findexu Gamou",
+    subscriptionText: "Contenu yi ñu tabax ci dëkk ak séries ngir nga gëna yomb a xool.",
     priceBadge: "Offre weer wi",
     pricePerMonth: "ci weer",
-    subscriptionLead: "Offre bi gën a baax ngir jot ci wideyoo premium, arsiif audio ak dokimaa yu ñi abonné.",
-    subscriptionBenefitOne: "Jot ci wideyoo premium",
-    subscriptionBenefitTwo: "Audiothèque bépp ak arsiif yu baat",
-    subscriptionBenefitThree: "Téléchargement dokimaa yi ñu maye",
-    subscriptionBenefitFour: "Historique, favoris ak continuer la lecture",
-    subscriptionPrimary: "Tambali abonnement",
+    subscriptionLead: "Tabax bu leer ngir nga gis ay mbiri Gamou ak dajale yu mag yi.",
+    subscriptionBenefitOne: "Gamou yi ñu toftale ci dëkk",
+    subscriptionBenefitTwo: "Arsiif audio ak wideyoo",
+    subscriptionBenefitThree: "Dossier ak références yu bokk",
+    subscriptionBenefitFour: "Navigation gu gaaw ci téeméer yi",
+    subscriptionPrimary: "Ubbi findex bi",
     subscriptionSecondary: "Jokkoo ak ekib bi",
-    paymentTitle: "Yoonu fay yi ñuy nangu",
-    paymentWave: "Wave Sénégal",
-    paymentCard: "Carte bancaire",
-    paymentMobile: "Mobile Money ci kanam",
-    paymentText: "Design bi noppi na ngir yokk paiement sécurisé ak yokk yeneen yoonu fay ci ëllëg.",
+    paymentTitle: "Tëralin wu yokk",
+    paymentWave: "Arsiif audio",
+    paymentCard: "Arsiif wideyoo",
+    paymentMobile: "Références dokimaa",
+    paymentText: "Matee yu yokk mën nañu leen tabax fii ci xeet walla ci série.",
     securityOneTitle: "Gaaw",
     securityOneText: "Yebbi bu ñu gëna baaxal ci mobile ak desktop",
     securityTwoTitle: "Wóor",
-    securityTwoText: "Architecture bu noppi ngir auth ak paiement",
+    securityTwoText: "Tëralinu contenu bu leer",
     securityThreeTitle: "Seetkat",
     securityThreeText: "SEO ñu xalaat ko dale ci tabax xët wi",
     accountsEyebrow: "Compte utilisateur",
@@ -735,11 +735,9 @@ const translations = {
 
 const categories = [
   { key: "all", labelKey: "filterAll" },
+  { key: "teachings", labelKey: "filterTeachings" },
   { key: "conferences", labelKey: "filterConferences" },
   { key: "sermons", labelKey: "filterSermons" },
-  { key: "teachings", labelKey: "filterTeachings" },
-  { key: "islam", labelKey: "filterIslam" },
-  { key: "tidjaniya", labelKey: "filterTidjaniya" },
   { key: "history", labelKey: "filterHistory" },
   { key: "qa", labelKey: "filterQA" }
 ];
@@ -809,13 +807,13 @@ const catalog = {
       duration: "48 min",
       premium: false,
       title: {
-        fr: "Conférence magistrale : La voie de la transmission",
+        fr: "Conférence Dakar : la voie de la transmission",
         en: "Master lecture: The path of transmission",
         ar: "محاضرة كبرى: طريق التبليغ",
         wo: "Waxtaan wu mag: Yoonu jébbale"
       },
       description: {
-        fr: "Une introduction forte à la transmission du savoir, à la discipline spirituelle et à la responsabilité de préserver l’héritage.",
+        fr: "Une conférence de Dakar centrée sur la transmission du savoir, la discipline spirituelle et la responsabilité de préserver l’héritage.",
         en: "A strong introduction to knowledge transmission, spiritual discipline and the responsibility of preserving the legacy.",
         ar: "مدخل قوي إلى نقل العلم والانضباط الروحي ومسؤولية حفظ التراث.",
         wo: "Ubbi yoon bu bare solo ci jébbale xam-xam, njub ak warugaru samm cosaan."
@@ -831,13 +829,13 @@ const catalog = {
       duration: "32 min",
       premium: true,
       title: {
-        fr: "Sermon : patience, éthique et constance",
+        fr: "Gamou Dakar : patience, éthique et constance",
         en: "Sermon: patience, ethics and constancy",
         ar: "خطبة: الصبر والأخلاق والثبات",
         wo: "Sermon: muñ, jikko ak sax"
       },
       description: {
-        fr: "Un rappel spirituel centré sur la patience, l’éthique du croyant et la fidélité aux principes.",
+        fr: "Un rappel spirituel issu des contenus de Gamou, centré sur la patience, l’éthique du croyant et la fidélité aux principes.",
         en: "A spiritual reminder centered on patience, the ethics of the believer and faithfulness to principles.",
         ar: "تذكير روحي يتمحور حول الصبر وأخلاق المؤمن والثبات على المبادئ.",
         wo: "Fàttali bu xel ci muñ, jikko ju gëmkat ak sax ci njub."
@@ -853,13 +851,13 @@ const catalog = {
       duration: "55 min",
       premium: true,
       title: {
-        fr: "Enseignement : adab, méthode et élévation",
+        fr: "Enseignement du jour : adab, méthode et élévation",
         en: "Teaching: adab, method and elevation",
         ar: "درس: الأدب والمنهج والارتقاء",
         wo: "Njàngale: adab, pexe ak yéeg"
       },
       description: {
-        fr: "Une session structurée sur les règles de comportement, l’étude et l’élévation intérieure.",
+        fr: "Une session structurée choisie comme enseignement du jour autour du comportement, de l’étude et de l’élévation intérieure.",
         en: "A structured session on etiquette, study and inner elevation.",
         ar: "جلسة منظمة حول آداب السلوك وطلب العلم والارتقاء الداخلي.",
         wo: "Jàngat bu tabax ci adab, yoonu jàng ak yéeg gu biir."
@@ -869,19 +867,19 @@ const catalog = {
     {
       id: "video-islam",
       type: "video",
-      category: "islam",
+      category: "conferences",
       image: "assets/images/rencontre-01.jpeg",
       video: "assets/videos/archive-01.mp4",
       duration: "41 min",
       premium: false,
       title: {
-        fr: "Défense de l’Islam : clarté, pédagogie et argumentation",
+        fr: "Conférence Université : clarté, pédagogie et argumentation",
         en: "Defense of Islam: clarity, pedagogy and argumentation",
         ar: "الدفاع عن الإسلام: وضوح وتربية وبرهان",
         wo: "Aar Islam: leer, njàngale ak lay"
       },
       description: {
-        fr: "Une prise de parole pédagogique pour expliquer, défendre et transmettre les fondements avec sagesse.",
+        fr: "Une conférence donnée en milieu universitaire pour expliquer, défendre et transmettre les fondements avec sagesse.",
         en: "A pedagogical talk to explain, defend and transmit core principles with wisdom.",
         ar: "مداخلة تربوية لشرح الأصول والدفاع عنها ونقلها بالحكمة.",
         wo: "Waxtaan wu njàngale ngir leeral, aar ak jottali cosaan yi ak xel mu rafet."
@@ -891,19 +889,19 @@ const catalog = {
     {
       id: "video-tidjaniya",
       type: "video",
-      category: "tidjaniya",
+      category: "conferences",
       image: "assets/images/marche-01.jpeg",
       video: "assets/videos/conference-01.mp4",
       duration: "37 min",
       premium: true,
       title: {
-        fr: "Défense de la Tarikha Tidjaniya",
+        fr: "Conférence Kaolack : défense de la Tarikha Tidjaniya",
         en: "Defense of the Tidjaniya path",
         ar: "الدفاع عن الطريقة التجانية",
         wo: "Aar Tarikha Tidjaniya"
       },
       description: {
-        fr: "Une explication sereine des principes, de la chaîne de transmission et de la mission éducative de la Tarikha.",
+        fr: "Une conférence de Kaolack consacrée aux principes, à la chaîne de transmission et à la mission éducative de la Tarikha.",
         en: "A calm explanation of principles, transmission lineage and the educational mission of the path.",
         ar: "شرح هادئ للمبادئ وسلسلة الإسناد والرسالة التربوية للطريقة.",
         wo: "Leeral gu dal ci cosaan, silsila ak missionu njàngale bu Tarikha bi."
@@ -919,13 +917,13 @@ const catalog = {
       duration: "29 min",
       premium: false,
       title: {
-        fr: "Histoire de Cheikh Seydi El Hadj Malick Sy",
+        fr: "Dossier vidéo : Cheikh Seydi El Hadj Malick Sy",
         en: "History of Cheikh Seydi El Hadj Malick Sy",
         ar: "تاريخ الشيخ سيدي الحاج مالك سي",
         wo: "Taarixu Cheikh Seydi El Hadj Malick Sy"
       },
       description: {
-        fr: "Une capsule historique dédiée à l’itinéraire, l’influence et l’héritage du grand maître.",
+        fr: "Un dossier vidéo pour retrouver l’itinéraire, l’influence et l’héritage de Cheikh Seydi El Hadj Malick Sy.",
         en: "A historical capsule dedicated to the journey, influence and legacy of the great master.",
         ar: "عرض تاريخي موجز عن المسار والتأثير والإرث الخاص بالشيخ الكبير.",
         wo: "Capsule bu taarix ci yoonu dund, aw yëngu-yëngu ak cosaanu mag mi."
@@ -1069,13 +1067,13 @@ const catalog = {
       image: "assets/images/lecture-02.jpeg",
       premium: false,
       title: {
-        fr: "Articles de référence",
+        fr: "Livres de référence",
         en: "Reference articles",
         ar: "مقالات مرجعية",
         wo: "Mbind yu référence"
       },
       description: {
-        fr: "Une collection d’articles thématiques sur les enseignements, la pratique et l’héritage.",
+        fr: "Une entrée principale pour les livres de référence liés aux enseignements, à la pratique et à l’héritage.",
         en: "A collection of themed articles on teachings, practice and legacy.",
         ar: "مجموعة مقالات موضوعية حول الدروس والممارسة والتراث.",
         wo: "Dajale mbind ci njàngale, jëf ak cosaan."
@@ -1088,13 +1086,13 @@ const catalog = {
       image: "assets/images/hero-cheikh.jpeg",
       premium: true,
       title: {
-        fr: "Livres numériques",
+        fr: "Bibliothèque PDF",
         en: "Digital books",
         ar: "كتب رقمية",
         wo: "Téere dijitaal"
       },
       description: {
-        fr: "Des livres classés par auteur, thème et période pour une consultation structurée.",
+        fr: "Un espace dédié aux PDF classés par auteur, thème, ville et période.",
         en: "Books organized by author, theme and era for structured consultation.",
         ar: "كتب منظمة حسب المؤلف والموضوع والحقبة.",
         wo: "Téere yi ñu xeexale ci bindkat, téeméer ak jamono."
@@ -1107,13 +1105,13 @@ const catalog = {
       image: "assets/images/archive-01.jpeg",
       premium: true,
       title: {
-        fr: "Manuscrits et pièces rares",
+        fr: "Dossier Cheikh Ahmeth Tidiane Cherif",
         en: "Manuscripts and rare pieces",
         ar: "مخطوطات ووثائق نادرة",
         wo: "Manuscript ak dogal yu rare"
       },
       description: {
-        fr: "Un espace premium pour conserver les manuscrits et les pièces historiques sensibles.",
+        fr: "Dossier consacré à Cheikh Ahmeth Tidiane Cherif avec textes, repères et documents à classer.",
         en: "A premium space to preserve manuscripts and sensitive historical material.",
         ar: "فضاء مميز لحفظ المخطوطات والوثائق التاريخية الحساسة.",
         wo: "Barab premium ngir denc manuscript ak dokimaa yu am solo lool."
@@ -1126,13 +1124,13 @@ const catalog = {
       image: "assets/images/marche-01.jpeg",
       premium: false,
       title: {
-        fr: "Documents PDF",
+        fr: "Dossier Cheikh Seydi El Hadj Malick Sy",
         en: "PDF documents",
         ar: "وثائق PDF",
         wo: "Dokimaa PDF"
       },
       description: {
-        fr: "Des PDF téléchargeables ou consultables en ligne selon le niveau d’accès.",
+        fr: "Dossier documentaire autour de Cheikh Seydi El Hadj Malick Sy, avec livres, PDF et archives à retrouver.",
         en: "PDFs available for download or online reading depending on access level.",
         ar: "ملفات PDF للقراءة أو التنزيل حسب مستوى الوصول.",
         wo: "PDF yu manees a jàng walla yebbi ci niveau d’accès bi."
@@ -1145,13 +1143,13 @@ const catalog = {
       image: "assets/images/rencontre-01.jpeg",
       premium: false,
       title: {
-        fr: "Discours et allocutions",
+        fr: "Dossier Cheikh Seydi Ahmeth Sy",
         en: "Speeches and addresses",
         ar: "خطابات وكلمات",
         wo: "Kàddu ak allocutions"
       },
       description: {
-        fr: "Un classement des discours importants pour la transmission publique des idées.",
+        fr: "Dossier regroupant les contenus, interventions et documents liés à Cheikh Seydi Ahmeth Sy.",
         en: "A curated archive of important speeches for public transmission of ideas.",
         ar: "أرشيف منظم للخطابات المهمة في نقل الرسالة.",
         wo: "Xàll bu ñu def ci kàddu yu am solo ci jébbale kàddu yi."
@@ -1164,13 +1162,13 @@ const catalog = {
       image: "assets/images/seydi-malick.jpeg",
       premium: true,
       title: {
-        fr: "Écrits historiques",
+        fr: "Dossier Sérigne Babacar Sy",
         en: "Historical writings",
         ar: "نصوص تاريخية",
         wo: "Mbind yu taarix"
       },
       description: {
-        fr: "Des textes pour contextualiser la trajectoire des figures majeures et des disciples.",
+        fr: "Dossier pour les archives, écrits et contenus de référence consacrés à Sérigne Babacar Sy.",
         en: "Texts that contextualize the journey of major figures and disciples.",
         ar: "نصوص تؤطر مسار الشخصيات الكبرى والتلاميذ.",
         wo: "Mbind yu waral yoonu nit ñu mag ak taalibe yi."
@@ -1184,13 +1182,13 @@ const catalog = {
       type: "biography",
       image: "assets/images/hero-cheikh.jpeg",
       title: {
-        fr: "Cheikh Abdoul Hamid Sarr",
+        fr: "Dossier Cheikh Abdoul Hamid Sarr",
         en: "Cheikh Abdoul Hamid Sarr",
         ar: "الشيخ عبدول حميد سار",
         wo: "Cheikh Abdoul Hamid Sarr"
       },
       description: {
-        fr: "Une page dédiée à sa trajectoire, ses enseignements, ses interventions et son rayonnement.",
+        fr: "Dossier principal dédié à sa trajectoire, à ses enseignements, à ses interventions et à son rayonnement.",
         en: "A dedicated page for his journey, teachings, interventions and influence.",
         ar: "صفحة مخصصة لمساره وتعليمه ومداخلاته وإشعاعه.",
         wo: "Xët bu ñu jagleel yoonam, njàngaleem, kàddu yu mu wax ak leeram."
@@ -1202,13 +1200,13 @@ const catalog = {
       type: "biography",
       image: "assets/images/seydi-malick.jpeg",
       title: {
-        fr: "Cheikh Seydi El Hadj Malick Sy",
+        fr: "Dossier Khalifes",
         en: "Cheikh Seydi El Hadj Malick Sy",
         ar: "الشيخ سيدي الحاج مالك سي",
         wo: "Cheikh Seydi El Hadj Malick Sy"
       },
       description: {
-        fr: "Une biographie structurée pour comprendre son héritage, sa pédagogie et son influence durable.",
+        fr: "Un espace structuré pour retrouver les Khalifes, leurs repères et les contenus à classer.",
         en: "A structured biography to understand his legacy, pedagogy and lasting influence.",
         ar: "سيرة منظمة لفهم تراثه وتربيته وتأثيره المستمر.",
         wo: "Biographie bu tabax ngir xam cosaanam, njàngaleem ak leeram bu sax."
@@ -1220,13 +1218,13 @@ const catalog = {
       type: "biography",
       image: "assets/images/archive-01.jpeg",
       title: {
-        fr: "Les Khalifes",
+        fr: "Dossier disciples et compagnons",
         en: "The Khalifes",
         ar: "الخلفاء",
         wo: "Khalif yi"
       },
       description: {
-        fr: "Un espace pour regrouper les figures de continuité et leurs contributions successives.",
+        fr: "Un espace pour rassembler les disciples, les compagnons et les figures de continuité.",
         en: "A space gathering the figures of continuity and their successive contributions.",
         ar: "فضاء يجمع شخصيات الاستمرارية وإسهاماتهم المتعاقبة.",
         wo: "Barab bu dajale nit ñi jox yoon ak liggéey yi ñu wéyal."
@@ -1238,13 +1236,13 @@ const catalog = {
       type: "biography",
       image: "assets/images/rencontre-01.jpeg",
       title: {
-        fr: "Disciples et compagnons",
+        fr: "Dossier archives de transmission",
         en: "Disciples and companions",
         ar: "التلاميذ والرفاق",
         wo: "Taalibe yi ak xarit yi"
       },
       description: {
-        fr: "Des portraits biographiques pour relier les œuvres, les témoignages et la chaîne de transmission.",
+        fr: "Un dossier complémentaire pour relier les œuvres, les témoignages et la chaîne de transmission.",
         en: "Biographical portraits linking works, testimonies and the chain of transmission.",
         ar: "صور تعريفية تربط الأعمال والشهادات وسلسلة النقل.",
         wo: "Portrait yu biographie ngir boole liggéey yi, seede yi ak silsila bi."
@@ -1259,13 +1257,13 @@ const catalog = {
       image: "assets/images/hero-cheikh.jpeg",
       size: "large",
       title: {
-        fr: "Portrait principal",
+        fr: "Dossier El Hadj Mansour Sy",
         en: "Main portrait",
         ar: "الصورة الرئيسية",
         wo: "Sawar bu njëkk"
       },
       description: {
-        fr: "Un visuel fort pour porter la page d’accueil et l’identité de la plateforme.",
+        fr: "Dossier visuel et documentaire consacré à El Hadj Mansour Sy.",
         en: "A strong visual carrying the homepage and the identity of the platform.",
         ar: "صورة قوية لقيادة الصفحة الرئيسية وهوية المنصة.",
         wo: "Sawar su am doole ngir jox xët wu njëkk ak identité bi."
@@ -1278,13 +1276,13 @@ const catalog = {
       image: "assets/images/lecture-01.jpeg",
       size: "medium",
       title: {
-        fr: "Lecture et transmission",
+        fr: "Dossier El Hadj Abdoul Aziz Sy",
         en: "Reading and transmission",
         ar: "القراءة والنقل",
         wo: "Jàng ak jébbale"
       },
       description: {
-        fr: "Un moment d’étude qui nourrit la bibliothèque vivante.",
+        fr: "Dossier de classement pour les contenus liés à El Hadj Abdoul Aziz Sy.",
         en: "A study moment feeding the living library.",
         ar: "لحظة دراسة تغذي المكتبة الحية.",
         wo: "Waxtu jàng moo dundal maktaba bi."
@@ -1297,13 +1295,13 @@ const catalog = {
       image: "assets/images/lecture-02.jpeg",
       size: "small",
       title: {
-        fr: "Concentration et présence",
+        fr: "Dossier El Hadj Habib Sy",
         en: "Focus and presence",
         ar: "تركيز وحضور",
         wo: "Fas yéene ak présence"
       },
       description: {
-        fr: "Une image qui raconte le rapport au savoir et au texte.",
+        fr: "Dossier dédié à El Hadj Habib Sy avec archives, repères et contenus de transmission.",
         en: "An image telling the relationship to knowledge and text.",
         ar: "صورة تروي العلاقة بالعلم والنص.",
         wo: "Sawar su wax diggante xam-xam ak mbind."
@@ -1316,13 +1314,13 @@ const catalog = {
       image: "assets/images/rencontre-01.jpeg",
       size: "small",
       title: {
-        fr: "Rencontre et échange",
+        fr: "Dossier Cheikh SEYDI Hadj Malick",
         en: "Meeting and exchange",
         ar: "لقاء وتبادل",
         wo: "Ndaje ak waxtaan"
       },
       description: {
-        fr: "Des échanges humains au cœur de la transmission.",
+        fr: "Dossier complémentaire pour regrouper les contenus autour de Cheikh SEYDI Hadj Malick.",
         en: "Human exchange at the center of transmission.",
         ar: "تبادل إنساني في قلب التبليغ.",
         wo: "Waxtaanu nit ñi ci biiru jébbale bi."
@@ -1335,13 +1333,13 @@ const catalog = {
       image: "assets/images/archive-01.jpeg",
       size: "small",
       title: {
-        fr: "Archive historique",
+        fr: "Dossier Cheikh Seydi Ahmeth Sy",
         en: "Historical archive",
         ar: "أرشيف تاريخي",
         wo: "Arsiif bu taarix"
       },
       description: {
-        fr: "Une mémoire visuelle pour relier les générations.",
+        fr: "Dossier visuel pour les archives et les repères liés à Cheikh Seydi Ahmeth Sy.",
         en: "A visual memory linking generations.",
         ar: "ذاكرة بصرية تربط الأجيال.",
         wo: "Fàttaliku gis ngir boole xeeti nit."
@@ -1358,7 +1356,7 @@ const state = {
   favorites: JSON.parse(localStorage.getItem(STORAGE_KEYS.favorites) || "[]"),
   history: JSON.parse(localStorage.getItem(STORAGE_KEYS.history) || "[]"),
   user: JSON.parse(localStorage.getItem(STORAGE_KEYS.user) || "null"),
-  currentFeaturedId: "video-conference",
+  currentFeaturedId: "video-teaching",
   currentAudioId: "audio-khassida",
   currentAuthView: "signin"
 };
@@ -1441,7 +1439,9 @@ function findById(id) {
 
 function updateTheme() {
   elements.body.dataset.theme = state.theme;
-  elements.themeToggle.setAttribute("aria-label", state.theme === "dark" ? "Passer au mode clair" : "Passer au mode sombre");
+  if (elements.themeToggle) {
+    elements.themeToggle.setAttribute("aria-label", state.theme === "dark" ? "Passer au mode clair" : "Passer au mode sombre");
+  }
 }
 
 function applyLanguage() {
@@ -1456,7 +1456,9 @@ function applyLanguage() {
     node.setAttribute("placeholder", t(node.dataset.i18nPlaceholder));
   });
 
-  elements.languageSelect.value = state.language;
+  if (elements.languageSelect) {
+    elements.languageSelect.value = state.language;
+  }
   renderFilters();
   renderFeatured();
   renderVideos();
@@ -1470,6 +1472,8 @@ function applyLanguage() {
 }
 
 function renderFilters() {
+  if (!elements.videoFilters) return;
+
   elements.videoFilters.innerHTML = categories
     .map(
       (category) => `
@@ -1504,11 +1508,11 @@ function getEditorialEyebrow(item) {
   }
 
   if (item.type === "biography") {
-    return t("bioEyebrow");
+    return "DOSSIER";
   }
 
   if (item.type === "gallery") {
-    return t("galleryEyebrow");
+    return "DOSSIER";
   }
 
   return item.type;
@@ -1524,15 +1528,15 @@ function getEditorialBadge(item) {
   }
 
   if (item.type === "document") {
-    return item.premium ? t("accessPremium") : "PDF";
+    return "PDF";
   }
 
   if (item.type === "biography") {
-    return "BIO";
+    return "DOSSIER";
   }
 
   if (item.type === "gallery") {
-    return "PHOTO";
+    return "DOSSIER";
   }
 
   return item.premium ? t("accessPremium") : t("accessFree");
@@ -1619,6 +1623,8 @@ function renderFeatured() {
 }
 
 function renderVideos() {
+  if (!elements.videoRail) return;
+
   const items =
     state.activeCategory === "all"
       ? catalog.videos
@@ -1639,6 +1645,8 @@ function renderVideos() {
 }
 
 function renderAudio() {
+  if (!elements.audioTitle || !elements.audioPlayerSource || !elements.audioPlaylist || !elements.audioBookmarkAction) return;
+
   const current = catalog.audios.find((item) => item.id === state.currentAudioId) || catalog.audios[0];
 
   elements.audioTitle.textContent = getLocalized(current.title);
@@ -1670,6 +1678,8 @@ function renderAudio() {
 }
 
 function renderDocuments() {
+  if (!elements.documentsGrid) return;
+
   elements.documentsGrid.innerHTML = catalog.documents
     .map((item) =>
       renderEditorialCard({
@@ -1683,6 +1693,8 @@ function renderDocuments() {
 }
 
 function renderGallery() {
+  if (!elements.galleryGrid) return;
+
   elements.galleryGrid.innerHTML = catalog.gallery
     .map((item) =>
       renderEditorialCard({
@@ -1698,6 +1710,8 @@ function renderGallery() {
 }
 
 function renderBiographies() {
+  if (!elements.bioGrid) return;
+
   elements.bioGrid.innerHTML = catalog.biographies
     .map((item) =>
       renderEditorialCard({
@@ -1713,6 +1727,8 @@ function renderBiographies() {
 }
 
 function renderStats() {
+  if (!elements.statsGrid) return;
+
   elements.statsGrid.innerHTML = metrics
     .map(
       (metric) => `
@@ -1736,6 +1752,10 @@ function historyEntryMarkup(entry) {
 }
 
 function renderDashboard() {
+  if (!elements.dashboardGreeting || !elements.accountSummaryTitle || !elements.accountSummaryText || !elements.historyList || !elements.favoritesList || !elements.continueList) {
+    return;
+  }
+
   const userName = state.user?.name || t("userGuest");
 
   elements.dashboardGreeting.textContent = formatMessage("dashboardGreeting", { name: userName });
@@ -1784,6 +1804,8 @@ function buildSearchIndex() {
 }
 
 function renderSearchResults(query) {
+  if (!elements.searchSection || !elements.searchResultsGrid || !elements.searchResultsMeta) return;
+
   if (!query) {
     elements.searchSection.classList.add("is-hidden");
     elements.searchResultsGrid.innerHTML = "";
@@ -1888,7 +1910,7 @@ function openItem(id) {
   } else if (item.type === "document") {
     showToast(item.premium ? "toastDocumentPremium" : "toastDocumentPreview");
   } else if (item.type === "gallery") {
-    window.open(item.image, "_blank", "noopener");
+    showToast("toastDocumentPreview");
   }
 }
 
@@ -1939,21 +1961,27 @@ function initializeObservers() {
 }
 
 function bindEvents() {
-  elements.languageSelect.addEventListener("change", (event) => {
-    state.language = event.target.value;
-    saveState();
-    applyLanguage();
-  });
+  if (elements.languageSelect) {
+    elements.languageSelect.addEventListener("change", (event) => {
+      state.language = event.target.value;
+      saveState();
+      applyLanguage();
+    });
+  }
 
-  elements.themeToggle.addEventListener("click", () => {
-    state.theme = state.theme === "dark" ? "light" : "dark";
-    saveState();
-    updateTheme();
-  });
+  if (elements.themeToggle) {
+    elements.themeToggle.addEventListener("click", () => {
+      state.theme = state.theme === "dark" ? "light" : "dark";
+      saveState();
+      updateTheme();
+    });
+  }
 
-  elements.menuToggle.addEventListener("click", () => {
-    document.body.classList.toggle("menu-open");
-  });
+  if (elements.menuToggle) {
+    elements.menuToggle.addEventListener("click", () => {
+      document.body.classList.toggle("menu-open");
+    });
+  }
 
   document.addEventListener("click", (event) => {
     const filterButton = event.target.closest("[data-filter]");
@@ -2027,25 +2055,27 @@ function bindEvents() {
     }
   });
 
-  elements.searchForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const query = elements.searchInput.value.trim();
+  if (elements.searchForm && elements.searchInput && elements.searchSection) {
+    elements.searchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const query = elements.searchInput.value.trim();
 
-    if (!query) {
-      showToast("toastSearchEmpty");
-      return;
-    }
+      if (!query) {
+        showToast("toastSearchEmpty");
+        return;
+      }
 
-    renderSearchResults(query);
-    elements.searchSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
+      renderSearchResults(query);
+      elements.searchSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
 
-  elements.searchInput.addEventListener("input", (event) => {
-    const value = event.target.value.trim();
-    if (!value) {
-      renderSearchResults("");
-    }
-  });
+    elements.searchInput.addEventListener("input", (event) => {
+      const value = event.target.value.trim();
+      if (!value) {
+        renderSearchResults("");
+      }
+    });
+  }
 
   if (elements.featuredPlayAction) {
     elements.featuredPlayAction.addEventListener("click", () => {
@@ -2066,17 +2096,24 @@ function bindEvents() {
     });
   }
 
-  elements.audioBookmarkAction.addEventListener("click", () => {
-    persistFavorite(state.currentAudioId);
-  });
+  if (elements.audioBookmarkAction) {
+    elements.audioBookmarkAction.addEventListener("click", () => {
+      persistFavorite(state.currentAudioId);
+    });
+  }
 
-  elements.notifyToggle.addEventListener("click", () => {
-    showToast("toastNotifications");
-  });
+  if (elements.notifyToggle) {
+    elements.notifyToggle.addEventListener("click", () => {
+      showToast("toastNotifications");
+    });
+  }
 
-  document.querySelector("#pricingContact").addEventListener("click", () => {
-    showToast("toastContact");
-  });
+  const pricingContactButton = document.querySelector("#pricingContact");
+  if (pricingContactButton) {
+    pricingContactButton.addEventListener("click", () => {
+      showToast("toastContact");
+    });
+  }
 
   document.querySelectorAll("#signinForm, #signupForm, #resetForm").forEach((form) => {
     form.addEventListener("submit", (event) => {
