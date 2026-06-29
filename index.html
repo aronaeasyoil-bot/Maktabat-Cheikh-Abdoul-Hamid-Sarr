@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maktabat Cheikh Abdoul Hamid Sarr | Bibliothèque numérique officielle</title>
+  <meta
+    name="description"
+    content="Maktabat Cheikh Abdoul Hamid Sarr, la bibliothèque numérique officielle consacrée aux enseignements, conférences, archives, biographies et œuvres liées à la Tarikha Tidjaniya et à l'héritage de Cheikh Seydi El Hadj Malick Sy."
+  >
+  <meta
+    name="keywords"
+    content="Cheikh Abdoul Hamid Sarr, Tarikha Tidjaniya, Cheikh Seydi El Hadj Malick Sy, vidéothèque islamique, audiothèque islamique, bibliothèque numérique, khassidas, conférences, manuscrits"
+  >
+  <meta name="theme-color" content="#071510">
+  <meta property="og:title" content="Maktabat Cheikh Abdoul Hamid Sarr">
+  <meta
+    property="og:description"
+    content="Préserver, transmettre et faire rayonner l'héritage de la Tarikha Tidjaniya et de Cheikh Seydi El Hadj Malick Sy."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero-cheikh.jpeg">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Maktabat Cheikh Abdoul Hamid Sarr",
+      "url": "https://maktabatchs.org/",
+      "description": "Bibliothèque numérique officielle des œuvres de Cheikh Abdoul Hamid Sarr.",
+      "inLanguage": ["fr", "ar", "en", "wo"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "Maktabat Cheikh Abdoul Hamid Sarr"
+      }
+    }
+  </script>
+</head>
+<body data-theme="dark">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="top-banner container">
+        <p data-i18n="topBanner">Bibliothèque numérique officielle • Vidéos, audios, manuscrits et archives premium</p>
+        <button class="ghost-pill" id="notifyToggle" type="button" data-i18n="notify">Activer les notifications</button>
+      </div>
+
+      <div class="header-inner container">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Ouvrir le menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <a class="brand" href="#home" aria-label="Maktabat Cheikh Abdoul Hamid Sarr">
+          <span class="brand-mark">M</span>
+          <span class="brand-copy">
+            <strong>Maktabat CHS</strong>
+            <small data-i18n="brandSubtitle">Bibliothèque officielle</small>
+          </span>
+        </a>
+
+        <nav class="nav" id="primaryNav">
+          <a href="#home" data-i18n="navHome">Accueil</a>
+          <a href="#video" data-i18n="navVideo">Vidéothèque</a>
+          <a href="#audio" data-i18n="navAudio">Audiothèque</a>
+          <a href="#library" data-i18n="navLibrary">Bibliothèque</a>
+          <a href="#gallery" data-i18n="navGallery">Galerie</a>
+          <a href="#biographies" data-i18n="navBio">Biographies</a>
+          <a href="#subscription" data-i18n="navSubscription">Abonnement</a>
+          <a href="#admin" data-i18n="navAdmin">Administration</a>
+        </nav>
+
+        <div class="header-actions">
+          <label class="lang-picker" for="languageSelect">
+            <span class="sr-only" data-i18n="languageLabel">Langue</span>
+            <select id="languageSelect" aria-label="Choisir la langue">
+              <option value="fr">FR</option>
+              <option value="en">EN</option>
+              <option value="ar">AR</option>
+              <option value="wo">WO</option>
+            </select>
+          </label>
+          <button class="icon-toggle" id="themeToggle" type="button" aria-label="Changer le thème">
+            <span class="icon-toggle__circle"></span>
+          </button>
+          <button class="secondary-button compact" id="openAuthHeader" type="button" data-i18n="headerSignIn">Connexion</button>
+          <a class="primary-button compact" href="#subscription" data-i18n="headerSubscribe">S'abonner</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container" id="home">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow" data-i18n="heroEyebrow">La bibliothèque numérique officielle des œuvres de Cheikh Abdoul Hamid Sarr</p>
+          <h1 data-i18n="heroTitle">Maktabat Cheikh Abdoul Hamid Sarr</h1>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">
+            Préserver, transmettre et faire rayonner l’héritage de la Tarikha Tidjaniya et de Cheikh Seydi El Hadj Malick Sy.
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-button" href="#featured" data-i18n="heroPrimary">Découvrir les enseignements</a>
+            <button class="secondary-button" id="openAuthHero" type="button" data-i18n="heroSecondary">S’abonner</button>
+          </div>
+
+          <form class="hero-search" id="heroSearchForm">
+            <label class="search-input" for="heroSearchInput">
+              <span class="search-input__icon"></span>
+              <input
+                id="heroSearchInput"
+                name="search"
+                type="search"
+                autocomplete="off"
+                data-i18n-placeholder="searchPlaceholder"
+                placeholder="Rechercher vidéos, audios, articles, mots-clés..."
+              >
+            </label>
+            <button class="primary-button compact" type="submit" data-i18n="searchAction">Rechercher</button>
+          </form>
+
+          <div class="hero-chips">
+            <span class="hero-chip" data-i18n="heroChipOne">4 langues disponibles</span>
+            <span class="hero-chip" data-i18n="heroChipTwo">500 FCFA / mois</span>
+            <span class="hero-chip" data-i18n="heroChipThree">Rapide, sécurisé et SEO-ready</span>
+          </div>
+
+          <div class="hero-stats">
+            <article>
+              <strong>1 250</strong>
+              <span data-i18n="statMembers">membres fondateurs</span>
+            </article>
+            <article>
+              <strong>07</strong>
+              <span data-i18n="statVideos">vidéos pilotes</span>
+            </article>
+            <article>
+              <strong>05</strong>
+              <span data-i18n="statAudios">audios disponibles</span>
+            </article>
+            <article>
+              <strong>06</strong>
+              <span data-i18n="statDocs">documents catalogués</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-stage" data-reveal>
+          <div class="hero-stage__frame">
+            <img src="assets/images/hero-cheikh.jpeg" alt="Cheikh Abdoul Hamid Sarr" loading="eager">
+            <div class="hero-stage__wash"></div>
+          </div>
+
+          <div class="hero-stage__caption">
+            <span class="eyebrow" data-i18n="heroSpotlightLabel">À la une cette semaine</span>
+            <h2 data-i18n="heroSpotlightTitle">Transmission, excellence et mémoire vivante</h2>
+            <p data-i18n="heroSpotlightText">
+              Une expérience éditoriale pensée pour préserver les archives, diffuser les enseignements et accompagner les nouvelles générations.
+            </p>
+          </div>
+
+          <div class="floating-card floating-card--top">
+            <strong data-i18n="heroQuickOneTitle">Conférences premium</strong>
+            <span data-i18n="heroQuickOneText">Grandes vignettes, accès rapide et favoris personnels</span>
+          </div>
+
+          <div class="floating-card floating-card--bottom">
+            <strong data-i18n="heroQuickTwoTitle">Recherche intelligente</strong>
+            <span data-i18n="heroQuickTwoText">Vidéos, audios, thèmes religieux et archives historiques</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured container" id="featured">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow" data-i18n="featuredEyebrow">Expérience immersive</p>
+            <h2 data-i18n="featuredTitle">Une page d’accueil pensée comme une plateforme haut de gamme</h2>
+          </div>
+          <p data-i18n="featuredText">
+            Une mise en avant éditoriale inspirée des grandes plateformes médias, adaptée à une bibliothèque spirituelle moderne.
+          </p>
+        </div>
+
+        <div class="featured-layout">
+          <article class="featured-player panel" data-reveal>
+            <div class="featured-player__media">
+              <video id="featuredVideo" controls preload="metadata" playsinline poster="assets/images/lecture-01.jpeg">
+                <source id="featuredVideoSource" src="assets/videos/conference-01.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="featured-player__content">
+              <div class="pill-row">
+                <span class="pill" data-i18n="featuredBadge">Sélection éditoriale</span>
+                <span class="status-badge" id="featuredAccessBadge">Libre</span>
+              </div>
+              <h3 id="featuredTitleText">Conférence magistrale : La voie de la transmission</h3>
+              <p id="featuredDescriptionText">
+                Un enseignement introductif sur la transmission du savoir, la discipline spirituelle et la sauvegarde de l’héritage tidjane.
+              </p>
+              <div class="featured-meta">
+                <span id="featuredCategoryText">Conférences</span>
+                <span id="featuredDurationText">48 min</span>
+              </div>
+              <div class="featured-actions">
+                <button class="primary-button" id="featuredPlayAction" type="button" data-i18n="featuredWatch">Lancer la lecture</button>
+                <button class="secondary-button" id="featuredShareAction" type="button" data-i18n="featuredShare">Partager</button>
+              </div>
+            </div>
+          </article>
+
+          <aside class="feature-callouts" data-reveal>
+            <article class="feature-note">
+              <span class="pill" data-i18n="featureCardOneLabel">Plateforme</span>
+              <h3 data-i18n="featureCardOneTitle">Parcours vidéo façon TED, MasterClass et Netflix</h3>
+              <p data-i18n="featureCardOneText">Des rails fluides, une navigation instantanée et des vignettes généreuses pour les enseignements majeurs.</p>
+            </article>
+            <article class="feature-note">
+              <span class="pill" data-i18n="featureCardTwoLabel">Abonnement</span>
+              <h3 data-i18n="featureCardTwoTitle">500 FCFA par mois, simple et extensible</h3>
+              <p data-i18n="featureCardTwoText">Wave Sénégal, carte bancaire et extension Mobile Money prête à être branchée côté backend.</p>
+            </article>
+            <article class="feature-note">
+              <span class="pill" data-i18n="featureCardThreeLabel">Diffusion</span>
+              <h3 data-i18n="featureCardThreeTitle">Multilingue, partage social et mode sombre</h3>
+              <p data-i18n="featureCardThreeText">Une plateforme conçue pour toucher des milliers d’utilisateurs en Afrique et dans la diaspora.</p>
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <section class="search-results container is-hidden" id="searchSection">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="searchResultsEyebrow">Recherche intelligente</p>
+            <h2 data-i18n="searchResultsTitle">Résultats instantanés dans toute la bibliothèque</h2>
+          </div>
+          <p id="searchResultsMeta" data-i18n="searchResultsText">Recherchez par thème, mot-clé, type de contenu ou figure historique.</p>
+        </div>
+        <div class="search-results__grid" id="searchResultsGrid"></div>
+      </section>
+
+      <section class="content-section container" id="video">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow" data-i18n="videoEyebrow">Vidéothèque</p>
+            <h2 data-i18n="videoTitle">Les enseignements en grand format</h2>
+          </div>
+          <p data-i18n="videoText">
+            Conférences, sermons, défense de l’Islam et de la Tarikha Tidjaniya, histoire et questions-réponses.
+          </p>
+        </div>
+        <div class="chip-row" id="videoFilters" data-reveal></div>
+        <div class="editorial-feed editorial-feed--two" id="videoRail" data-reveal></div>
+      </section>
+
+      <section class="content-section container" id="audio">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow" data-i18n="audioEyebrow">Audiothèque</p>
+            <h2 data-i18n="audioTitle">Écouter, méditer et conserver les voix de la transmission</h2>
+          </div>
+          <p data-i18n="audioText">
+            Conférences audio, khassidas, podcasts, sermons et archives sonores avec lecteur intégré.
+          </p>
+        </div>
+
+        <div class="audio-layout">
+          <article class="audio-player panel" data-reveal>
+            <div class="pill-row">
+              <span class="pill" data-i18n="audioCurrentLabel">Lecture en cours</span>
+              <span class="status-badge" id="audioAccessBadge">Premium</span>
+            </div>
+            <h3 id="audioCurrentTitle">Khassida et méditation sur la mémoire spirituelle</h3>
+            <p id="audioCurrentDescription">
+              Une sélection audio conçue pour prolonger l’écoute des enseignements, à tout moment et sur tous les appareils.
+            </p>
+            <div class="featured-meta">
+              <span id="audioCurrentCategory">Khassidas</span>
+              <span id="audioCurrentDuration">22 min</span>
+            </div>
+            <audio id="audioPlayer" controls preload="metadata">
+              <source id="audioPlayerSource" src="assets/videos/sermon-01.mp4" type="audio/mp4">
+            </audio>
+            <div class="audio-player__actions">
+              <button class="secondary-button compact" id="audioBookmarkAction" type="button" data-i18n="audioBookmark">Ajouter aux favoris</button>
+            </div>
+          </article>
+
+          <article class="playlist panel" data-reveal>
+            <div class="playlist__header">
+              <h3 data-i18n="audioPlaylistLabel">Playlist disponible</h3>
+            </div>
+            <div class="playlist__list editorial-feed editorial-feed--single" id="audioPlaylist"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section container" id="library">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow" data-i18n="libraryEyebrow">Bibliothèque numérique</p>
+            <h2 data-i18n="libraryTitle">Articles, livres, manuscrits et documents historiques</h2>
+          </div>
+          <p data-i18n="libraryText">
+            Une bibliothèque structurée pour la lecture, l’annotation, la consultation rapide et le téléchargement selon l’abonnement.
+          </p>
+        </div>
+        <div class="documents-grid editorial-feed editorial-feed--three" id="documentsGrid" data-reveal></div>
+      </section>
+
+      <section class="content-section container" id="gallery">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow" data-i18n="galleryEyebrow">Galerie photos</p>
+            <h2 data-i18n="galleryTitle">Archives visuelles et mémoire historique</h2>
+          </div>
+          <p data-i18n="galleryText">
+            Photos historiques, événements, rencontres et instants marquants autour des enseignements.
+          </p>
+        </div>
+        <div class="gallery-grid editorial-feed editorial-feed--three" id="galleryGrid" data-reveal></div>
+      </section>
+
+      <section class="content-section container" id="biographies">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow" data-i18n="bioEyebrow">Biographies</p>
+            <h2 data-i18n="bioTitle">Les figures clés de l’héritage spirituel</h2>
+          </div>
+          <p data-i18n="bioText">
+            Des pages dédiées à Cheikh Abdoul Hamid Sarr, Cheikh Seydi El Hadj Malick Sy, aux khalifes, disciples et compagnons.
+          </p>
+        </div>
+        <div class="bios-grid editorial-feed editorial-feed--two" id="bioGrid" data-reveal></div>
+      </section>
+
+      <section class="content-section container" id="subscription">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow" data-i18n="subscriptionEyebrow">Système d’abonnement</p>
+            <h2 data-i18n="subscriptionTitle">Un accès premium simple, accessible et prêt à évoluer</h2>
+          </div>
+          <p data-i18n="subscriptionText">
+            Déverrouillez les contenus premium, la bibliothèque complète et les téléchargements avec une tarification claire.
+          </p>
+        </div>
+
+        <div class="subscription-layout">
+          <article class="pricing-card panel" data-reveal>
+            <span class="pill" data-i18n="priceBadge">Offre mensuelle</span>
+            <div class="price-line">
+              <strong>500 FCFA</strong>
+              <span data-i18n="pricePerMonth">par mois</span>
+            </div>
+            <p data-i18n="subscriptionLead">
+              L’offre idéale pour accéder aux vidéos premium, aux archives audio et aux documents réservés aux abonnés.
+            </p>
+            <ul class="benefit-list">
+              <li data-i18n="subscriptionBenefitOne">Accès aux vidéos premium</li>
+              <li data-i18n="subscriptionBenefitTwo">Audiothèque complète et archives sonores</li>
+              <li data-i18n="subscriptionBenefitThree">Téléchargement des documents autorisés</li>
+              <li data-i18n="subscriptionBenefitFour">Historique, favoris et continuer la lecture</li>
+            </ul>
+            <div class="hero-actions">
+              <button class="primary-button" id="pricingSubscribe" type="button" data-i18n="subscriptionPrimary">Commencer l’abonnement</button>
+              <button class="secondary-button" id="pricingContact" type="button" data-i18n="subscriptionSecondary">Contacter l’équipe</button>
+            </div>
+          </article>
+
+          <article class="payment-card panel" data-reveal>
+            <h3 data-i18n="paymentTitle">Moyens de paiement pris en charge</h3>
+            <div class="payment-methods">
+              <span class="payment-pill" data-i18n="paymentWave">Wave Sénégal</span>
+              <span class="payment-pill" data-i18n="paymentCard">Carte bancaire</span>
+              <span class="payment-pill" data-i18n="paymentMobile">Extension Mobile Money</span>
+            </div>
+            <p data-i18n="paymentText">
+              Le design est déjà prêt pour brancher un tunnel de paiement sécurisé et faire évoluer les méthodes de paiement dans le futur.
+            </p>
+            <div class="security-grid">
+              <article>
+                <strong data-i18n="securityOneTitle">Rapide</strong>
+                <span data-i18n="securityOneText">Chargement optimisé pour mobile et desktop</span>
+              </article>
+              <article>
+                <strong data-i18n="securityTwoTitle">Sécurisé</strong>
+                <span data-i18n="securityTwoText">Architecture prête pour authentification et paiement</span>
+              </article>
+              <article>
+                <strong data-i18n="securityThreeTitle">Référencé</strong>
+                <span data-i18n="securityThreeText">SEO pensé dès la structure de la page</span>
+              </article>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section container" id="accounts">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow" data-i18n="accountsEyebrow">Comptes utilisateurs</p>
+            <h2 data-i18n="accountsTitle">Inscription, connexion et expérience personnelle</h2>
+          </div>
+          <p data-i18n="accountsText">
+            Chaque membre retrouve son tableau de bord, son historique de lecture, ses favoris et son espace personnel.
+          </p>
+        </div>
+
+        <div class="accounts-layout">
+          <article class="account-card panel" data-reveal>
+            <span class="pill" data-i18n="accountStatusLabel">Espace membre</span>
+            <h3 id="accountSummaryTitle" data-i18n="accountGuestTitle">Créez votre compte pour démarrer</h3>
+            <p id="accountSummaryText" data-i18n="accountGuestText">
+              Inscription, connexion et mot de passe oublié sont déjà prévus dans l’interface.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-button" id="accountSignupAction" type="button" data-i18n="accountCtaOne">Créer un compte</button>
+              <button class="secondary-button" id="accountSigninAction" type="button" data-i18n="accountCtaTwo">Se connecter</button>
+            </div>
+          </article>
+
+          <article class="dashboard-shell panel" data-reveal>
+            <div class="dashboard-shell__header">
+              <div>
+                <span class="pill" data-i18n="dashboardEyebrow">Tableau de bord personnel</span>
+                <h3 id="dashboardGreeting">Bonjour, invité</h3>
+              </div>
+              <span class="status-badge" data-i18n="dashboardStatus">Prévisualisation</span>
+            </div>
+
+            <div class="dashboard-grid">
+              <section>
+                <h4 data-i18n="historyTitle">Historique de lecture</h4>
+                <div class="dashboard-list" id="historyList"></div>
+              </section>
+              <section>
+                <h4 data-i18n="favoritesTitle">Favoris</h4>
+                <div class="dashboard-list" id="favoritesList"></div>
+              </section>
+              <section>
+                <h4 data-i18n="continueTitle">Continuer la lecture</h4>
+                <div class="dashboard-list" id="continueList"></div>
+              </section>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section container" id="admin">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow" data-i18n="adminEyebrow">Tableau d’administration</p>
+            <h2 data-i18n="adminTitle">Un cockpit éditorial prêt pour la gestion complète</h2>
+          </div>
+          <p data-i18n="adminText">
+            Gestion des contenus, abonnements, utilisateurs et statistiques dans une seule interface.
+          </p>
+        </div>
+
+        <div class="admin-layout">
+          <article class="admin-actions panel" data-reveal>
+            <div class="admin-actions__grid">
+              <button type="button" class="admin-action" data-i18n="adminActionOne">Ajouter vidéos</button>
+              <button type="button" class="admin-action" data-i18n="adminActionTwo">Ajouter audios</button>
+              <button type="button" class="admin-action" data-i18n="adminActionThree">Ajouter articles</button>
+              <button type="button" class="admin-action" data-i18n="adminActionFour">Ajouter livres PDF</button>
+              <button type="button" class="admin-action" data-i18n="adminActionFive">Gérer utilisateurs</button>
+              <button type="button" class="admin-action" data-i18n="adminActionSix">Gérer abonnements</button>
+            </div>
+          </article>
+
+          <article class="admin-stats panel" data-reveal>
+            <div class="admin-stats__header">
+              <h3 data-i18n="adminStatsTitle">Statistiques</h3>
+              <span class="pill" data-i18n="adminStatsBadge">Vue plateforme</span>
+            </div>
+            <div class="stats-grid" id="statsGrid"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>Maktabat Cheikh Abdoul Hamid Sarr</h2>
+          <p data-i18n="footerTagline">
+            La mémoire vivante des enseignements de Cheikh Abdoul Hamid Sarr et de l’héritage de Cheikh Seydi El Hadj Malick Sy.
+          </p>
+        </div>
+
+        <div>
+          <h3 data-i18n="footerContactLabel">Contact</h3>
+          <a href="mailto:contact@maktabatchs.org">contact@maktabatchs.org</a>
+        </div>
+
+        <div>
+          <h3 data-i18n="footerFollowLabel">Réseaux sociaux</h3>
+          <div class="social-links">
+            <button type="button" class="social-chip" data-network="facebook">Facebook</button>
+            <button type="button" class="social-chip" data-network="youtube">YouTube</button>
+            <button type="button" class="social-chip" data-network="tiktok">TikTok</button>
+            <button type="button" class="social-chip" data-network="instagram">Instagram</button>
+            <button type="button" class="social-chip" data-network="telegram">Telegram</button>
+            <button type="button" class="social-chip" data-network="whatsapp">WhatsApp</button>
+            <button type="button" class="social-chip" data-network="x">X</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom container">
+        <span data-i18n="footerRights">Conçu pour accueillir des milliers d’utilisateurs à travers le monde.</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal is-hidden" id="authModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="authModalHeading">
+      <button class="modal__close" type="button" data-close-modal aria-label="Fermer">×</button>
+      <p class="eyebrow" data-i18n="authEyebrow">Comptes utilisateurs</p>
+      <h2 id="authModalHeading" data-i18n="authTitle">Accéder à votre espace membre</h2>
+
+      <div class="auth-switcher">
+        <button class="auth-switcher__button is-active" type="button" data-auth-view="signin" data-i18n="authSignin">Connexion</button>
+        <button class="auth-switcher__button" type="button" data-auth-view="signup" data-i18n="authSignup">Inscription</button>
+        <button class="auth-switcher__button" type="button" data-auth-view="reset" data-i18n="authReset">Mot de passe oublié</button>
+      </div>
+
+      <form class="auth-form is-active" id="signinForm" data-auth-panel="signin">
+        <label>
+          <span data-i18n="authEmail">Adresse e-mail</span>
+          <input name="email" type="email" required>
+        </label>
+        <label>
+          <span data-i18n="authPassword">Mot de passe</span>
+          <input name="password" type="password" required>
+        </label>
+        <button class="primary-button" type="submit" data-i18n="authSubmitSignin">Se connecter</button>
+      </form>
+
+      <form class="auth-form" id="signupForm" data-auth-panel="signup">
+        <label>
+          <span data-i18n="authName">Nom complet</span>
+          <input name="name" type="text" required>
+        </label>
+        <label>
+          <span data-i18n="authEmail">Adresse e-mail</span>
+          <input name="email" type="email" required>
+        </label>
+        <label>
+          <span data-i18n="authPassword">Mot de passe</span>
+          <input name="password" type="password" required>
+        </label>
+        <button class="primary-button" type="submit" data-i18n="authSubmitSignup">Créer mon compte</button>
+      </form>
+
+      <form class="auth-form" id="resetForm" data-auth-panel="reset">
+        <label>
+          <span data-i18n="authEmail">Adresse e-mail</span>
+          <input name="email" type="email" required>
+        </label>
+        <button class="primary-button" type="submit" data-i18n="authSubmitReset">Recevoir le lien</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript-banner">
+      JavaScript est requis pour la recherche, le multilingue, le lecteur dynamique et les favoris.
+    </div>
+  </noscript>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
