@@ -130,8 +130,11 @@
                 <span></span>
               </button>
               <a class="brand" href="/">
-                <span class="brand__title">MAKTABAT</span>
-                <span class="brand__subtitle">Cheikh Abdoul Hamid Sarr</span>
+                <img
+                  class="brand__logo"
+                  src="/assets/images/logo-officiel.jpg"
+                  alt="Maktabat Cheikh Abdoul Hamid Sarr"
+                >
               </a>
               <a class="header-login" href="/compte" aria-label="${accountLabel}">
                 <span class="header-login__icon" aria-hidden="true">
