@@ -15,6 +15,22 @@
     previewGateTimer: null
   };
 
+  const MEDIA_CATEGORY_ORDER = [
+    "Cheikh M. Hamid",
+    "Sarr",
+    "Chez Mouqadam",
+    "Thies",
+    "Serigne Habib Sy",
+    "Fakiha",
+    "Kifaya",
+    "Katmiya",
+    "Khoutba",
+    "Goree",
+    "Mbour",
+    "Ziar",
+    "Gaya"
+  ];
+
   document.addEventListener("DOMContentLoaded", init);
   document.addEventListener("click", handleDocumentClick);
   document.addEventListener("submit", handleDocumentSubmit);
@@ -267,26 +283,24 @@
 
   function renderMediatheque() {
     renderInto("#freeVideoSpotlight", buildFeatureCard(findDailyVideo()));
+    const premiumVideos = state.items.filter((item) => item.kind === "video" && !item.isDaily);
     renderInto(
-      "#conferenceVideos",
-      state.items
-        .filter((item) => item.collection === "conference")
-        .map((item) => buildMediaCard(item))
-        .join("")
+      "#videoGrid",
+      premiumVideos.length
+        ? premiumVideos.map((item) => buildMediaCard(item)).join("")
+        : `<p class="empty-state">Aucune video compatible web n'est disponible pour le moment.</p>`
     );
-    renderInto(
-      "#gamouVideos",
-      state.items
-        .filter((item) => item.collection === "gamou")
-        .map((item) => buildMediaCard(item))
-        .join("")
+
+    const audioGroups = groupItemsByCategory(
+      state.items.filter((item) => item.kind === "audio"),
+      MEDIA_CATEGORY_ORDER
     );
+
     renderInto(
-      "#audioGrid",
-      state.items
-        .filter((item) => item.collection === "audio")
-        .map((item) => buildMediaCard(item))
-        .join("")
+      "#audioCollections",
+      audioGroups.length
+        ? audioGroups.map((group) => buildCollectionSection(group.category, group.items)).join("")
+        : `<p class="empty-state">Aucun audio n'est disponible pour le moment.</p>`
     );
   }
 
@@ -727,6 +741,170 @@
           </div>
         </div>
       </article>
+    `;
+  }
+
+  function buildFeatureCard(item) {
+    if (!item) {
+      return "";
+    }
+
+    return `
+      <article class="feature-card">
+        <div class="feature-card__media">
+          <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+          ${buildMediaBadge(item, "media-play-badge--feature")}
+        </div>
+        <div class="feature-card__body">
+          <p class="section-label">${escapeHtml(item.category)}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.description)}</p>
+          <div class="meta-row">
+            <span>${escapeHtml(item.duration)}</span>
+            <span>${escapeHtml(item.label || item.access.toUpperCase())}</span>
+          </div>
+          <div class="action-row">
+            <button class="button button--primary" type="button" data-open-item="${item.id}">Ouvrir</button>
+            <button class="button button--ghost" type="button" data-favorite-item="${item.id}">Favori</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function buildStackCard(item) {
+    return `
+      <article class="stack-card">
+        <div class="stack-card__media">
+          <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+          ${buildMediaBadge(item)}
+          <span class="stack-card__badge">${escapeHtml(item.duration)}</span>
+        </div>
+        <div class="stack-card__body">
+          <p class="section-label">${escapeHtml(item.category)}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.description)}</p>
+          <div class="action-row">
+            <button class="button button--primary button--small" type="button" data-open-item="${item.id}">Ouvrir</button>
+            <button class="button button--ghost button--small" type="button" data-favorite-item="${item.id}">Favori</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function buildMediaCard(item, options = {}) {
+    const classes = options.compact ? "media-card media-card--compact" : "media-card";
+    const accessLabel = hasUnlockedItem(item.id) ? "DEBLOQUE" : item.label || item.access.toUpperCase();
+
+    return `
+      <article class="${classes}">
+        <div class="media-card__media">
+          <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+          ${buildMediaBadge(item)}
+        </div>
+        <div class="media-card__body">
+          <p class="section-label">${escapeHtml(item.category)}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.description)}</p>
+          <div class="meta-row">
+            <span>${escapeHtml(item.duration)}</span>
+            <span>${escapeHtml(accessLabel)}</span>
+          </div>
+          <div class="action-row">
+            <button class="button button--primary button--small" type="button" data-open-item="${item.id}">
+              ${item.kind === "audio" ? "Ecouter" : "Voir"}
+            </button>
+            <button class="button button--ghost button--small" type="button" data-favorite-item="${item.id}">Favori</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function buildMediaBadge(item, extraClass = "") {
+    const classes = [
+      "media-play-badge",
+      extraClass,
+      item.kind === "audio" ? "media-play-badge--audio" : "media-play-badge--video"
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+    if (item.kind === "audio") {
+      return `
+        <span class="${classes}" aria-hidden="true">
+          <span class="media-play-badge__icon">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M4 14h4l5 4V6L8 10H4z"></path>
+              <path d="M16 9.5a4 4 0 0 1 0 5"></path>
+              <path d="M18.5 7a7.5 7.5 0 0 1 0 10"></path>
+            </svg>
+          </span>
+          <span class="media-play-badge__bars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </span>
+      `;
+    }
+
+    return `
+      <span class="${classes}" aria-hidden="true">
+        <span class="media-play-badge__play"></span>
+      </span>
+    `;
+  }
+
+  function groupItemsByCategory(items, categoryOrder = []) {
+    const groups = new Map();
+
+    items.forEach((item) => {
+      if (!groups.has(item.category)) {
+        groups.set(item.category, []);
+      }
+
+      groups.get(item.category).push(item);
+    });
+
+    return Array.from(groups.entries())
+      .sort(([left], [right]) => {
+        const leftIndex = categoryOrder.indexOf(left);
+        const rightIndex = categoryOrder.indexOf(right);
+
+        if (leftIndex === -1 && rightIndex === -1) {
+          return left.localeCompare(right, "fr");
+        }
+
+        if (leftIndex === -1) {
+          return 1;
+        }
+
+        if (rightIndex === -1) {
+          return -1;
+        }
+
+        return leftIndex - rightIndex;
+      })
+      .map(([category, categoryItems]) => ({ category, items: categoryItems }));
+  }
+
+  function buildCollectionSection(category, items) {
+    return `
+      <section class="collection-block">
+        <div class="section-head">
+          <div>
+            <p class="section-label">AUDIO PREMIUM</p>
+            <h3>${escapeHtml(category)}</h3>
+          </div>
+          <p class="section-copy">${items.length} contenu(x)</p>
+        </div>
+        <div class="rail">
+          ${items.map((item) => buildMediaCard(item, { compact: true })).join("")}
+        </div>
+      </section>
     `;
   }
 
@@ -1194,22 +1372,15 @@
 
   function openMediaModal(item) {
     const canAccessFull = !isPremiumPlayable(item) || hasUnlockedItem(item.id);
-    const usesDriveFrame = item.player === "drive";
     const tagName = item.kind === "audio" ? "audio" : "video";
-    const playerMarkup = usesDriveFrame
+    const playerMarkup = tagName === "audio"
       ? `
-        <iframe
-          id="modalPlayerFrame"
-          src="${escapeHtml(item.mediaSrc)}"
-          title="${escapeHtml(item.title)}"
-          allow="autoplay; fullscreen"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
+        <div class="modal-audio-stage">
+          <img class="modal-audio-cover" src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}">
+          <audio id="modalPlayer" controls preload="metadata" src="${escapeHtml(item.mediaSrc)}"></audio>
+        </div>
       `
-      : tagName === "audio"
-        ? `<audio id="modalPlayer" controls preload="metadata" src="${escapeHtml(item.mediaSrc)}"></audio>`
-        : `<video id="modalPlayer" controls preload="metadata" playsinline src="${escapeHtml(item.mediaSrc)}"></video>`;
+      : `<video id="modalPlayer" controls preload="metadata" playsinline src="${escapeHtml(item.mediaSrc)}"></video>`;
 
     openModal(`
       <div class="modal-head">
@@ -1261,11 +1432,10 @@
     clearPreviewGateTimer();
 
     const player = document.querySelector("#modalPlayer");
-    const playerFrame = document.querySelector("#modalPlayerFrame");
     const mediaHost = document.querySelector("#modalMediaHost");
     const paywallCard = document.querySelector("#paywallCard");
 
-    if ((!player && !playerFrame) || !paywallCard) {
+    if (!player || !paywallCard) {
       return;
     }
 
@@ -1277,12 +1447,9 @@
       }
 
       gateTriggered = true;
+      player.pause();
 
-      if (player) {
-        player.pause();
-      }
-
-      if (playerFrame && mediaHost) {
+      if (mediaHost) {
         mediaHost.innerHTML = `
           <div class="modal-locked-screen">
             <strong>Apercu termine</strong>
@@ -1294,11 +1461,6 @@
       paywallCard.classList.remove("is-hidden");
       showToast("La minute gratuite est terminee. Connectez-vous puis payez pour continuer.");
     };
-
-    if (playerFrame) {
-      state.previewGateTimer = window.setTimeout(lockPreview, 60000);
-      return;
-    }
 
     const onTimeUpdate = () => {
       if (gateTriggered || player.currentTime < 60) {
@@ -1317,6 +1479,7 @@
       return;
     }
 
+    const unlockedItem = getItemById(itemId);
     const users = [...state.users];
     const index = users.findIndex((user) => user.id === state.currentUser.id);
     if (index === -1) {
@@ -1335,9 +1498,8 @@
     renderSiteChrome();
     renderPage();
 
-    const paywallCard = document.querySelector("#paywallCard");
-    if (paywallCard) {
-      paywallCard.classList.add("is-hidden");
+    if (unlockedItem) {
+      openMediaModal(unlockedItem);
     }
 
     showToast("Acces premium active pour ce contenu.");

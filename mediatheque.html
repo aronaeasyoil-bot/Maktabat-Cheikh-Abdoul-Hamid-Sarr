@@ -6,7 +6,7 @@
   <title>Maktabat Cheikh Abdoul Hamid Sarr | Mediatheque</title>
   <meta
     name="description"
-    content="Videos, audios et archives Drive de la Maktabat Cheikh Abdoul Hamid Sarr."
+    content="Videos, audios et collections premium de la Maktabat Cheikh Abdoul Hamid Sarr."
   >
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
         <p class="section-label">MEDIATHEQUE</p>
         <h1>Videos, audios et archives premium</h1>
         <p>
-          Les vraies collections du Google Drive du projet sont reprises ici dans une experience plus claire, premium et responsive.
+          Les contenus sont classes par collection avec des lecteurs integres, une navigation plus fluide et une presentation premium.
         </p>
         <div class="notice-card">
           <strong>Regle d'acces premium</strong>
@@ -55,7 +55,7 @@
             <h2>Videos premium</h2>
           </div>
         </div>
-        <div class="card-grid card-grid--three" id="conferenceVideos"></div>
+        <div class="card-grid card-grid--three" id="videoGrid"></div>
       </div>
     </section>
 
@@ -63,23 +63,12 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="section-label">ARCHIVES</p>
-            <h2>Series video et Gamou</h2>
-          </div>
-        </div>
-        <div class="card-grid card-grid--three" id="gamouVideos"></div>
-      </div>
-    </section>
-
-    <section class="section section--light">
-      <div class="container">
-        <div class="section-head">
-          <div>
             <p class="section-label">AUDIO</p>
-            <h2>Audiotheque premium</h2>
+            <h2>Audiotheque premium par collection</h2>
           </div>
+          <p class="section-copy">Chaque dossier audio devient une collection dediee, plus simple a parcourir comme sur une plateforme premium.</p>
         </div>
-        <div class="card-grid card-grid--three" id="audioGrid"></div>
+        <div class="collection-stack" id="audioCollections"></div>
       </div>
     </section>
 
@@ -96,7 +85,7 @@
             id="globalSearchInput"
             name="query"
             type="search"
-            placeholder="Rechercher conferences, Gamou, Khassidas, podcasts..."
+            placeholder="Rechercher Fakiha, Kifaya, Thies, Goree, Khoutba..."
             autocomplete="off"
           >
           <button class="button button--primary" type="submit">Rechercher</button>

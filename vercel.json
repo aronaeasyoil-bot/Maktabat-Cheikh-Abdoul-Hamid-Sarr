@@ -4,6 +4,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/media/:id",
+      "destination": "https://drive.usercontent.google.com/download?id=:id&export=download"
+    },
+    {
       "source": "/",
       "destination": "/index.html"
     }

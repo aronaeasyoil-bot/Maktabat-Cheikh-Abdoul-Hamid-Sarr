@@ -627,6 +627,80 @@ a {
   backdrop-filter: blur(14px);
 }
 
+.media-play-badge--video {
+  min-width: 3rem;
+}
+
+.media-play-badge--audio {
+  gap: 0.38rem;
+  padding-right: 0.95rem;
+}
+
+.media-play-badge__icon {
+  display: inline-flex;
+  width: 1rem;
+  height: 1rem;
+}
+
+.media-play-badge__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.media-play-badge__icon svg path:first-child {
+  fill: currentColor;
+  stroke: none;
+}
+
+.media-play-badge__play {
+  width: 0;
+  height: 0;
+  margin-left: 0.1rem;
+  border-top: 0.45rem solid transparent;
+  border-bottom: 0.45rem solid transparent;
+  border-left: 0.72rem solid currentColor;
+}
+
+.media-play-badge__bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.14rem;
+  height: 0.95rem;
+}
+
+.media-play-badge__bars span {
+  width: 0.18rem;
+  border-radius: 999px;
+  background: currentColor;
+  animation: audio-bars 1s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.media-play-badge__bars span:nth-child(1) {
+  height: 0.35rem;
+  animation-delay: -0.15s;
+}
+
+.media-play-badge__bars span:nth-child(2) {
+  height: 0.9rem;
+  animation-delay: -0.45s;
+}
+
+.media-play-badge__bars span:nth-child(3) {
+  height: 0.55rem;
+  animation-delay: -0.3s;
+}
+
+.media-play-badge__bars span:nth-child(4) {
+  height: 0.75rem;
+  animation-delay: -0.6s;
+}
+
 .media-play-badge--feature {
   left: auto;
   top: 1rem;
@@ -652,6 +726,16 @@ a {
 .card-grid--three,
 .stats-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.collection-stack {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.collection-block {
+  display: grid;
+  gap: 0.95rem;
 }
 
 .category-tile {
@@ -919,6 +1003,7 @@ a {
 }
 
 .modal-media {
+  position: relative;
   border-radius: 24px;
   overflow: hidden;
   background: #000000;
@@ -929,6 +1014,22 @@ a {
 .modal-media img,
 .modal-media iframe {
   width: 100%;
+}
+
+.modal-audio-stage {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at top, rgba(235, 28, 36, 0.24), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(8, 8, 8, 0.94));
+}
+
+.modal-audio-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .modal-media iframe {
@@ -996,6 +1097,19 @@ a {
 .modal-locked-screen span {
   max-width: 28rem;
   color: rgba(255, 255, 255, 0.76);
+}
+
+@keyframes audio-bars {
+  0%,
+  100% {
+    transform: scaleY(0.55);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: scaleY(1.2);
+    opacity: 1;
+  }
 }
 
 .toast {
