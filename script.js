@@ -11,7 +11,8 @@
     currentUser: null,
     settings: null,
     heroIndex: 0,
-    heroTimer: null
+    heroTimer: null,
+    previewGateTimer: null
   };
 
   document.addEventListener("DOMContentLoaded", init);
@@ -331,7 +332,7 @@
     if (!state.currentUser) {
       authPanel.innerHTML = `
         <h2>Connexion et inscription</h2>
-        <p class="muted-copy">Le paiement premium et l'historique personnel passent par un compte local du site.</p>
+        <p class="muted-copy">Creer un compte reste simple: nom, email, mot de passe et telephone si vous souhaitez etre recontacte plus facilement.</p>
 
         <div class="auth-tabs">
           <form class="auth-form" id="loginForm">
@@ -356,6 +357,10 @@
             <label>
               <span>Email</span>
               <input type="email" name="email" required>
+            </label>
+            <label>
+              <span>Telephone (optionnel)</span>
+              <input type="tel" name="phone" inputmode="tel" autocomplete="tel">
             </label>
             <label>
               <span>Mot de passe</span>
@@ -406,6 +411,7 @@
     authPanel.innerHTML = `
       <h2>${escapeHtml(state.currentUser.name)}</h2>
       <p class="muted-copy">${escapeHtml(state.currentUser.email)}</p>
+      ${state.currentUser.phone ? `<p class="muted-copy">${escapeHtml(state.currentUser.phone)}</p>` : ""}
       <div class="mini-card-list">
         <div class="mini-card">
           <strong>${purchases.length}</strong>
@@ -455,7 +461,7 @@
     if (!isUnlocked) {
       lockPanel.innerHTML = `
         <h2>Acces admin prive</h2>
-        <p class="muted-copy">Entrez le mot de passe admin pour gerer les contenus et les reglages premium.</p>
+        <p class="muted-copy">Cette zone n'apparait pas dans la navigation publique. Entrez le mot de passe admin pour piloter les contenus et les reglages premium.</p>
         <form class="auth-form" id="adminUnlockForm">
           <label>
             <span>Mot de passe admin</span>
@@ -572,11 +578,11 @@
           <input type="text" name="duration" placeholder="25 min, PDF, Article..." required>
         </label>
         <label>
-          <span>Image de couverture (URL ou chemin)</span>
+          <span>Image de couverture (URL, image locale ou visuel Drive)</span>
           <input type="text" name="cover" placeholder="/assets/images/hero-cheikh.jpeg">
         </label>
         <label>
-          <span>Source du media ou du fichier (URL ou chemin)</span>
+          <span>Source du media ou du fichier (URL Google Drive, preview ou chemin local)</span>
           <input type="text" name="mediaSrc" placeholder="/assets/videos/conference-01.mp4">
         </label>
         <label class="checkbox-field">
@@ -623,6 +629,9 @@
       <article class="feature-card">
         <div class="feature-card__media">
           <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+          <span class="media-play-badge media-play-badge--feature" aria-hidden="true">
+            ${item.kind === "audio" ? "♪" : "▶"}
+          </span>
         </div>
         <div class="feature-card__body">
           <p class="section-label">${escapeHtml(item.category)}</p>
@@ -646,6 +655,9 @@
       <article class="stack-card">
         <div class="stack-card__media">
           <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+          <span class="media-play-badge" aria-hidden="true">
+            ${item.kind === "audio" ? "♪" : "▶"}
+          </span>
           <span class="stack-card__badge">${escapeHtml(item.duration)}</span>
         </div>
         <div class="stack-card__body">
@@ -669,6 +681,9 @@
       <article class="${classes}">
         <div class="media-card__media">
           <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+          <span class="media-play-badge" aria-hidden="true">
+            ${item.kind === "audio" ? "♪" : "▶"}
+          </span>
         </div>
         <div class="media-card__body">
           <p class="section-label">${escapeHtml(item.category)}</p>
@@ -690,10 +705,13 @@
   }
 
   function buildInfoCard(item) {
+    const icon = item.kind === "folder" ? "D" : item.kind === "document" ? "PDF" : item.kind === "image" ? "IMG" : "INFO";
+
     return `
       <article class="info-card">
         <div class="info-card__media">
           <img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)}" loading="lazy">
+          <span class="media-play-badge media-play-badge--info" aria-hidden="true">${icon}</span>
         </div>
         <div class="info-card__body">
           <p class="section-label">${escapeHtml(item.category)}</p>
@@ -966,13 +984,14 @@
 
     resultsContainer.classList.remove("is-hidden");
     resultsContainer.innerHTML = results.length
-      ? results.map((item) => buildInfoCard(item.kind === "video" || item.kind === "audio" ? item : item)).join("")
+      ? results.map((item) => (item.kind === "video" || item.kind === "audio" ? buildMediaCard(item) : buildInfoCard(item))).join("")
       : `<p class="empty-state">Aucun contenu correspondant a votre recherche.</p>`;
   }
 
   function handleSignup(formData) {
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim().toLowerCase();
+    const phone = String(formData.get("phone") || "").trim();
     const password = String(formData.get("password") || "");
 
     if (!name || !email || !password) {
@@ -989,6 +1008,7 @@
       id: `user-${Date.now()}`,
       name,
       email,
+      phone,
       password,
       purchases: [],
       favorites: [],
@@ -999,6 +1019,7 @@
     setCurrentUser(user.id);
     renderSiteChrome();
     renderPage();
+    sendWelcomeEmail(user);
     showToast("Compte cree avec succes.");
   }
 
@@ -1104,12 +1125,16 @@
       return "conference";
     }
 
-    if (kind === "video" && category.startsWith("Gamou")) {
+    if (kind === "video" && category.toLowerCase().includes("gamou")) {
       return "gamou";
     }
 
-    if (kind === "video" && category === "Video du jour") {
+    if (kind === "video" && category.toLowerCase().includes("enseignement du jour")) {
       return "daily";
+    }
+
+    if (kind === "video") {
+      return "conference";
     }
 
     if (kind === "audio") {
@@ -1169,10 +1194,22 @@
 
   function openMediaModal(item) {
     const canAccessFull = !isPremiumPlayable(item) || hasUnlockedItem(item.id);
+    const usesDriveFrame = item.player === "drive";
     const tagName = item.kind === "audio" ? "audio" : "video";
-    const playerMarkup = tagName === "audio"
-      ? `<audio id="modalPlayer" controls preload="metadata" src="${escapeHtml(item.mediaSrc)}"></audio>`
-      : `<video id="modalPlayer" controls preload="metadata" playsinline src="${escapeHtml(item.mediaSrc)}"></video>`;
+    const playerMarkup = usesDriveFrame
+      ? `
+        <iframe
+          id="modalPlayerFrame"
+          src="${escapeHtml(item.mediaSrc)}"
+          title="${escapeHtml(item.title)}"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      `
+      : tagName === "audio"
+        ? `<audio id="modalPlayer" controls preload="metadata" src="${escapeHtml(item.mediaSrc)}"></audio>`
+        : `<video id="modalPlayer" controls preload="metadata" playsinline src="${escapeHtml(item.mediaSrc)}"></video>`;
 
     openModal(`
       <div class="modal-head">
@@ -1183,7 +1220,7 @@
         <button class="drawer__close" type="button" data-modal-close aria-label="Fermer">x</button>
       </div>
       <div class="modal-body">
-        <div class="modal-media">${playerMarkup}</div>
+        <div class="modal-media" id="modalMediaHost">${playerMarkup}</div>
         <div class="modal-copy">
           <p>${escapeHtml(item.description)}</p>
           <div class="meta-row">
@@ -1193,7 +1230,7 @@
           <div class="paywall-card ${canAccessFull ? "is-hidden" : ""}" id="paywallCard">
             <h3>Continuer la lecture</h3>
             <p>
-              Connectez-vous puis reglez ${escapeHtml(String(state.settings.wavePrice))} FCFA par Wave pour debloquer ce contenu sur votre compte.
+              Le contenu s'arrete apres 1 minute. Creez votre compte puis reglez ${escapeHtml(String(state.settings.wavePrice))} FCFA pour debloquer l'acces complet sur votre espace personnel.
             </p>
             <div class="qr-card">
               <img src="${escapeHtml(state.settings.waveQrUrl)}" alt="QR Wave">
@@ -1221,24 +1258,54 @@
       return;
     }
 
+    clearPreviewGateTimer();
+
     const player = document.querySelector("#modalPlayer");
+    const playerFrame = document.querySelector("#modalPlayerFrame");
+    const mediaHost = document.querySelector("#modalMediaHost");
     const paywallCard = document.querySelector("#paywallCard");
 
-    if (!player || !paywallCard) {
+    if ((!player && !playerFrame) || !paywallCard) {
       return;
     }
 
     let gateTriggered = false;
+
+    const lockPreview = () => {
+      if (gateTriggered) {
+        return;
+      }
+
+      gateTriggered = true;
+
+      if (player) {
+        player.pause();
+      }
+
+      if (playerFrame && mediaHost) {
+        mediaHost.innerHTML = `
+          <div class="modal-locked-screen">
+            <strong>Apercu termine</strong>
+            <span>La premiere minute est terminee. Connectez-vous puis payez pour ouvrir la version complete.</span>
+          </div>
+        `;
+      }
+
+      paywallCard.classList.remove("is-hidden");
+      showToast("La minute gratuite est terminee. Connectez-vous puis payez pour continuer.");
+    };
+
+    if (playerFrame) {
+      state.previewGateTimer = window.setTimeout(lockPreview, 60000);
+      return;
+    }
 
     const onTimeUpdate = () => {
       if (gateTriggered || player.currentTime < 60) {
         return;
       }
 
-      gateTriggered = true;
-      player.pause();
-      paywallCard.classList.remove("is-hidden");
-      showToast("La minute gratuite est terminee. Connectez-vous puis payez pour continuer.");
+      lockPreview();
     };
 
     player.addEventListener("timeupdate", onTimeUpdate);
@@ -1277,8 +1344,13 @@
   }
 
   function openInfoModal(item) {
+    const openLabel = item.kind === "folder"
+      ? "Ouvrir le dossier"
+      : item.kind === "document"
+        ? "Ouvrir l'acces"
+        : "Ouvrir le fichier";
     const openFileButton = item.mediaSrc
-      ? `<a class="button button--primary" href="${escapeHtml(item.mediaSrc)}" target="_blank" rel="noreferrer">Ouvrir le fichier</a>`
+      ? `<a class="button button--primary" href="${escapeHtml(item.mediaSrc)}" target="_blank" rel="noreferrer">${openLabel}</a>`
       : "";
 
     const imageMarkup = item.kind === "image"
@@ -1329,9 +1401,17 @@
       return;
     }
 
+    clearPreviewGateTimer();
     card.innerHTML = "";
     shell.classList.add("is-hidden");
     shell.setAttribute("aria-hidden", "true");
+  }
+
+  function clearPreviewGateTimer() {
+    if (state.previewGateTimer) {
+      window.clearTimeout(state.previewGateTimer);
+      state.previewGateTimer = null;
+    }
   }
 
   function showToast(message) {
@@ -1413,5 +1493,20 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#39;");
+  }
+
+  function sendWelcomeEmail(user) {
+    fetch("/api/welcome", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: user.name,
+        email: user.email
+      })
+    }).catch(() => {
+      // The front-end account still works even when the email provider is not configured yet.
+    });
   }
 })();

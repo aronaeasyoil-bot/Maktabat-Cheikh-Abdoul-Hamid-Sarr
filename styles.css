@@ -508,6 +508,20 @@ a {
 .info-card {
   overflow: hidden;
   border-radius: var(--radius);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.feature-card:hover,
+.stack-card:hover,
+.media-card:hover,
+.info-card:hover,
+.category-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.16);
+  border-color: rgba(235, 28, 36, 0.18);
 }
 
 .feature-card {
@@ -528,6 +542,7 @@ a {
 .stack-card__media,
 .media-card__media,
 .info-card__media {
+  position: relative;
   overflow: hidden;
   background: #111111;
   aspect-ratio: 1 / 1;
@@ -593,6 +608,36 @@ a {
   font-weight: 800;
 }
 
+.media-play-badge {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.9rem;
+  height: 2.9rem;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+  background: rgba(8, 8, 8, 0.8);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(14px);
+}
+
+.media-play-badge--feature {
+  left: auto;
+  top: 1rem;
+  right: 1rem;
+  bottom: auto;
+}
+
+.media-play-badge--info {
+  font-size: 0.72rem;
+}
+
 .category-grid,
 .card-grid,
 .stats-grid {
@@ -612,6 +657,10 @@ a {
 .category-tile {
   border-radius: var(--radius-small);
   padding: 1.3rem;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 
 .category-tile__title {
@@ -877,8 +926,16 @@ a {
 
 .modal-media video,
 .modal-media audio,
-.modal-media img {
+.modal-media img,
+.modal-media iframe {
   width: 100%;
+}
+
+.modal-media iframe {
+  display: block;
+  min-height: 420px;
+  border: 0;
+  background: #000000;
 }
 
 .modal-copy {
@@ -918,6 +975,27 @@ a {
   height: 110px;
   border-radius: 18px;
   background: #ffffff;
+}
+
+.modal-locked-screen {
+  display: grid;
+  place-items: center;
+  gap: 0.65rem;
+  min-height: 420px;
+  padding: 1.5rem;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(235, 28, 36, 0.3), transparent 40%),
+    linear-gradient(180deg, #141414 0%, #050505 100%);
+}
+
+.modal-locked-screen strong {
+  font-size: 1.45rem;
+}
+
+.modal-locked-screen span {
+  max-width: 28rem;
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .toast {
@@ -1127,6 +1205,11 @@ a {
   .modal-head,
   .modal-body {
     padding: 1rem;
+  }
+
+  .modal-media iframe,
+  .modal-locked-screen {
+    min-height: 300px;
   }
 
   .qr-card {
